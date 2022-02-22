@@ -1,7 +1,16 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { MainPage, LoginPage, DetailPage, SearchPage } from 'pages';
 
 function App() {
-  return <div className='App'>라우팅 넣고 페이지 합치기</div>;
+  return (
+    <Routes>
+      <Route path='/' element={<MainPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/detail' element={<DetailPage />} />
+      <Route path='/search' element={<SearchPage />} />
+    </Routes>
+  );
 }
 
 export default App;
