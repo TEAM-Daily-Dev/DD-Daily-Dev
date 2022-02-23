@@ -148,7 +148,6 @@ const LogInBtn = styled.button`
 const AdImg = styled.img.attrs({
   src: `${ad}`
 })`
-  width: 207px;
   border-radius: 0.375rem;
 `;
 const ContentsLink = styled.p`
