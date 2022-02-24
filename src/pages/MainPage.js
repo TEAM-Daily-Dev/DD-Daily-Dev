@@ -1,7 +1,12 @@
 import React from 'react';
+import { Header } from 'components/Yena/Header';
 
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default MainPage;
