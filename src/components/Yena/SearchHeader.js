@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import SearchInput from './SearchInput';
 
 const SearchHeader = ({ keyword, results, handleChange, handleKeyPress }) => {
-  console.log(typeof keyword);
-  console.log(keyword);
-
   return (
     <Wrapper>
       <SearchInput search keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />

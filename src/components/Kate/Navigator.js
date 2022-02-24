@@ -1,23 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 import MainMenu from './postMain/PostMain';
 import NavMain from './navMain/NavMain';
-// import AsideMain from 'components/Kate/rightSide/AsideMain';
-
-import styled from 'styled-components';
+import AsideMain from 'components/Mina/AsideMain';
 
 const Navigator = () => {
   return (
     <>
       <MainStyle>
-        <div>
-          <NavMain />
-        </div>
+        <NavMain />
         {/* // <!-- left end--> */}
-        <div>
-          <MainMenu />
-        </div>
+        <MainMenu />
         {/* // <!-- Main end--> */}
-        <div>{/* <AsideMain /> */}</div>
+        <AsideMain />
         {/* // <!-- Right end--> */}
       </MainStyle>
     </>

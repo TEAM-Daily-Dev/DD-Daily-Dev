@@ -18,7 +18,6 @@ const SearchPage = () => {
     (async function getData() {
       const response = await getApi();
       if (!completed) {
-        console.log(response);
         setData(response);
       }
     })();
@@ -67,7 +66,7 @@ const SearchPage = () => {
           <Section>
             <SideNav />
             <Results>
-              {state.results?.map((result, idx) => (
+              {state.results.map((result, idx) => (
                 <ResultCard key={idx} result={result} />
               ))}
             </Results>
