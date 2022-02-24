@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 57px;
 
   @media screen and (max-width: 768px) {
     justify-content: space-around;
