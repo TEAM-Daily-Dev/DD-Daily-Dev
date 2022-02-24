@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sideNav } from 'utils/constants/search';
+import { SIDENAV } from 'utils/constants/search';
 
 const SideNav = () => {
   return (
     <Wrapper>
       <SideNavList>
-        {sideNav.map((navItem, idx) => (
+        {SIDENAV.map((item, idx) => (
           <SideNavItem key={idx}>
-            <a href='/'>{navItem}</a>
+            <a href='/'>{item}</a>
           </SideNavItem>
         ))}
       </SideNavList>
