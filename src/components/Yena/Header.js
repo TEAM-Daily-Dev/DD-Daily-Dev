@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import { SearchInput } from 'components';
-import { Logo, Hamburger, SearchLinkBtn } from 'assets';
-import LoginSignupBtn from 'utils/constants/LoginSignupBtn';
+import { SearchInput } from './';
+import { Logo, Hamburger, SearchLinkBtn } from 'assets/Yena';
+import LoginSignupBtn from 'utils/LoginSignupBtn';
 
 const Header = ({ keyword, results, handleChange, handleKeyPress }) => {
   const navigate = useNavigate();
+
   return (
     <Wrapper>
       <InnerWrap>
@@ -22,7 +23,12 @@ const Header = ({ keyword, results, handleChange, handleKeyPress }) => {
           <SearchInput header keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
         </LogoSearchBox>
         <EntryBox>
-          <SearchBtn onClick={() => navigate('/search')}>
+          <SearchBtn
+            onClick={() => {
+              console.log('검색페이지로 이동');
+              navigate('/search');
+            }}
+          >
             <SearchLinkBtn />
           </SearchBtn>
           <LoginSignupBtn top />

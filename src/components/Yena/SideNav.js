@@ -1,28 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { sideNav } from 'utils/constants/search';
 
 const SideNav = () => {
   return (
     <Wrapper>
       <SideNavList>
-        <SideNavItem>
-          <a href='/'>Posts</a>
-        </SideNavItem>
-        <SideNavItem>
-          <a href='/'>Podcasts</a>
-        </SideNavItem>
-        <SideNavItem>
-          <a href='/'>People</a>
-        </SideNavItem>
-        <SideNavItem>
-          <a href='/'>Tags</a>
-        </SideNavItem>
-        <SideNavItem>
-          <a href='/'>Comments</a>
-        </SideNavItem>
-        <SideNavItem>
-          <a href='/'>My posts only</a>
-        </SideNavItem>
+        {sideNav.map((navItem, idx) => (
+          <SideNavItem key={idx}>
+            <a href='/'>{navItem}</a>
+          </SideNavItem>
+        ))}
       </SideNavList>
     </Wrapper>
   );

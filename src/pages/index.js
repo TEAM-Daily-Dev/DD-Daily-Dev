@@ -1,6 +1,6 @@
-import MainPage from 'pages/MainPage';
-import LoginPage from 'pages/LoginPage';
-import DetailPage from 'pages/DetailPage';
-import SearchPage from 'pages/SearchPage';
+import MainPage from './MainPage';
+import LoginPage from './LoginPage';
+import DetailPage from './DetailPage';
+import SearchPage from './SearchPage';
 
 export { MainPage, LoginPage, DetailPage, SearchPage };
