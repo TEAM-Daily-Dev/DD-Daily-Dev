@@ -23,12 +23,7 @@ const Header = ({ keyword, results, handleChange, handleKeyPress }) => {
           <SearchInput header keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
         </LogoSearchBox>
         <EntryBox>
-          <SearchBtn
-            onClick={() => {
-              console.log('검색페이지로 이동');
-              navigate('/search');
-            }}
-          >
+          <SearchBtn onClick={() => navigate('/search')}>
             <SearchLinkBtn />
           </SearchBtn>
           <LoginSignupBtn top />

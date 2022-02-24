@@ -27,8 +27,7 @@ const MainPage = () => {
   }, []);
 
   const handleChange = (e) => {
-    setKeyword(e.target.value); // 동시에 실행 (비동기 x)
-    // setKeyword가 있기 전에 handleSearch가 실행됨
+    setKeyword(e.target.value);
     handleSearch();
   };
 
@@ -44,10 +43,12 @@ const MainPage = () => {
 
     target = target.toLowerCase();
     keyword = keyword.toString().toLowerCase();
-    return target.includes(keyword); // true or false
+    return target.includes(keyword);
   };
 
   const handelSubmit = () => {
+    if (!keyword) return false;
+
     navigate(`/search?q=${keyword}`, { state: { results }, replace: false });
   };
 
