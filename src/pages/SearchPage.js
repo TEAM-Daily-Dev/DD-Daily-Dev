@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getApi } from 'utils/getApi';
-import { Header, ResultCard, SearchHeader, SideNav } from 'components';
+import { Header, ResultCard, SearchHeader, SideNav } from 'components/Yena';
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const SearchPage = () => {
     (async function getData() {
       const response = await getApi();
       if (!completed) {
+        console.log(response);
         setData(response);
       }
     })();
@@ -66,7 +67,7 @@ const SearchPage = () => {
           <Section>
             <SideNav />
             <Results>
-              {state.results.map((result, idx) => (
+              {state.results?.map((result, idx) => (
                 <ResultCard key={idx} result={result} />
               ))}
             </Results>
