@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { getMainList } from 'utils/getApi';
@@ -9,10 +9,9 @@ const MainPage = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [keyword, setKeyword] = useState('');
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    (async function getData() {
+    (async function () {
       const response = await getMainList();
       setData(response);
     })();
@@ -20,39 +19,23 @@ const MainPage = () => {
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
-    handleSearch(e.target.value);
   };
 
-  const handleSearch = (keyword) => {
-    if (data) {
-      let filteredRes = data.filter((result) => matchInput(result.title, keyword) === true);
-      setResults(filteredRes);
-    }
-  };
-
-  const matchInput = (target, keyword) => {
-    if (keyword === '') return false;
-
-    target = target.toLowerCase();
-    keyword = keyword.toString().toLowerCase();
-    return target.includes(keyword);
-  };
-
-  const handelSubmit = () => {
+  const handleSubmit = () => {
     if (!keyword) return false;
 
-    navigate(`/search?q=${keyword}`, { state: { results }, replace: false });
+    navigate(`/search?q=${keyword}`, { state: { data, keyword }, replace: false });
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      handelSubmit();
+      handleSubmit();
     }
   };
 
   return (
     <Wrapper>
-      <Header keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Navigator />
     </Wrapper>
   );

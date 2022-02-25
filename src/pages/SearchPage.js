@@ -1,72 +1,70 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getMainList } from 'utils/getApi';
 import { Header, ResultCard, SearchHeader, SideNav } from 'components/Yena';
+import { getMainList } from 'utils/getApi';
 
 const SearchPage = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-
   const [data, setData] = useState([]);
+
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
   const [value, setValue] = useState('');
 
   useEffect(() => {
-    let completed = false;
-
-    (async function getData() {
+    if (state) {
+      setData(state.data);
+      setKeyword(state.keyword);
+    }
+    (async function () {
       const response = await getMainList();
-      if (!completed) {
-        setData(response);
-      }
+      setData(response);
     })();
-
-    return () => {
-      completed = true;
-    };
   }, []);
 
+  useEffect(() => {
+    handleSearch(keyword);
+  }, [keyword]);
+
   const handleChange = (e) => {
-    setValue(e.target.value);
-    handleSearch();
+    setKeyword(e.target.value);
   };
 
   const handleSearch = () => {
-    if (data) {
-      let filteredRes = data.filter((result) => matchInput(result.title, value) === true);
-      setResults(filteredRes);
-    }
+    let filteredRes = data?.filter((result) => matchInput(result.title, keyword) === true);
+    setResults(filteredRes);
   };
 
   const matchInput = (target, keyword) => {
+    if (keyword === '') return false;
+
     target = target.toLowerCase();
-    if (keyword) keyword = keyword.toString().toLowerCase();
+    keyword = keyword.toString().toLowerCase();
     return target.includes(keyword);
   };
 
-  const handelSubmit = () => {
-    navigate(`/search?q=${value}`, { state: { results }, replace: false });
+  const handleSubmit = () => {
+    navigate(`/search?q=${keyword}`);
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      setKeyword(value);
-      handelSubmit();
+      handleSubmit();
     }
   };
 
   return (
     <>
-      <Header keyword={value} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} setKeyword={setKeyword} />
+      <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
           <Section>
             <SideNav />
             <Results>
-              {state?.results.map((result, idx) => (
+              {results.map((result, idx) => (
                 <ResultCard key={idx} result={result} />
               ))}
             </Results>

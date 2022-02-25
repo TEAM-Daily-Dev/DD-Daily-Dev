@@ -5,7 +5,7 @@ import { SearchInput } from './';
 import { Logo, Hamburger, SearchLinkBtn } from 'assets/Yena';
 import LoginSignupBtn from 'utils/LoginSignupBtn';
 
-const Header = ({ keyword, results, handleChange, handleKeyPress }) => {
+const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const navigate = useNavigate();
 
   return (
@@ -20,7 +20,7 @@ const Header = ({ keyword, results, handleChange, handleKeyPress }) => {
               <LogoImg src={Logo} alt='site-logo' />
             </LogoLink>
           </LogoBox>
-          <SearchInput header keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchInput header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
         </LogoSearchBox>
         <EntryBox>
           <SearchBtn onClick={() => navigate('/search')}>

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { SearchBtnIcon } from 'assets/Yena';
 
-const SearchInput = ({ header, search, keyword, handleChange, handleKeyPress }) => {
+const SearchInput = ({ header, search, keyword, handleChange, handleSubmit, handleKeyPress }) => {
   const styles = {
     header,
     search,
@@ -12,7 +12,7 @@ const SearchInput = ({ header, search, keyword, handleChange, handleKeyPress }) 
     <Wrapper>
       <SearchBox {...styles}>
         <ElSearchInput placeholder='Search...' value={keyword} onChange={handleChange} onKeyPress={handleKeyPress} />
-        <SearchBtn onKeyPress={handleKeyPress}>
+        <SearchBtn onClick={handleSubmit}>
           <SearchBtnIcon />
         </SearchBtn>
       </SearchBox>

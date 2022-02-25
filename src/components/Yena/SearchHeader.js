@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import { NAVITEM } from 'utils/constants/search';
 
-const SearchHeader = ({ keyword, results, handleChange, handleKeyPress }) => {
+const SearchHeader = ({ keyword, handleChange, handleKeyPress }) => {
   return (
     <Wrapper>
-      <SearchInput search keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <SearchInput search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
       <Title>Search results {keyword && `for ${keyword}`}</Title>
       <NavList>
         {NAVITEM.map((item, idx) => (
