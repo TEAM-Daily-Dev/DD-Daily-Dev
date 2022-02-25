@@ -11,7 +11,7 @@ const SearchHeader = ({ keyword, handleChange, handleKeyPress }) => {
       <Title>Search results {keyword && `for ${keyword}`}</Title>
       <NavList>
         {NAVITEM.map((item, idx) => (
-          <NavItem key={idx}>
+          <NavItem key={`${idx}_${item}`}>
             <a href='/'>{item}</a>
           </NavItem>
         ))}

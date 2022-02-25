@@ -73,7 +73,7 @@ const SearchPage = () => {
             <SideNav />
             <Results>
               {results.map((result, idx) => (
-                <ResultCard key={idx} result={result} />
+                <ResultCard key={`${idx}_${result.date}`} result={result} />
               ))}
             </Results>
           </Section>
