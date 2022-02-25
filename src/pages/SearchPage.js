@@ -68,7 +68,7 @@ const SearchPage = () => {
       <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader search keyword={keyword} value={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
           <Section>
             <SideNav />
             <Results>
