@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Header } from 'components';
+import Header from 'components/Header';
 import { ResultCard, SearchHeader, SideNav } from 'components/Search';
 import { getMainList } from 'utils/getApi';
 import { MOBILE, TABLET } from 'utils/constants/responsive';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SearchInput } from 'components';
+import { SearchInput } from 'components/Search';
 import { NAVITEM } from 'utils/constants/search';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 

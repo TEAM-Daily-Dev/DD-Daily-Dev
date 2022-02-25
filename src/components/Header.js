@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import { SearchInput } from 'components';
+import { SearchInput } from 'components/Search';
 import { Logo } from 'assets';
 import { Hamburger, SearchLinkBtn } from 'assets/Search';
 import LoginSignupBtn from 'utils/LoginSignupBtn';
