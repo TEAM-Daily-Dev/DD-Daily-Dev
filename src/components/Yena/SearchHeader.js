@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import { NAVITEM } from 'utils/constants/search';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
 
-const SearchHeader = ({ keyword, results, handleChange, handleKeyPress }) => {
+const SearchHeader = ({ keyword, handleChange, handleKeyPress }) => {
   return (
     <Wrapper>
-      <SearchInput search keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <SearchInput search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
       <Title>Search results {keyword && `for ${keyword}`}</Title>
       <NavList>
         {NAVITEM.map((item, idx) => (
@@ -26,12 +27,12 @@ const Wrapper = styled.div`
   align-items: center;
   padding-top: 57px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     justify-content: space-around;
     align-items: initial;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     flex-direction: column;
     justify-content: initial;
   }
@@ -41,7 +42,7 @@ const Title = styled.h1`
   margin-right: auto;
   font-size: 30px;
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     margin: 0;
     display: none;
     width: auto;
@@ -51,7 +52,7 @@ const Title = styled.h1`
 const NavList = styled.ul`
   display: flex;
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     margin-left: -12px;
   }
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MOBILE, DESKTOP } from 'utils/constants/responsive';
 
 const ResultCard = ({ result }) => {
   const { id, userImage, userName, date, title, hashTags, reactions, comments, length } = result;
@@ -53,11 +54,11 @@ const Wrapper = styled.div`
   box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.1);
   margin-bottom: 16px;
 
-  @media screen and (max-width: 1024px) {
+  @media (max-width: ${DESKTOP}) {
     width: 100%;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     width: 100%;
     padding: 16px 16px 12px 16px;
     margin-bottom: 8px;
@@ -168,4 +169,4 @@ const SaveBtn = styled.div`
   }
 `;
 
-export default ResultCard;
+export default React.memo(ResultCard);

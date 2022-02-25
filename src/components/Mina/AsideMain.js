@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
 
 const AsideMainRight = styled.aside`
   width: 1fr;
@@ -72,7 +72,7 @@ const AsideContentSebBtn = styled.button`
 `;
 
 const PurposeOfContent = styled.div`
-  padding: ${(props) => (props.isFinal ? "3px" : "4px 0 0 0")};
+  padding: ${(props) => (props.isFinal ? '3px' : '4px 0 0 0')};
   color: #717171;
   font-size: 0.875rem;
 `;
@@ -107,9 +107,7 @@ const AsideMain = () => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/comments?postId=1")
-      .then(({ data }) => setDatas(data.splice(0, 4)));
+    axios.get('https://jsonplaceholder.typicode.com/comments?postId=1').then(({ data }) => setDatas(data.splice(0, 4)));
   }, []);
 
   return (
@@ -158,7 +156,7 @@ const AsideMain = () => {
                       {data.id !== datas.length ? (
                         <PurposeOfContent>
                           {data.id}
-                          {"comments"}
+                          {'comments'}
                         </PurposeOfContent>
                       ) : (
                         <AsideNewContent>New</AsideNewContent>
