@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMainList } from 'utils/getApi';
-import { Header } from 'components/Yena';
+import { Header } from 'components';
 import Navigator from 'components/Kate/Navigator';
 
 const MainPage = () => {
