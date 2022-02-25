@@ -68,12 +68,12 @@ const SearchPage = () => {
       <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader search keyword={keyword} value={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
           <Section>
             <SideNav />
             <Results>
               {results.map((result, idx) => (
-                <ResultCard key={idx} result={result} />
+                <ResultCard key={`${idx}_${result.date}`} result={result} />
               ))}
             </Results>
           </Section>

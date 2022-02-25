@@ -4,14 +4,14 @@ import SearchInput from './SearchInput';
 import { NAVITEM } from 'utils/constants/search';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 
-const SearchHeader = ({ keyword, handleChange, handleKeyPress }) => {
+const SearchHeader = ({ keyword, value, handleChange, handleKeyPress }) => {
   return (
     <Wrapper>
       <SearchInput search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
-      <Title>Search results {keyword && `for ${keyword}`}</Title>
+      <Title>Search results {value && `for ${value}`}</Title>
       <NavList>
         {NAVITEM.map((item, idx) => (
-          <NavItem key={idx}>
+          <NavItem key={`${idx}_${item}`}>
             <a href='/'>{item}</a>
           </NavItem>
         ))}
