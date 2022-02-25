@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { SearchBtnIcon } from 'assets/Yena';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
 
 const SearchInput = ({ header, search, keyword, handleChange, handleSubmit, handleKeyPress }) => {
   const styles = {
@@ -33,7 +34,7 @@ const SearchBox = styled.div`
   margin: 0 16px;
   position: relative;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${TABLET}) {
     ${(props) =>
       props.header &&
       css`
@@ -49,7 +50,7 @@ const SearchBox = styled.div`
       `};
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${TABLET}) {
     ${(props) =>
       props.search &&
       css`
@@ -57,7 +58,7 @@ const SearchBox = styled.div`
       `};
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: ${MOBILE}) {
     width: 100%;
     margin: 0;
     margin-bottom: 8px;

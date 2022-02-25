@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SearchInput } from './';
 import { Logo, Hamburger, SearchLinkBtn } from 'assets/Yena';
 import LoginSignupBtn from 'utils/LoginSignupBtn';
+import { TABLET, DESKTOP } from 'utils/constants/responsive';
 
 const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const navigate = useNavigate();
@@ -48,11 +49,11 @@ const Wrapper = styled.div`
   padding: 0 16px;
   border-bottom: 1px solid #d4d4d4;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     padding: 0;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media (max-width: ${DESKTOP}) {
     padding: 0 8px;
   }
 `;
@@ -78,7 +79,7 @@ const MenuBtn = styled.button`
   padding: 8px;
   margin: 0 8px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     display: block;
     margin-left: 0;
   }
@@ -99,7 +100,7 @@ const EntryBox = styled.div`
   align-items: center;
   padding-right: 16px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     padding-right: 8px;
   }
 `;
@@ -120,48 +121,10 @@ const SearchBtn = styled.button`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-`;
-
-const LogInBtn = styled.button`
-  height: 40px;
-  margin-right: 8px;
-  border: none;
-  padding: 8px 16px;
-  font-size: 16px;
-  line-height: 24px;
-  border-radius: 6px;
-  color: #404040;
-
-  &:hover {
-    color: #2f3ab2;
-    background: #ebecfc;
-    text-decoration: underline solid #2f3ab2;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const SignUpBtn = styled.button`
-  height: 40px;
-  margin-right: 8px;
-  color: #3b49df;
-  border: 1px solid #3b49df;
-  padding: 7px 15px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  border-radius: 6px;
-
-  &:hover {
-    background: #3b49df;
-    color: #fff;
   }
 `;
 
