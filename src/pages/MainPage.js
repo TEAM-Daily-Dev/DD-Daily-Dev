@@ -16,21 +16,24 @@ const MainPage = () => {
     })();
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setKeyword(e.target.value);
-  };
+  }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     if (!keyword) return false;
 
     navigate(`/search?q=${keyword}`, { state: { data, keyword }, replace: false });
-  };
+  }, [data, keyword, navigate]);
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSubmit();
-    }
-  };
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    },
+    [handleSubmit]
+  );
 
   return (
     <>

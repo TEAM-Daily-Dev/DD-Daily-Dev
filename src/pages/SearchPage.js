@@ -28,34 +28,40 @@ const SearchPage = () => {
     }
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setKeyword(e.target.value);
-  };
+  }, []);
 
-  const handleSearch = (data, value) => {
-    let filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
-    setResults(filteredRes);
-  };
-
-  const matchInput = (target, keyword) => {
+  const matchInput = useCallback((target, keyword) => {
     if (keyword === '') return false;
 
     target = target.toLowerCase();
     keyword = keyword.toString().toLowerCase();
     return target.includes(keyword);
-  };
+  }, []);
 
-  const handleSubmit = () => {
+  const handleSearch = useCallback(
+    (data, value) => {
+      let filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
+      setResults(filteredRes);
+    },
+    [matchInput]
+  );
+
+  const handleSubmit = useCallback(() => {
     navigate(`/search?q=${keyword}`);
     handleSearch(data, keyword);
-  };
+  }, [data, keyword, handleSearch, navigate]);
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      setValue(keyword);
-      handleSubmit();
-    }
-  };
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key === 'Enter') {
+        setValue(keyword);
+        handleSubmit();
+      }
+    },
+    [handleSubmit, keyword]
+  );
 
   return (
     <>

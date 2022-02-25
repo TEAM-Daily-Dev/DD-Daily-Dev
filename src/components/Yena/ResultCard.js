@@ -168,4 +168,4 @@ const SaveBtn = styled.div`
   }
 `;
 
-export default ResultCard;
+export default React.memo(ResultCard);
