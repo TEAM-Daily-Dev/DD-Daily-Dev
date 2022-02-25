@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Header, ResultCard, SearchHeader, SideNav } from 'components/Yena';
 import { getMainList } from 'utils/getApi';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -75,7 +76,9 @@ const SearchPage = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: -50px;
+`;
 
 const InnerBox = styled.div`
   width: 100%;
@@ -86,7 +89,7 @@ const InnerBox = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     gap: 0;
     padding: 12px;
   }
@@ -95,23 +98,23 @@ const InnerBox = styled.div`
 const Section = styled.div`
   display: flex;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     flex-direction: column;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     display: initial;
   }
 `;
 
 const Results = styled.div`
-  padding: 40px 30px;
+  padding: 0 30px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     padding: 12px 0;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     padding: 0;
   }
 `;

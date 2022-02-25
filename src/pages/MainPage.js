@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { getMainList } from 'utils/getApi';
 import { Header } from 'components/Yena';
@@ -34,15 +33,11 @@ const MainPage = () => {
   };
 
   return (
-    <Wrapper>
+    <>
       <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Navigator />
-    </Wrapper>
+    </>
   );
 };
-
-const Wrapper = styled.div`
-  padding-top: 57px;
-`;
 
 export default MainPage;
