@@ -1,5 +1,6 @@
 import SearchHeader from './SearchHeader';
-import SideNav from './SideNav';
+import SearchInput from './SearchInput';
 import ResultCard from './ResultCard';
+import SideNav from './SideNav';
 
-export { SearchHeader, SideNav, ResultCard };
+export { SearchHeader, SearchInput, ResultCard, SideNav };
