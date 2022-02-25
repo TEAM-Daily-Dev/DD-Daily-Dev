@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { getApi } from 'utils/getApi';
+import { getMainList } from 'utils/getApi';
 import { Header } from 'components/Yena';
 import Navigator from 'components/Kate/Navigator';
 
@@ -12,26 +12,18 @@ const MainPage = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    let completed = false;
-
     (async function getData() {
-      const response = await getApi();
-      if (!completed) {
-        setData(response);
-      }
+      const response = await getMainList();
+      setData(response);
     })();
-
-    return () => {
-      completed = true;
-    };
   }, []);
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
-    handleSearch();
+    handleSearch(e.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = (keyword) => {
     if (data) {
       let filteredRes = data.filter((result) => matchInput(result.title, keyword) === true);
       setResults(filteredRes);

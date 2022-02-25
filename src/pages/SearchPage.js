@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getApi } from 'utils/getApi';
+import { getMainList } from 'utils/getApi';
 import { Header, ResultCard, SearchHeader, SideNav } from 'components/Yena';
 
 const SearchPage = () => {
@@ -17,7 +17,7 @@ const SearchPage = () => {
     let completed = false;
 
     (async function getData() {
-      const response = await getApi();
+      const response = await getMainList();
       if (!completed) {
         setData(response);
       }
