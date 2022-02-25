@@ -15,26 +15,25 @@ const SearchPage = () => {
   const [value, setValue] = useState('');
 
   useEffect(() => {
-    if (state) {
+    if (!state) {
+      (async function () {
+        const response = await getMainList();
+        setData(response);
+      })();
+    } else {
       setData(state.data);
       setKeyword(state.keyword);
+      setValue(state.keyword);
+      handleSearch(state.data, state.keyword);
     }
-    (async function () {
-      const response = await getMainList();
-      setData(response);
-    })();
   }, []);
-
-  useEffect(() => {
-    handleSearch(keyword);
-  }, [keyword]);
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
 
-  const handleSearch = () => {
-    let filteredRes = data?.filter((result) => matchInput(result.title, keyword) === true);
+  const handleSearch = (data, value) => {
+    let filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
     setResults(filteredRes);
   };
 
@@ -48,10 +47,12 @@ const SearchPage = () => {
 
   const handleSubmit = () => {
     navigate(`/search?q=${keyword}`);
+    handleSearch(data, keyword);
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
+      setValue(keyword);
       handleSubmit();
     }
   };
@@ -61,7 +62,7 @@ const SearchPage = () => {
       <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader search keyword={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
           <Section>
             <SideNav />
             <Results>
