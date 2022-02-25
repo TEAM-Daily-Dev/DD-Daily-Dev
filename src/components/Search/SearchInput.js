@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { SearchBtnIcon } from 'assets/Yena';
+import { SearchBtnIcon } from 'assets/Search';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 
 const SearchInput = ({ header, search, keyword, handleChange, handleSubmit, handleKeyPress }) => {

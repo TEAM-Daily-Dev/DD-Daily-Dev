@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Header, ResultCard, SearchHeader, SideNav } from 'components/Yena';
+import { ResultCard, SearchHeader, SideNav } from 'components/Search';
+import { Header } from 'components';
 import { getMainList } from 'utils/getApi';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 

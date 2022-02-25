@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import { SearchInput } from './';
+import { SearchInput } from './Search';
 import { Logo, Hamburger, SearchLinkBtn } from 'assets/Yena';
 import LoginSignupBtn from 'utils/LoginSignupBtn';
 import { TABLET, DESKTOP } from 'utils/constants/responsive';
