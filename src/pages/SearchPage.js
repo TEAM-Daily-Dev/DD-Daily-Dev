@@ -1,73 +1,80 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getApi } from 'utils/getApi';
-import { Header, ResultCard, SearchHeader, SideNav } from 'components';
+import Header from 'components/Header';
+import { ResultCard, SearchHeader, SideNav } from 'components/Search';
+import { getMainList } from 'utils/getApi';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
 
 const SearchPage = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-
   const [data, setData] = useState([]);
+
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
-    let completed = false;
-
-    (async function getData() {
-      const response = await getApi();
-      if (!completed) {
+    if (!state) {
+      (async function () {
+        const response = await getMainList();
         setData(response);
-      }
-    })();
-
-    return () => {
-      completed = true;
-    };
+      })();
+    } else {
+      setData(state.data);
+      setKeyword(state.keyword);
+      setValue(state.keyword);
+      handleSearch(state.data, state.keyword);
+    }
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setKeyword(e.target.value);
-    handleSearch();
-  };
+  }, []);
 
-  const handleSearch = () => {
-    if (data) {
-      let filteredRes = data.filter((result) => matchInput(result.title, keyword) === true);
-      setResults(filteredRes);
-    }
-  };
-
-  const matchInput = (target, keyword) => {
-    // if (keyword === '') return false;
+  const matchInput = useCallback((target, keyword) => {
+    if (keyword === '') return false;
 
     target = target.toLowerCase();
-    if (keyword) keyword = keyword.toString().toLowerCase();
-    return target.includes(keyword); // true or false
-  };
+    keyword = keyword.toString().toLowerCase();
+    return target.includes(keyword);
+  }, []);
 
-  const handelSubmit = () => {
-    navigate(`/search?q=${keyword}`, { state: { results }, replace: false });
-  };
+  const handleSearch = useCallback(
+    (data, value) => {
+      let filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
+      setResults(filteredRes);
+    },
+    [matchInput]
+  );
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handelSubmit();
-    }
-  };
+  const handleSubmit = useCallback(() => {
+    navigate(`/search?q=${keyword}`);
+    handleSearch(data, keyword);
+  }, [data, keyword, handleSearch, navigate]);
+
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key === 'Enter') {
+        setValue(keyword);
+        handleSubmit();
+      }
+    },
+    [handleSubmit, keyword]
+  );
 
   return (
     <>
-      <Header />
+      <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={keyword} results={results} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader search keyword={keyword} value={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
           <Section>
             <SideNav />
             <Results>
-              {state.results.map((result, idx) => (
-                <ResultCard key={idx} result={result} />
+              {results.map((result, idx) => (
+                <ResultCard key={`${idx}_${result.date}`} result={result} />
               ))}
             </Results>
           </Section>
@@ -77,7 +84,9 @@ const SearchPage = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: -50px;
+`;
 
 const InnerBox = styled.div`
   width: 100%;
@@ -88,7 +97,7 @@ const InnerBox = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     gap: 0;
     padding: 12px;
   }
@@ -97,23 +106,23 @@ const InnerBox = styled.div`
 const Section = styled.div`
   display: flex;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     flex-direction: column;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     display: initial;
   }
 `;
 
 const Results = styled.div`
-  padding: 40px 30px;
+  padding: 0 30px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: ${TABLET}) {
     padding: 12px 0;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: ${MOBILE}) {
     padding: 0;
   }
 `;
