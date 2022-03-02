@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-import loginLogoImg from "../image/devlogo-pwa-512.png"
+import loginLogoImg from "../img/devlogo-pwa-512.png"
 
 const Login = () => {
     return (
@@ -99,14 +99,3 @@ const LoginButton = styled.button`
     }
 `;
 export default Login;
-
-// import logoImg from "../../image/devlogo.png"
-
-// const LoginImg = styled.img.attrs({
-//     src: `${logoImg}`
-// })`
-//     border-radius: 0.375rem;
-//     transform: rotate(-10deg);
-//     height: auto;
-//     width: 100%;
-// `;

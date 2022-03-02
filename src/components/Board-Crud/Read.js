@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Profile from "../img/profile.png"
 import axios from "axios";
 import EditFooter from '../reply/EditFooter';
-import NavMain from "../Kate/navMain/NavMain";
+import NavMain from "../navMain/NavMain";
 
 function Read({ newDatas, fetchData }) {
 

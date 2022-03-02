@@ -5,7 +5,7 @@ import { parseInt } from "lodash";
 import styled from 'styled-components'
 import EditFooter from './EditFooter';
 import Profile from "../img/profile.png"
-import NavMain from "../Kate/navMain/NavMain";
+import NavMain from "../navMain/NavMain";
 
 function EditReply() {
 

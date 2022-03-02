@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, } from "react-router-dom";
 import PageNum from "./PageNum";
-import NavMain from "../Kate/navMain/NavMain";
+import NavMain from "../navMain/NavMain";
 
 import styled from "styled-components";
 

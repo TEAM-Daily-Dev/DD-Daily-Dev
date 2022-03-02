@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Firstnav from "./Firstnav";
 import Socialnetworks from "./Socialnetworks";
 import Hashtags from "./Hashtags";
-import ad from '../image/adimg.png';
+import ad from '../img/adimg.png';
 
 const MainPage = () => {
   return (
@@ -81,7 +81,7 @@ const LeftNavbar = styled.div`
   }
 `;
 const IntroBox = styled.div`
-  width: 208px;
+  width: 240px;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -99,6 +99,7 @@ const IntroTitle = styled.h2`
 `;
 const TitleLink = styled.p`
   color: #3b49df;
+  padding-top: 16px;
   &:hover {
     color: #2f3ab2;
     text-decoration: underline solid #2f3ab2;

@@ -49,13 +49,7 @@
   "boardsreply": [
     {
       "sameId": 1,
-      "comment": "asdfaaaa\n",
-      "like": 0,
-      "id": 4
-    },
-    {
-      "sameId": 1,
-      "comment": "asdfasdf",
+      "comment": "asdfasdfzzzzz",
       "like": 0,
       "id": 5
     },
@@ -64,6 +58,12 @@
       "comment": "asdfasd",
       "like": 0,
       "id": 6
+    },
+    {
+      "sameId": 1,
+      "comment": "asdfasdf",
+      "like": 0,
+      "id": 7
     }
   ]
 }

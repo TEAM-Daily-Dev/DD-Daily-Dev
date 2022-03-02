@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMainList } from 'utils/getApi';
 import Header from 'components/Header';
-import Navigator from 'components/Kate/Navigator';
+import Navigator from 'components/Navigator';
 import MainCommunity from 'components/Board-View/MainCommunity';
 
 const MainPage = () => {

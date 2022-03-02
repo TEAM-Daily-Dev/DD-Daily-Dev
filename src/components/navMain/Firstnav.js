@@ -275,7 +275,6 @@ const UlStyle = styled.ul`
 `;
 const LiStyle = styled.li`
     padding: 8px 16px;
-    height: 30px;
     border: none;
     font-size: 16px;
     line-height: 24px;
