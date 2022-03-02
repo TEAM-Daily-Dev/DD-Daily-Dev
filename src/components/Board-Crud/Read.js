@@ -107,7 +107,7 @@ padding: 300px;
 
 `;
 const HeaderDiv = styled.div`
-width:80%;
+width:50%;
 height:95%;
 background:#ffffff;
 position:absolute;

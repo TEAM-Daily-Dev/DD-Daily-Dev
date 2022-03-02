@@ -29,7 +29,7 @@ function Create({ newDatas, setNewDatas, fetchData }) {
                 postid: parseInt(newId.current.value),
                 title: writeTitle.current.value,
                 contents: newcontent.current.value,
-                id: checkid + 1
+                id: parseInt(checkid) + 1
             },
         }).then(res => {
             setNewDatas([...newDatas, res])

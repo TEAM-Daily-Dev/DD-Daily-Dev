@@ -6,7 +6,12 @@
       "userName": "Michael Sakhniuk",
       "date": "Jan 5 '21",
       "title": "300+ React Interview Questions",
-      "hashTags": ["react", "webdev", "javascript", "beginners"],
+      "hashTags": [
+        "react",
+        "webdev",
+        "javascript",
+        "beginners"
+      ],
       "reactions": 2227,
       "comments": 32,
       "length": 128
@@ -17,10 +22,37 @@
       "userName": "ThemeSelection",
       "date": "Apr 7 '21",
       "title": "Ultimate VueJS Resources🛠 For Developers👨‍💻",
-      "hashTags": ["vue", "javascript", "webdev", "beginners"],
+      "hashTags": [
+        "vue",
+        "javascript",
+        "webdev",
+        "beginners"
+      ],
       "reactions": 596,
       "comments": 3,
       "length": 21
+    }
+  ],
+  "boards": [
+    {
+      "postid": 65465456465465,
+      "title": "The Cloud Waste Problem",
+      "contents": "With the public cloud adoption increasing year over year, companies will spend nearly $121.6 billion in IaaS (Infrastructure as a Service) in 2022 from AWS, Azure, Google, and other cloud service providersh111\n\n",
+      "id": 1
+    },
+    {
+      "postid": 121546456,
+      "title": "hgfdhgf",
+      "contents": "hgfdh",
+      "id": 2
+    }
+  ],
+  "boardsreply": [
+    {
+      "sameId": 1,
+      "comment": "안녕",
+      "like": 0,
+      "id": 2
     }
   ]
 }

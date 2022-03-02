@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Firstnav = () => {
@@ -29,21 +30,23 @@ const Firstnav = () => {
                     </LiStyle>
 
                     <LiStyle>
-                        <NavLink href="/listings" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
-                            <IconSpan className="c-link__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="24" height="24">
-                                    <g className="nc-icon-wrapper">
-                                        <path fill="#FFD983" d="M36 4H14a4 4 0 00-4 4v24H8a4 4 0 000 8h24a4 4 0 004-4V12a4 4 0 000-8z"></path>
-                                        <path fill="#E39F3D" d="M12 14h24v-2H14l-2-1z"></path>
-                                        <path fill="#FFE8B6" d="M14 4a4 4 0 00-4 4v24.555A3.955 3.955 0 008 32a4 4 0 104 4V11.445c.59.344 1.268.555 2 .555a4 4 0 000-8z"></path>
-                                        <path fill="#C1694F" d="M16 8a2 2 0 11-4.001-.001A2 2 0 0116 8m-6 28a2 2 0 11-4.001-.001A2 2 0 0110 36m24-17a1 1 0 01-1 1H15a1 1 0 010-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1"></path>
-                                    </g>
-                                </svg>
-                            </IconSpan>
-                            Listings
-                        </NavLink>
+                        <Link to="/Board">
+                            <NavLink href="/listings" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
+                                <IconSpan className="c-link__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="24" height="24">
+                                        <g className="nc-icon-wrapper">
+                                            <path fill="#FFD983" d="M36 4H14a4 4 0 00-4 4v24H8a4 4 0 000 8h24a4 4 0 004-4V12a4 4 0 000-8z"></path>
+                                            <path fill="#E39F3D" d="M12 14h24v-2H14l-2-1z"></path>
+                                            <path fill="#FFE8B6" d="M14 4a4 4 0 00-4 4v24.555A3.955 3.955 0 008 32a4 4 0 104 4V11.445c.59.344 1.268.555 2 .555a4 4 0 000-8z"></path>
+                                            <path fill="#C1694F" d="M16 8a2 2 0 11-4.001-.001A2 2 0 0116 8m-6 28a2 2 0 11-4.001-.001A2 2 0 0110 36m24-17a1 1 0 01-1 1H15a1 1 0 010-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1"></path>
+                                        </g>
+                                    </svg>
+                                </IconSpan>
+                                Listings
+                            </NavLink>
+                        </Link>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/pod" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -52,20 +55,20 @@ const Firstnav = () => {
                                         <path fill="#292F33" d="M10 19h24v2H10zm15 15c0 2.208-.792 4-3 4-2.209 0-3-1.792-3-4s.791-2 3-2c2.208 0 3-.208 3 2z"></path>
                                         <path fill="#66757F" d="M22 35c-6.627 0-10 1.343-10 3v2h20v-2c0-1.657-3.373-3-10-3z"></path>
                                         <path fill="#99AAB5" d="M22 4a9 9 0 00-9 9v7h18v-7a9 9 0 00-9-9z"></path>
-                                            <g fill="#292F33" transform="translate(4 4)">
-                                                <circle cx="15.5" cy="2.5" r="1.5"></circle>
-                                                <circle cx="20.5" cy="2.5" r="1.5"></circle>
-                                                <circle cx="17.5" cy="6.5" r="1.5"></circle>
-                                                <circle cx="22.5" cy="6.5" r="1.5"></circle>
-                                                <circle cx="12.5" cy="6.5" r="1.5"></circle>
-                                                <circle cx="15.5" cy="10.5" r="1.5"></circle>
-                                                <circle cx="10.5" cy="10.5" r="1.5"></circle>
-                                                <circle cx="20.5" cy="10.5" r="1.5"></circle>
-                                                <circle cx="25.5" cy="10.5" r="1.5"></circle>
-                                                <circle cx="17.5" cy="14.5" r="1.5"></circle>
-                                                <circle cx="22.5" cy="14.5" r="1.5"></circle>
-                                                <circle cx="12.5" cy="14.5" r="1.5"></circle>
-                                            </g>
+                                        <g fill="#292F33" transform="translate(4 4)">
+                                            <circle cx="15.5" cy="2.5" r="1.5"></circle>
+                                            <circle cx="20.5" cy="2.5" r="1.5"></circle>
+                                            <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                                            <circle cx="22.5" cy="6.5" r="1.5"></circle>
+                                            <circle cx="12.5" cy="6.5" r="1.5"></circle>
+                                            <circle cx="15.5" cy="10.5" r="1.5"></circle>
+                                            <circle cx="10.5" cy="10.5" r="1.5"></circle>
+                                            <circle cx="20.5" cy="10.5" r="1.5"></circle>
+                                            <circle cx="25.5" cy="10.5" r="1.5"></circle>
+                                            <circle cx="17.5" cy="14.5" r="1.5"></circle>
+                                            <circle cx="22.5" cy="14.5" r="1.5"></circle>
+                                            <circle cx="12.5" cy="14.5" r="1.5"></circle>
+                                        </g>
                                         <path fill="#66757F" d="M13 19.062V21c0 4.971 4.029 9 9 9s9-4.029 9-9v-1.938H13z"></path>
                                         <path fill="#66757F" d="M34 18a1 1 0 00-1 1v2c0 6.074-4.925 11-11 11s-11-4.926-11-11v-2a1 1 0 00-2 0v2c0 7.18 5.82 13 13 13s13-5.82 13-13v-2a1 1 0 00-1-1z"></path>
                                     </g>
@@ -74,7 +77,7 @@ const Firstnav = () => {
                             Podcasts
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/videos" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -90,7 +93,7 @@ const Firstnav = () => {
                             Videos
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/tags" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -105,7 +108,7 @@ const Firstnav = () => {
                             Tags
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/faq" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -122,7 +125,7 @@ const Firstnav = () => {
                             FAQ
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="https://shop.dev.to/" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -138,7 +141,7 @@ const Firstnav = () => {
                             DEV Shop
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/sponsorships" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -149,7 +152,7 @@ const Firstnav = () => {
                             Sponsors
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/about" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -175,7 +178,7 @@ const Firstnav = () => {
                             About
                         </NavLink>
                     </LiStyle>
-                    
+
                     <LiStyle>
                         <NavLink href="/contact" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -191,16 +194,16 @@ const Firstnav = () => {
                         </NavLink>
                     </LiStyle>
 
-                </UlStyle> 
+                </UlStyle>
             </nav>
             {/* MAIN Nav END */}
             {/* Other Nav START */}
             <nav>
                 <UlStyle>
-                    <OtherSub>    
+                    <OtherSub>
                         other
                     </OtherSub>
-                    
+
                     <LiStyle>
                         <NavLink href="/code-of-conduct" className="sidebar-navigation-link c-link c-link--block c-link--icon-left">
                             <IconSpan className="c-link__icon">
@@ -256,7 +259,7 @@ const Firstnav = () => {
                     </LiStyle>
                 </UlStyle>
             </nav>
-            {/* Other Nav END */}  
+            {/* Other Nav END */}
         </>
     );
 };
