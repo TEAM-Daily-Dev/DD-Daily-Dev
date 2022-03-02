@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, } from "react-router-dom";
 import PageNum from "./PageNum";
+import NavMain from "../Kate/navMain/NavMain";
+
 import styled from "styled-components";
 
 function MainCommunity({ newDatas, fetchData }) {
@@ -19,51 +21,57 @@ function MainCommunity({ newDatas, fetchData }) {
 
 
     return (
-        <Full>
-            <FirstDiv>
-                <h2>커뮤니티</h2>
-                <h3>All</h3>
-            </FirstDiv>
-            <SecondDiv>
-                <FirstInput placeholder="Serch..." />
-                <SerchButton>
-                    <SerchA href="#">
-                        {/* <i className="fa fa-search"></i> */}
-                        검색
-                    </SerchA>
-                </SerchButton>
-            </SecondDiv>
-            <Table>
-                <Thead >
-                    <tr>
-                        <Th>번호</Th>
-                        <Th>구분</Th>
-                        <Th>제목</Th>
-                        <Th>작성자</Th>
-                        <Th>작성일</Th>
-                        <Th>조회수</Th>
-                    </tr>
-                </Thead>
-                <Tbody>
-                    {
-                        currentPosts.map((a, i) => {
-                            return <Newli title={a.title} key={i} index={a.id}></Newli>
-                        })
-                    }
-                </Tbody>
-            </Table>
-            <LastDiv>
-                <PageNum currentPage={currentPage} checkTrue={checkTrue} setcheckTrue={setcheckTrue} postPage={postPage} newDatas={newDatas} setCurrentPage={setCurrentPage}></PageNum>
-                <Link to="/write">
-                    <SerchButton>
-                        <ButtonA href="#">
-                            글쓰기
-                        </ButtonA>
-                    </SerchButton>
-                </Link>
-            </LastDiv>
-
-        </Full >
+        <MainStyle>
+            <div>
+                <NavMain />
+            </div>
+            <div>
+                <Full>
+                    <FirstDiv>
+                        <h2>커뮤니티</h2>
+                        <h3>All</h3>
+                    </FirstDiv>
+                    <SecondDiv>
+                        <FirstInput placeholder="Serch..." />
+                        <SerchButton>
+                            <SerchA href="#">
+                                {/* <i className="fa fa-search"></i> */}
+                                검색
+                            </SerchA>
+                        </SerchButton>
+                    </SecondDiv>
+                    <Table>
+                        <Thead >
+                            <tr>
+                                <Th>번호</Th>
+                                <Th>구분</Th>
+                                <Th>제목</Th>
+                                <Th>작성자</Th>
+                                <Th>작성일</Th>
+                                <Th>조회수</Th>
+                            </tr>
+                        </Thead>
+                        <Tbody>
+                            {
+                                currentPosts.map((a, i) => {
+                                    return <Newli title={a.title} key={i} index={a.id}></Newli>
+                                })
+                            }
+                        </Tbody>
+                    </Table>
+                    <LastDiv>
+                        <PageNum currentPage={currentPage} checkTrue={checkTrue} setcheckTrue={setcheckTrue} postPage={postPage} newDatas={newDatas} setCurrentPage={setCurrentPage}></PageNum>
+                        <Link to="/write">
+                            <SerchButton>
+                                <ButtonA href="#">
+                                    글쓰기
+                                </ButtonA>
+                            </SerchButton>
+                        </Link>
+                    </LastDiv>
+                </Full >
+            </div>
+        </MainStyle>
     );
 };
 
@@ -72,7 +80,7 @@ function Newli({ title, index }) {
     let [newindex, setNewIndex] = useState(`/${index}`);
 
     return (
-        <tr>
+        <MainStyle>
             <Td>{index}</Td>
             <Td>
                 7
@@ -92,9 +100,14 @@ function Newli({ title, index }) {
             <Td>
                 1
             </Td>
-        </tr>
+        </MainStyle>
     );
 };
+const MainStyle = styled.div`
+  display: flex;
+
+
+`;
 Newli.defaultProps = {
     title: "[okky] Clone Coding 어렵지 않아요~!"
 }

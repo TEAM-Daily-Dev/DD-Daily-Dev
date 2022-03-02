@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Profile from "../img/profile.png"
 import axios from "axios";
+import ReplyShow from "./ReplyShow";
 
 function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffect }) {
 
@@ -39,66 +40,132 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
     const newArray = newReply.filter(a => a.sameId === parseInt(setid));//댓글 갯수
 
     return (
+        <>
+        <CommentSection>
         <div>
-            <DiscussionDiv>
+            <DiscussionHeader>
+            <div>
+                
+                <SubjectH2>
                 Comments ({newReply.length > 1
-                    ? newArray.length
-                    : 0})
-                <DivButton  ><ButtonA href="#" onClick={CreateReply}>등록</ButtonA></DivButton>
-            </DiscussionDiv>
-            <FirstDiv>
-                <ProfileImg src={Profile}></ProfileImg>
-                <Formdiv>
-                    <TextArea type="text" placeholder="댓글을 입력해 주세요." value={newConmment} onChange={onChange}></TextArea>
-                </Formdiv>
-            </FirstDiv>
+                            ? newArray.length
+                            : 0})
+                </SubjectH2>
+            </div>
+            </DiscussionHeader>
+            {/* 댓글작성부분 */}
+            <form>
+            <CommentDiv>
+                <TextareaDiv>
+                <CommentTextarea 
+                    type="text" 
+                    placeholder="댓글을 입력해 주세요." 
+                    value={newConmment} 
+                    onChange={onChange}
+                >   
+                </CommentTextarea>
+                </TextareaDiv>
+            </CommentDiv>
+            <div>
+                <CommentBtnDiv>
+                    {newConmment === '' ? (
+                        <>
+                        <SubmitBtnDis type="button" disabled>등록</SubmitBtnDis>
+                        </>
+                    ) : (
+                        <>
+                        <SubmitBtn type="submit" value="등록" onClick={CreateReply}></SubmitBtn>
+                        </>
+                    )}
+                </CommentBtnDiv>
+            </div>
+            </form>
+            {/* {comms.length > 0 ? ( */}
+            {newReply.length > 0 &&
+                newReply.map((a, i) => {
+                    return <ReplyShow setNewReply={setNewReply} newReply={newReply} setCheckUseEffect={setCheckUseEffect} checkUseEffect={checkUseEffect} setid={setid} key={i} index={i} sameId={a.sameId} comment={a.comment} newid={a.id} like={a.like}></ReplyShow>
+                })
+            }
         </div>
+        </CommentSection>
+        
+        </>
     );
 };
 
-const FirstDiv = styled.div`
-display: flex;
-align-items: center;
-justify-content:start
+const CommentSection = styled.section`
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.1);
+    margin: 0 0 16px;
+    padding: 32px 48px;
+    position: relative;
+    border-radius: 0.375rem;
 `;
-const DiscussionDiv = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-color:#242424;
-font-size:24px;
-font-weight: 700;
+const DiscussionHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 `;
-const ProfileImg = styled.img`
-border-radius:70%;
-width: 24px;
-height: 24px;
-margin-right:4px;
+const SubjectH2 = styled.h2`
+  font-size: 24px;
+  color: #242424;
+  font-weight: 700;
 `;
-const Formdiv = styled.form`
-padding-top:30px;
-width:100%;
+const CommentDiv = styled.div`
+  border-radius: 0.375rem;
+  border: 1px solid #d4d4d4;
+  margin-bottom: 12px;
+  &:focus-within {
+    border-color: #3b49df;
+    0 0 0 1px #3b49df;
+  }
 `;
-const TextArea = styled.textarea`
-width: 100%;
-height: 70px;
-resize: none;
-padding:8px;
-border-radius:5px;
-border:2px solid #EFEFEF;
-outline:none;
+const TextareaDiv = styled.div`
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 `;
-const DivButton = styled.button`
-background-color:transparent;
-border:none;
+const CommentTextarea = styled.textarea`
+  padding: 8px;
+  margin: 0;
+  outline: none;
+  width: -webkit-fill-available;
+  box-shadow: none;
+  border: none;
+  transition: none 0s ease 0s; 
+  height: 129px;
+  background: transparent;
+  &:hover {
+    resize: none;
+  }
 `;
-const ButtonA = styled.a`
-background-color:white;
-color:black;
-border: 1px solid #6550FF;
-border-radius:5px;
-font-size:16px;
-padding:10px 15px;
+const CommentBtnDiv = styled.div`
+  margin-bottom: 16px;
 `;
-
+const SubmitBtnDis = styled.button`
+  color: #f9f9f9;
+  font-size: 16px;
+  background: #3b49df;
+  margin: 0 8px 0 0;
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  opacity: 0.6;
+    cursor: not-allowed;
+`;
+const SubmitBtn = styled.input`
+  color: #f9f9f9;
+  font-size: 16px;
+  background: #3b49df;
+  margin: 0 8px 0 0;
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  border: 0;
+  outline: 0;
+  &:hover {
+    background-color: #2f3ab2;
+    border-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: #f9f9f9;
+  }
+`;
 export default Creply;

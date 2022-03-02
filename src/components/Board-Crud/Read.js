@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Creply from "../reply/Creply";
-import ReplyShow from "../reply/ReplyShow";
 import styled from "styled-components";
 import Profile from "../img/profile.png"
 import axios from "axios";
+import EditFooter from '../reply/EditFooter';
 
 function Read({ newDatas, fetchData }) {
 
@@ -45,6 +45,7 @@ function Read({ newDatas, fetchData }) {
 
 
     return (
+        <>
         <BackDiv>
             <HeaderDiv>
                 <FirstDiv>
@@ -86,13 +87,15 @@ function Read({ newDatas, fetchData }) {
                 </>
                 <Hr></Hr>
                 <Creply setCheckUseEffect={setCheckUseEffect} checkUseEffect={checkUseEffect} setid={setid} newReply={newReply} setNewReply={setNewReply}></Creply>
-                {newReply.length > 0 &&
+                {/* {newReply.length > 0 &&
                     newReply.map((a, i) => {
                         return <ReplyShow setNewReply={setNewReply} newReply={newReply} setCheckUseEffect={setCheckUseEffect} checkUseEffect={checkUseEffect} setid={setid} key={i} index={i} sameId={a.sameId} comment={a.comment} newid={a.id} like={a.like}></ReplyShow>
                     })
-                }
+                } */}
             </HeaderDiv>
         </BackDiv>
+        <EditFooter />
+        </>
     );
 };
 const BackDiv = styled.div`
@@ -107,7 +110,7 @@ padding: 300px;
 
 `;
 const HeaderDiv = styled.div`
-width:50%;
+margin: 0 147px;
 height:95%;
 background:#ffffff;
 position:absolute;

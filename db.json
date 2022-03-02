@@ -50,9 +50,45 @@
   "boardsreply": [
     {
       "sameId": 1,
-      "comment": "안녕",
+      "comment": "asdfasdfaaaa",
       "like": 0,
       "id": 2
+    },
+    {
+      "sameId": 1,
+      "comment": "asdf\n",
+      "like": 0,
+      "id": 3
+    },
+    {
+      "sameId": 1,
+      "comment": "asdf\n",
+      "like": 0,
+      "id": 4
+    },
+    {
+      "sameId": 1,
+      "comment": "asdfasdf",
+      "like": 0,
+      "id": 5
+    },
+    {
+      "sameId": 1,
+      "comment": "asdf",
+      "like": 0,
+      "id": 6
+    },
+    {
+      "sameId": 1,
+      "comment": "sadfas",
+      "like": 0,
+      "id": 7
+    },
+    {
+      "sameId": 1,
+      "comment": "asdfasdf",
+      "like": 0,
+      "id": 8
     }
   ]
 }
