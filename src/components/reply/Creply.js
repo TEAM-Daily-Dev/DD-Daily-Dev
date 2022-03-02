@@ -19,7 +19,7 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
         }
         axios({
             method: "POST",
-            url: `http://localhost:3001/boardsreply`,
+            url: `http://localhost:8000/boardsreply`,
             data: {
                 sameId: parseInt(setid),
                 comment: newConmment,

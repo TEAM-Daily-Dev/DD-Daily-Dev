@@ -16,7 +16,7 @@ function ReplyShow({ setNewReply, newReply, setid, sameId, newid, index, comment
             if (window.confirm("삭제 하시겠습니까?")) {
                 axios({
                     method: 'DELETE',
-                    url: `http://localhost:3001/boardsreply/${parseInt(newReply[index].id)}`,
+                    url: `http://localhost:8000/boardsreply/${parseInt(newReply[index].id)}`,
                 }).then(() => {
                     setShowButton(!showButton);
                     setNewReply(newReply.filter(a => a.id !== parseInt(value)));

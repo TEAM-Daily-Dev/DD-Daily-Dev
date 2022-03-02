@@ -25,7 +25,7 @@ function Update({ newDatas, fetchData, setLoaDing, loaDing }) {
         event.preventDefault();
         axios({
             method: "PUT",
-            url: `http://localhost:3001/boards/${setid}`,
+            url: `http://localhost:8000/boards/${setid}`,
             data: {
                 id: parseInt(setid),
                 title: newTitle,

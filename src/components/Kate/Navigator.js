@@ -21,5 +21,8 @@ const Navigator = () => {
 
 const MainStyle = styled.div`
   display: flex;
+  width: 1248px;
+  margin: 0 auto;
+
 `;
 export default Navigator;

@@ -14,7 +14,7 @@ function EditReply() {
 
   const [newReply, setNewReply] = useState([]);
   const fetchTasks = async () => {
-    const ress = await axios('http://localhost:3001/boardsreply')
+    const ress = await axios('http://localhost:8000/boardsreply')
     const newDa = await ress.data
     return setNewReply(newDa);
   }
@@ -26,7 +26,7 @@ function EditReply() {
   function changeComment() {
     axios({
       method: "PUT",
-      url: `http://localhost:3001/boardsreply/${parseInt(setid)}`,
+      url: `http://localhost:8000/boardsreply/${parseInt(setid)}`,
       data: {
         sameId: boardId,
         comment: newcontent,

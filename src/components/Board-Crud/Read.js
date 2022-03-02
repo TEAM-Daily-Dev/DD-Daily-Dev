@@ -10,7 +10,7 @@ function Read({ newDatas, fetchData }) {
 
     const [newReply, setNewReply] = useState([]);
     const fetchTasks = async () => {
-        const res = await axios('http://localhost:3001/boardsreply')
+        const res = await axios('http://localhost:8000/boardsreply')
         const newData = await res.data
         return setNewReply(newData)
     }
@@ -25,7 +25,7 @@ function Read({ newDatas, fetchData }) {
                 axios(
                     {
                         method: 'DELETE',
-                        url: `http://localhost:3001/boards/${parseInt(setid)}`,
+                        url: `http://localhost:8000/boards/${parseInt(setid)}`,
                     }).then(() => {
                         alert("삭제되었습니다.");
                         navi('/');

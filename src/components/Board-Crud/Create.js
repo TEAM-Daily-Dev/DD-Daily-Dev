@@ -24,7 +24,7 @@ function Create({ newDatas, setNewDatas, fetchData }) {
         }
         axios({
             method: "POST",
-            url: "http://localhost:3001/boards",
+            url: "http://localhost:8000/boards",
             data: {
                 postid: parseInt(newId.current.value),
                 title: writeTitle.current.value,

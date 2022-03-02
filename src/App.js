@@ -14,7 +14,7 @@ function App() {
   const [newDatas, setNewDatas] = useState([]);
   const fetchData = async () => {
     try {
-      const res = await axios('http://localhost:3001/boards')
+      const res = await axios('http://localhost:8000/boards')
       const Data = await res.data;
       return setNewDatas(Data)
     }
