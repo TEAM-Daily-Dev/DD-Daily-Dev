@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Profile from "../img/profile.png"
 import axios from "axios";
 import EditFooter from '../reply/EditFooter';
+import NavMain from "../Kate/navMain/NavMain";
 
 function Read({ newDatas, fetchData }) {
 
@@ -45,7 +46,12 @@ function Read({ newDatas, fetchData }) {
 
 
     return (
-        <>
+    <>
+    <MainStyle>
+        <div>
+            <NavMain />
+        </div>
+        <div>
         <BackDiv>
             <HeaderDiv>
                 <FirstDiv>
@@ -94,27 +100,38 @@ function Read({ newDatas, fetchData }) {
                 } */}
             </HeaderDiv>
         </BackDiv>
-        <EditFooter />
-        </>
+        </div>
+    </MainStyle>
+    <EditFooter />
+
+    </>
     );
 };
+const MainStyle = styled.div`
+  display: flex;
+  width: 1248px;
+  margin: 0 auto;
+`;
+
+// width:100%;
+// height:1000px;
+// position:relative;
+
 const BackDiv = styled.div`
 background-color:#EFEFEF;
-width:100%;
-height:1000px;
-position:relative;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 300px;
-
+padding: 16px;
+width: 976px;
 `;
+// margin: 0 147px;
+// height:95%;
+// position:absolute;
+// margin-top:50px;
 const HeaderDiv = styled.div`
-margin: 0 147px;
-height:95%;
+
 background:#ffffff;
-position:absolute;
-margin-top:50px;
 padding: 50px;
 `;
 const FirstDiv = styled.div`

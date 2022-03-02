@@ -5,6 +5,7 @@ import { parseInt } from "lodash";
 import styled from 'styled-components'
 import EditFooter from './EditFooter';
 import Profile from "../img/profile.png"
+import NavMain from "../Kate/navMain/NavMain";
 
 function EditReply() {
 
@@ -56,64 +57,72 @@ function EditReply() {
   }
 
   return (
-  <>
-  <div>
-    {loading === true
-      ? 
-      <>
-        <EditingComment>
-        <WriteComment>
-          <div>
-            <div>
-              <SubjectH1>Editing comment</SubjectH1>
-            </div>
-          </div>
-          <WriteCommentStart>
-            <div>
-              <UserPic></UserPic>
-            </div>
-            <CommentWriteDiv>
-              <form>
-                <CommentDiv>
-                  <TextareaDiv>
-                    <CommentTextarea 
-                        value={newcontent} onChange={onChange}
-                      >
-                    </CommentTextarea>
-                  </TextareaDiv>
-                </CommentDiv>
+    <>
+    <MainStyle>
+      <div>
+          <NavMain />
+      </div>
+      <div>
+        {loading === true ? 
+          <>
+            <EditingComment>
+              <WriteComment>
                 <div>
-                    <CommentBtnDiv>
-                        <SubmitBtn type="submit" value="수정완료" onClick={changeComment}></SubmitBtn>
-                        <DismissBtn onClick={returnPage}>취소</DismissBtn>
-                    </CommentBtnDiv>
+                  <div>
+                    <SubjectH1>Editing comment</SubjectH1>
+                  </div>
                 </div>
-              </form>
-            </CommentWriteDiv>
-          </WriteCommentStart>
-        </WriteComment>
-      </EditingComment>
-      <EditFooter />
-      </>
-      : 
-      <LodingImg>
-        <img className="loading-img hidden" src="https://dev.to/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="loading" loading="lazy"/>
-      </LodingImg>
-    }
-  </div>
+                <WriteCommentStart>
+                  <div>
+                    <UserPic></UserPic>
+                  </div>
+                  <CommentWriteDiv>
+                    <form>
+                      <CommentDiv>
+                        <TextareaDiv>
+                          <CommentTextarea 
+                              value={newcontent} onChange={onChange}
+                            >
+                          </CommentTextarea>
+                        </TextareaDiv>
+                      </CommentDiv>
+                      <div>
+                          <CommentBtnDiv>
+                              <SubmitBtn type="submit" value="수정완료" onClick={changeComment}></SubmitBtn>
+                              <DismissBtn onClick={returnPage}>취소</DismissBtn>
+                          </CommentBtnDiv>
+                      </div>
+                    </form>
+                  </CommentWriteDiv>
+                </WriteCommentStart>
+              </WriteComment>
+            </EditingComment>
+          </>
+          : 
+          <LodingImg>
+            <img className="loading-img hidden" src="https://dev.to/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="loading" loading="lazy"/>
+          </LodingImg>
+        }
+      </div>
+    </MainStyle>
+    <EditFooter />
 
     </>
   );
 };
+const MainStyle = styled.div`
+  display: flex;
+  width: 1248px;
+  margin: 0 auto;
+`;
+
 const WriteCommentStart = styled.div`
   display: flex;
 `;
 const EditingComment = styled.div`
-  padding: 16px;
-  margin: 0 147px;
   color: #171717;
   font-size: 16px;
-
+  width: 976px;
 `;
 const SubjectH1 = styled.h1`
   font-size: 30px;
@@ -125,7 +134,7 @@ const WriteComment = styled.div`
   padding: 32px 64px;
   background: #ffffff;
   border-radius: 0.375rem;
-
+  width: 976px;
 `;
 const UserPic = styled.img.attrs({
   src: `${Profile}`

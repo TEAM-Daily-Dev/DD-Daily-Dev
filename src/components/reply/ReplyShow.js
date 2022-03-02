@@ -67,12 +67,11 @@ function ReplyShow({ setNewReply, newReply, setid, sameId, newid, index, comment
                                             <MoreHiddenMenuDiv>
                                                 <MoreCommBtnDiv>
                                                     <div>
-                                                    <MoreMenus value={newid} onClick={removeReply}>삭제</MoreMenus>
+                                                    <MoreMenus value={newid} onClick={removeReply}>DELETE</MoreMenus>
                                                     </div>
                                                     <div>
                                                     <Link to={`/edit/${newid}`}>
-                                                        <MoreMenus 
-                                                        >수정{newReply[index].id} / {newReply[index].sameId} </MoreMenus>
+                                                        <MoreMenus>EDIT</MoreMenus>
                                                     </Link>
                                                     </div>
                                                     {/* {EditReply} */}
@@ -196,8 +195,8 @@ const UserPic = styled.img.attrs({
     color: #404040;
     font-size: 16px;  
     padding: 8px;
+    width: 230px;
     border-radius: 0.375rem;
-  
     &:hover {
         color: #2f3ab2;
         background: rgba(59, 73, 223, 0.1);

@@ -88,7 +88,6 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
             }
         </div>
         </CommentSection>
-        
         </>
     );
 };

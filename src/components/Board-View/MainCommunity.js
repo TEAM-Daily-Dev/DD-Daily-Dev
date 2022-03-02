@@ -51,13 +51,12 @@ function MainCommunity({ newDatas, fetchData }) {
                                 <Th>조회수</Th>
                             </tr>
                         </Thead>
-                        <Tbody>
-                            {
-                                currentPosts.map((a, i) => {
-                                    return <Newli title={a.title} key={i} index={a.id}></Newli>
-                                })
-                            }
-                        </Tbody>
+                        {currentPosts.map((a, i) => {
+                            return <Tbody>
+                                        <Newli title={a.title} key={i} index={a.id}></Newli>
+                                   </Tbody>
+                            })
+                        }
                     </Table>
                     <LastDiv>
                         <PageNum currentPage={currentPage} checkTrue={checkTrue} setcheckTrue={setcheckTrue} postPage={postPage} newDatas={newDatas} setCurrentPage={setCurrentPage}></PageNum>
@@ -80,7 +79,7 @@ function Newli({ title, index }) {
     let [newindex, setNewIndex] = useState(`/${index}`);
 
     return (
-        <MainStyle>
+        <>
             <Td>{index}</Td>
             <Td>
                 7
@@ -100,13 +99,13 @@ function Newli({ title, index }) {
             <Td>
                 1
             </Td>
-        </MainStyle>
+        </>
     );
 };
 const MainStyle = styled.div`
   display: flex;
-
-
+  width: 1248px;
+  margin: 0 auto;
 `;
 Newli.defaultProps = {
     title: "[okky] Clone Coding 어렵지 않아요~!"
@@ -114,7 +113,7 @@ Newli.defaultProps = {
 
 const Full = styled.div`
 background-color: #f8f8f8;
-width: 835px;
+width: 975px;
 padding-left: 30px;
 `;
 const FirstDiv = styled.div`
