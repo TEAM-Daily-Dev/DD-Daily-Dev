@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import NavMain from "../navMain/NavMain";
+import EditFooter from '../reply/EditFooter';
 
 function Update({ newDatas, fetchData, setLoaDing, loaDing }) {
     let navi = useNavigate();
@@ -55,50 +57,64 @@ function Update({ newDatas, fetchData, setLoaDing, loaDing }) {
     }, [loaDing, newDatas.length]);
 
     return (
-        <BackDiv>{loaDing === true &&
-            <HeaderDiv>
-                <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
-                <TextAreaFirst
-                    height="auto"
-                    type='text'
-                    placeholder='제목'
-                    value={newTitle}
-                    onChange={onChange} />
-                <hr></hr>
-                <TextAreaFirst
-                    height="80%"
-                    className="text-area"
-                    placeholder='내용'
-                    value={newcontent}
-                    onChange={onChange2} />
-                <ButtonDiv>
-                    <DivButton><ButtonB href="#" onClick={addTitle}>Publish</ButtonB></DivButton>
-                    <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
-                </ButtonDiv>
-            </HeaderDiv>
-        }
-        </BackDiv>
+    <>
+    <MainStyle>
+        <div>
+            <NavMain />
+        </div>
+        <div>
+            <BackDiv>
+                {loaDing === true &&
+                <HeaderDiv>
+                    <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
+                    <TextAreaFirst
+                        height="auto"
+                        type='text'
+                        placeholder='제목'
+                        value={newTitle}
+                        onChange={onChange} />
+                    <hr></hr>
+                    <TextAreaFirst
+                        height="80%"
+                        className="text-area"
+                        placeholder='내용'
+                        value={newcontent}
+                        onChange={onChange2} />
+                    <ButtonDiv>
+                        <DivButton><ButtonB href="#" onClick={addTitle}>Publish</ButtonB></DivButton>
+                        <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
+                    </ButtonDiv>
+                </HeaderDiv>
+            }
+            </BackDiv>
+        </div>
+    </MainStyle>
+    <EditFooter />
+    </>
+
     );
 };
-
+const MainStyle = styled.div`
+  display: flex;
+  width: 1248px;
+  margin: 0 auto;
+`;
 const BackDiv = styled.div`
 background-color:#EFEFEF;
 width:100%;
-height:1000px;
-position:relative;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 300px;
+padding: 16px;
+width: 975px;
 `;
 
 const HeaderDiv = styled.div`
 width:60%;
-height:80%;
+height: 800px;
 background:#ffffff;
-position:absolute;
-margin-top:50px;
 padding: 50px;
+width: 975px;
 `;
 
 const TextAreaFirst = styled.textarea`

@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { ref, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
+import NavMain from "../navMain/NavMain";
+import EditFooter from '../reply/EditFooter';
 
 function Create({ newDatas, setNewDatas, fetchData }) {
 
@@ -53,46 +54,56 @@ function Create({ newDatas, setNewDatas, fetchData }) {
         }
     }, [newDatas])
     return (
-        <BackDiv>
-            <HeaderDiv>
-                <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
-                <TextAreaFirst height="auto" type='text' placeholder='New Post title here'
-                    ref={writeTitle} />
-                <TagDiv>Add up to 4 tags...</TagDiv>
-                <hr />
-                <TextAreaFirst height="80%" placeholder='Write yout post content here...' ref={newcontent}></TextAreaFirst>
-                <PasswordDiv>
-                    <PasswordInput type="password" placeholder="Password Please" ref={newId}></PasswordInput>
-                </PasswordDiv>
-                <ButtonDiv>
-                    <DivButton><ButtonB href="#" onClick={CreateWrite}>Publish</ButtonB></DivButton>
-                    <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
-                </ButtonDiv>
-            </HeaderDiv>
-        </BackDiv>
+    <>
+    <MainStyle>
+        <div>
+            <NavMain />
+        </div>
+        <div>
+            <BackDiv>
+                <HeaderDiv>
+                    <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
+                    <TextAreaFirst height="auto" type='text' placeholder='New Post title here'
+                        ref={writeTitle} />
+                    <TagDiv>Add up to 4 tags...</TagDiv>
+                    <hr />
+                    <TextAreaFirst height="80%" placeholder='Write yout post content here...' ref={newcontent}></TextAreaFirst>
+                    <PasswordDiv>
+                        <PasswordInput type="password" placeholder="Password Please" ref={newId}></PasswordInput>
+                    </PasswordDiv>
+                    <ButtonDiv>
+                        <DivButton><ButtonB href="#" onClick={CreateWrite}>Publish</ButtonB></DivButton>
+                        <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
+                    </ButtonDiv>
+                </HeaderDiv>
+            </BackDiv>
+        </div>
+        </MainStyle>
+    <EditFooter />
+    </>
     );
 };
-
+const MainStyle = styled.div`
+  display: flex;
+  width: 1248px;
+  margin: 0 auto;
+`;
 const BackDiv = styled.div`
 background-color:#EFEFEF;
 width:100%;
-height:1000px;
-position:relative;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 300px;
+padding: 16px;
+width: 975px;
 `;
-
 const HeaderDiv = styled.div`
 width:60%;
-height:80%;
+height: 800px;
 background:#ffffff;
-position:absolute;
-margin-top:50px;
 padding: 50px;
+width: 975px;
 `;
-
 const TextAreaFirst = styled.textarea`
 border: none;
 resize: none;

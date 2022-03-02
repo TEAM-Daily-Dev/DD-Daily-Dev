@@ -4,8 +4,8 @@ import Creply from "../reply/Creply";
 import styled from "styled-components";
 import Profile from "../img/profile.png"
 import axios from "axios";
-import EditFooter from '../reply/EditFooter';
 import NavMain from "../navMain/NavMain";
+import EditFooter from '../reply/EditFooter';
 
 function Read({ newDatas, fetchData }) {
 
@@ -103,7 +103,6 @@ function Read({ newDatas, fetchData }) {
         </div>
     </MainStyle>
     <EditFooter />
-
     </>
     );
 };
@@ -133,6 +132,7 @@ const HeaderDiv = styled.div`
 
 background:#ffffff;
 padding: 50px;
+width: 976px;
 `;
 const FirstDiv = styled.div`
 display: flex;

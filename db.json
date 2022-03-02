@@ -44,6 +44,12 @@
       "title": "hgfdhgf",
       "contents": "hgfdh",
       "id": 2
+    },
+    {
+      "postid": 987,
+      "title": "처음 실행하기!",
+      "contents": "\nnpm install > \nyarn install > \n\nyarn add axios > \nnpm i axios > \n\nyarn add hoist-non-react-methods > \nyarn add styled-components > \n\nyarn build > \nsudo npm i -g server & pw > \nnpm install json-server >\n\n(package.json에서 스크립트에 추가 \"scripts\": \n{ ..., \"serve\": \"json-server --watch data.json --port 8000\" },) >\n\n스크립트에 추가한것 아래 실행하면서 데이터 서버 실행됨\n\nyarn run serve > \n\nyarn start ! \n\n끝!\n\n",
+      "id": 3
     }
   ],
   "boardsreply": [
@@ -64,6 +70,12 @@
       "comment": "asdfasdf",
       "like": 0,
       "id": 7
+    },
+    {
+      "sameId": 3,
+      "comment": "시작하세요!",
+      "like": 0,
+      "id": 8
     }
   ]
 }
