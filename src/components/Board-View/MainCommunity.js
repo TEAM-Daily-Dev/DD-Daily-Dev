@@ -1,11 +1,8 @@
 /*eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link, } from "react-router-dom";
-import "../css/maincommunity.css"
-import Second_logo from "../img/second-logo.png"
 import PageNum from "./PageNum";
 import styled from "styled-components";
-import { tab } from "@testing-library/user-event/dist/tab";
 
 function MainCommunity({ newDatas, fetchData }) {
 
