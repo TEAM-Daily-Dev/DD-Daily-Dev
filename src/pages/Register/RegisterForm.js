@@ -4,27 +4,14 @@ import {
   faTimes,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-import Login from "./Login";
-
-import { SectionContainer } from "./StyledComponents/SectionContainer";
-import { FormContainer } from "./StyledComponents/FormContainer";
-import { InputField, Button } from "./StyledComponents/InputButton";
-import {
-  ShowMarks,
-  ErrMsg,
-  OffScreen,
-  Instructions,
-} from "./StyledComponents/ErrorOffscreen";
+import Login from "../../pages/Login";
 
 import styled from "styled-components";
-const StyledLink = styled(Link)`
-  text-align: center;
-  text-decoration: none;
-`;
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -92,19 +79,19 @@ function RegisterForm({ continueRegister }) {
 
   return (
     <>
-      <SectionContainer>
-        {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
+      <div>
+        {errMsg && <div>{errMsg}</div>}
         <h1 style={{ textAlign: "center" }}>Welcome to DEV Community</h1>
-        <FormContainer onSubmit={handleSubmit}>
+        <div onSubmit={handleSubmit}>
           <label htmlFor="username">
             Username:
             {!validName || !user ? (
               <FontAwesomeIcon icon={faTimes} style={{ display: "none" }} />
             ) : (
-              <ShowMarks icon={faCheck} style={{ color: "limegreen" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ color: "limegreen" }} />
             )}
           </label>
-          <InputField
+          <input
             type="text"
             id="username"
             ref={userRef}
@@ -116,7 +103,7 @@ function RegisterForm({ continueRegister }) {
             onBlur={() => setUserFocus(false)}
           />
           {userFocus && !user && !validName ? (
-            <Instructions>
+            <div>
               <FontAwesomeIcon icon={faInfoCircle} />
               <br />
               &nbsp; - 4 to 24 characters.
@@ -124,9 +111,9 @@ function RegisterForm({ continueRegister }) {
               &nbsp; - Must begin with a letter.
               <br />
               &nbsp; - Letters, numbers, underscores, hyphens allowed.
-            </Instructions>
+            </div>
           ) : (
-            <OffScreen />
+            <span></span>
           )}
 
           <label htmlFor="password">
@@ -143,7 +130,7 @@ function RegisterForm({ continueRegister }) {
             )}
           </label>
 
-          <InputField
+          <input
             type="password"
             id="password"
             onChange={(e) => setPwd(e.target.value)}
@@ -153,15 +140,15 @@ function RegisterForm({ continueRegister }) {
             onBlur={() => setPwdFocus(false)}
           />
           {pwdFocus && !validPwd ? (
-            <Instructions>
+            <div>
               <FontAwesomeIcon icon={faInfoCircle} /> &nbsp;
               <br /> &nbsp; - 8 to 24 characters.
               <br /> &nbsp; - Must include uppercase and lowercase letters, a
               number and a special character.
               <br /> &nbsp; - Allowed special characters: ! @ # $ %
-            </Instructions>
+            </div>
           ) : (
-            <OffScreen />
+            <span></span>
           )}
 
           <label htmlFor="confirm_pwd">
@@ -177,7 +164,7 @@ function RegisterForm({ continueRegister }) {
               <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
             )}
           </label>
-          <InputField
+          <input
             type="password"
             id="confirm_pwd"
             onChange={(e) => setMatchPwd(e.target.value)}
@@ -187,28 +174,33 @@ function RegisterForm({ continueRegister }) {
             onBlur={() => setMatchFocus(false)}
           />
           {matchFocus && !validMatch ? (
-            <Instructions>
+            <div>
               {" "}
               <FontAwesomeIcon icon={faInfoCircle} /> &nbsp; Must match the
               first password input field.
-            </Instructions>
+            </div>
           ) : (
-            <OffScreen />
+            <span></span>
           )}
           {!validName || !validPwd || !validMatch ? (
-            <Button disabled>Sign Up</Button>
+            <button disabled>Sign Up</button>
           ) : (
-            <Button> Sign Up</Button>
+            <button> Sign Up</button>
           )}
-        </FormContainer>
+        </div>
 
         <StyledLink to="/login" element={<Login />}>
           <span>Already have an account?</span> &nbsp;
           <span style={{ color: "#4646c7" }}>Log in</span>
         </StyledLink>
-      </SectionContainer>
+      </div>
     </>
   );
 }
+
+const StyledLink = styled(Link)`
+  text-align: center;
+  text-decoration: none;
+`;
 
 export default RegisterForm;

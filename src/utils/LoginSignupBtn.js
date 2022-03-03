@@ -1,5 +1,6 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 const LoginSignupBtn = ({ main, top }) => {
   const styles = {
@@ -9,8 +10,12 @@ const LoginSignupBtn = ({ main, top }) => {
 
   return (
     <Wrapper {...styles}>
-      <SignUpBtn {...styles}>Create account</SignUpBtn>
-      <LogInBtn {...styles}>Log in</LogInBtn>
+      <SignUpBtn {...styles} to="/register">
+        Create account
+      </SignUpBtn>
+      <LogInBtn {...styles} to="/login">
+        Log in{" "}
+      </LogInBtn>
     </Wrapper>
   );
 };
@@ -25,7 +30,7 @@ const Wrapper = styled.div`
     `};
 `;
 
-const SignUpBtn = styled.button`
+const SignUpBtn = styled(Link)`
   height: 40px;
   color: #3b49df;
   border: 1px solid #3b49df;
@@ -48,7 +53,7 @@ const SignUpBtn = styled.button`
   }
 `;
 
-const LogInBtn = styled.button`
+const LogInBtn = styled(Link)`
   height: 40px;
   border: none;
   padding: 8px 16px;
