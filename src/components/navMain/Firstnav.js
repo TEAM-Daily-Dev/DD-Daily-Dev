@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const Firstnav = () => {
     return (
         <>
-            {/* MAIN Nav START */}
             <nav>
                 <UlStyle>
                     <LiStyle>
