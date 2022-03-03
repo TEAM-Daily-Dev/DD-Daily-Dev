@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
-import { SearchInput } from 'components/Search';
-import { Logo } from 'assets';
-import { Hamburger, SearchLinkBtn } from 'assets/Search';
-import LoginSignupBtn from 'utils/LoginSignupBtn';
-import { TABLET, DESKTOP } from 'utils/constants/responsive';
+import React from "react";
+import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import { SearchInput } from "components/Search";
+import { Hamburger, SearchLinkBtn } from "assets/Search";
+import LoginSignupBtn from "utils/LoginSignupBtn";
+import { TABLET, DESKTOP } from "utils/constants/responsive";
 
 const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const navigate = useNavigate();
@@ -13,19 +12,29 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   return (
     <Wrapper>
       <InnerWrap>
-        <LogoSearchBox>
-          <LogoBox>
-            <MenuBtn>
-              <Hamburger />
-            </MenuBtn>
-            <LogoLink to='/'>
-              <LogoImg src={Logo} alt='site-logo' />
+        <LogoBox>
+          <MenuBtn>
+            <Hamburger />
+          </MenuBtn>
+          <LogoTitle>
+            <LogoLink to="/">
+              <Logo>
+                <span>SWFB</span>&nbsp;STUDY
+              </Logo>
             </LogoLink>
-          </LogoBox>
-          <SearchInput header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
-        </LogoSearchBox>
+          </LogoTitle>
+        </LogoBox>
+        <SearchBox>
+          <SearchInput
+            header
+            keyword={keyword}
+            handleChange={handleChange}
+            handleKeyPress={handleKeyPress}
+            handleSubmit={handleSubmit}
+          />
+        </SearchBox>
         <EntryBox>
-          <SearchBtn onClick={() => navigate('/search')}>
+          <SearchBtn onClick={() => navigate("/search")}>
             <SearchLinkBtn />
           </SearchBtn>
           <LoginSignupBtn top />
@@ -37,7 +46,7 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 57px;
+  height: 83px;
   background: #fff;
   position: fixed;
   top: 0;
@@ -49,31 +58,27 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   padding: 0 16px;
   border-bottom: 1px solid #d4d4d4;
+  padding: 0 32px;
 
   @media (max-width: ${TABLET}) {
-    padding: 0;
-  }
-
-  @media (max-width: ${DESKTOP}) {
-    padding: 0 8px;
+    padding: 24px;
   }
 `;
 
 const InnerWrap = styled.div`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1784px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-`;
-
-const LogoSearchBox = styled.div`
-  display: flex;
+  align-items: center;
 `;
 
 const LogoBox = styled.div`
   display: flex;
 `;
+
+const SearchBox = styled.div``;
 
 const MenuBtn = styled.button`
   display: none;
@@ -86,13 +91,28 @@ const MenuBtn = styled.button`
   }
 `;
 
-const LogoLink = styled(Link)`
-  width: 50px;
-  height: 40px;
+const LogoTitle = styled.div`
+  display: flex;
+  align-items: center;
+  width: 18vw;
+
+  & span {
+    color: #6550ff;
+  }
+
+  @media (max-width: ${TABLET}) {
+    line-height: 2;
+  }
 `;
 
-const LogoImg = styled.img`
-  width: 100%;
+const LogoLink = styled(Link)`
+  width: 50px;
+`;
+
+const Logo = styled.p`
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.7;
 `;
 
 const EntryBox = styled.div`
@@ -116,10 +136,6 @@ const SearchBtn = styled.button`
 
   &:hover {
     background: #ebecfc;
-
-    & svg {
-      fill: #2f3ab2;
-    }
   }
 
   @media (max-width: ${TABLET}) {
