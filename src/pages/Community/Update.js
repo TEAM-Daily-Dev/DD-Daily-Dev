@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import NavMain from "../navMain/NavMain";
-import EditFooter from '../reply/EditFooter';
+import NavMain from "../../components/navMain/NavMain";
+import EditFooter from '../../components/reply/EditFooter';
 
 function Update({ newDatas, fetchData, setLoaDing, loaDing }) {
     let navi = useNavigate();
@@ -57,40 +57,40 @@ function Update({ newDatas, fetchData, setLoaDing, loaDing }) {
     }, [loaDing, newDatas.length]);
 
     return (
-    <>
-    <MainStyle>
-        <div>
-            <NavMain />
-        </div>
-        <div>
-            <BackDiv>
-                {loaDing === true &&
-                <HeaderDiv>
-                    <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
-                    <TextAreaFirst
-                        height="auto"
-                        type='text'
-                        placeholder='제목'
-                        value={newTitle}
-                        onChange={onChange} />
-                    <hr></hr>
-                    <TextAreaFirst
-                        height="80%"
-                        className="text-area"
-                        placeholder='내용'
-                        value={newcontent}
-                        onChange={onChange2} />
-                    <ButtonDiv>
-                        <DivButton><ButtonB href="#" onClick={addTitle}>Publish</ButtonB></DivButton>
-                        <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
-                    </ButtonDiv>
-                </HeaderDiv>
-            }
-            </BackDiv>
-        </div>
-    </MainStyle>
-    <EditFooter />
-    </>
+        <>
+            <MainStyle>
+                <div>
+                    <NavMain />
+                </div>
+                <div>
+                    <BackDiv>
+                        {loaDing === true &&
+                            <HeaderDiv>
+                                <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
+                                <TextAreaFirst
+                                    height="auto"
+                                    type='text'
+                                    placeholder='제목'
+                                    value={newTitle}
+                                    onChange={onChange} />
+                                <hr></hr>
+                                <TextAreaFirst
+                                    height="80%"
+                                    className="text-area"
+                                    placeholder='내용'
+                                    value={newcontent}
+                                    onChange={onChange2} />
+                                <ButtonDiv>
+                                    <DivButton><ButtonB href="#" onClick={addTitle}>Publish</ButtonB></DivButton>
+                                    <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
+                                </ButtonDiv>
+                            </HeaderDiv>
+                        }
+                    </BackDiv>
+                </div>
+            </MainStyle>
+            <EditFooter />
+        </>
 
     );
 };

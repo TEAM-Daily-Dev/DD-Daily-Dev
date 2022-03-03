@@ -1,95 +1,94 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Profile from "../img/profile.png"
 import axios from "axios";
 import ReplyShow from "./ReplyShow";
 
 function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffect }) {
 
-    const [newConmment, setNewConmment] = useState("");
+  const [newConmment, setNewConmment] = useState("");
 
-    function onChange(e) {
-        const { value } = e.target;
-        setNewConmment(value);
+  function onChange(e) {
+    const { value } = e.target;
+    setNewConmment(value);
+  }
+
+  function CreateReply(event) {
+    event.preventDefault();
+    if (newConmment === "") {
+      return alert("댓글의 내용을 적어주세요.")
     }
+    axios({
+      method: "POST",
+      url: `http://localhost:8000/boardsreply`,
+      data: {
+        sameId: parseInt(setid),
+        comment: newConmment,
+        like: 0,
+      }
+    })
+      .then(res => {
+        setNewReply([...newReply, res]);
+        setCheckUseEffect(!checkUseEffect);
+        setNewConmment("");
+        alert("생성이 완료되었습니다.");
+      })
+      .catch(err => {
+        return alert(err.message);
+      })
+  };
+  const newArray = newReply.filter(a => a.sameId === parseInt(setid));//댓글 갯수
 
-    function CreateReply(event) {
-        event.preventDefault();
-        if (newConmment === "") {
-            return alert("댓글의 내용을 적어주세요.")
-        }
-        axios({
-            method: "POST",
-            url: `http://localhost:8000/boardsreply`,
-            data: {
-                sameId: parseInt(setid),
-                comment: newConmment,
-                like: 0,
-            }
-        })
-            .then(res => {
-                setNewReply([...newReply, res]);
-                setCheckUseEffect(!checkUseEffect);
-                setNewConmment("");
-                alert("생성이 완료되었습니다.");
-            })
-            .catch(err => {
-                return alert(err.message);
-            })
-    };
-    const newArray = newReply.filter(a => a.sameId === parseInt(setid));//댓글 갯수
-
-    return (
-        <>
-        <CommentSection>
+  return (
+    <>
+      <CommentSection>
         <div>
-            <DiscussionHeader>
+          <DiscussionHeader>
             <div>
-                
-                <SubjectH2>
+
+              <SubjectH2>
                 Comments ({newReply.length > 1
-                            ? newArray.length
-                            : 0})
-                </SubjectH2>
+                  ? newArray.length
+                  : 0})
+              </SubjectH2>
             </div>
-            </DiscussionHeader>
-            {/* 댓글작성부분 */}
-            <form>
+          </DiscussionHeader>
+          {/* 댓글작성부분 */}
+          <form>
             <CommentDiv>
-                <TextareaDiv>
-                <CommentTextarea 
-                    type="text" 
-                    placeholder="댓글을 입력해 주세요." 
-                    value={newConmment} 
-                    onChange={onChange}
-                >   
+              <TextareaDiv>
+                <CommentTextarea
+                  type="text"
+                  placeholder="댓글을 입력해 주세요."
+                  value={newConmment}
+                  onChange={onChange}
+                >
                 </CommentTextarea>
-                </TextareaDiv>
+              </TextareaDiv>
             </CommentDiv>
             <div>
-                <CommentBtnDiv>
-                    {newConmment === '' ? (
-                        <>
-                        <SubmitBtnDis type="button" disabled>등록</SubmitBtnDis>
-                        </>
-                    ) : (
-                        <>
-                        <SubmitBtn type="submit" value="등록" onClick={CreateReply}></SubmitBtn>
-                        </>
-                    )}
-                </CommentBtnDiv>
+              <CommentBtnDiv>
+                {newConmment === '' ? (
+                  <>
+                    <SubmitBtnDis type="button" disabled>등록</SubmitBtnDis>
+                  </>
+                ) : (
+                  <>
+                    <SubmitBtn type="submit" value="등록" onClick={CreateReply}></SubmitBtn>
+                  </>
+                )}
+              </CommentBtnDiv>
             </div>
-            </form>
-            {/* {comms.length > 0 ? ( */}
-            {newReply.length > 0 &&
-                newReply.map((a, i) => {
-                    return <ReplyShow setNewReply={setNewReply} newReply={newReply} setCheckUseEffect={setCheckUseEffect} checkUseEffect={checkUseEffect} setid={setid} key={i} index={i} sameId={a.sameId} comment={a.comment} newid={a.id} like={a.like}></ReplyShow>
-                })
-            }
+          </form>
+          {/* {comms.length > 0 ? ( */}
+          {newReply.length > 0 &&
+            newReply.map((a, i) => {
+              return <ReplyShow setNewReply={setNewReply} newReply={newReply} setCheckUseEffect={setCheckUseEffect} checkUseEffect={checkUseEffect} setid={setid} key={i} index={i} sameId={a.sameId} comment={a.comment} newid={a.id} like={a.like}></ReplyShow>
+            })
+          }
         </div>
-        </CommentSection>
-        </>
-    );
+      </CommentSection>
+    </>
+  );
 };
 
 const CommentSection = styled.section`

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function PageNum({ currentPage, postPage, newDatas, setCurrentPage }) {
+function Pagination({ currentPage, postPage, newDatas, setCurrentPage }) {
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(newDatas.length / postPage); i++) {
@@ -78,4 +78,4 @@ border:none;
 }
 `;
 
-export default PageNum
+export default Pagination

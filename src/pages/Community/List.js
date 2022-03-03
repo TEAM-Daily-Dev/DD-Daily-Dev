@@ -1,12 +1,12 @@
 /*eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link, } from "react-router-dom";
-import PageNum from "./PageNum";
-import NavMain from "../navMain/NavMain";
+import PageNum from "../../components/Pagination";
+import NavMain from "../../components/navMain/NavMain";
 
 import styled from "styled-components";
 
-function MainCommunity({ newDatas, fetchData }) {
+function CommunityList({ newDatas, fetchData }) {
 
     const [currentPage, setCurrentPage] = useState(1);//현재 페이지
     const [postPage] = useState(10)//포스트 개수
@@ -17,7 +17,7 @@ function MainCommunity({ newDatas, fetchData }) {
     const [checkTrue, setcheckTrue] = useState(true);
     useEffect(() => {
         fetchData();
-    }, [newDatas, currentPage, checkTrue])
+    }, [currentPage, checkTrue])
 
 
     return (
@@ -53,9 +53,9 @@ function MainCommunity({ newDatas, fetchData }) {
                         </Thead>
                         {currentPosts.map((a, i) => {
                             return <Tbody>
-                                        <Newli title={a.title} key={i} index={a.id}></Newli>
-                                   </Tbody>
-                            })
+                                <Newli title={a.title} key={i} index={a.id}></Newli>
+                            </Tbody>
+                        })
                         }
                     </Table>
                     <LastDiv>
@@ -86,7 +86,6 @@ function Newli({ title, index }) {
             </Td>
             <Td>
                 <a href={newindex}>
-                    {/* {Data.find(x => x.id).title} */}
                     {title}
                 </a>
             </Td>
@@ -184,4 +183,4 @@ border-bottom: 2px solid #f8f8f8;
 padding:15px 10px;
 `;
 
-export default MainCommunity;
+export default CommunityList;

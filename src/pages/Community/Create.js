@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { ref, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import NavMain from "../navMain/NavMain";
-import EditFooter from '../reply/EditFooter';
+import NavMain from "../../components/navMain/NavMain";
+import EditFooter from '../../components/reply/EditFooter';
 
-function Create({ newDatas, setNewDatas, fetchData }) {
+function BoardCreate({ newDatas, setNewDatas, fetchData }) {
 
     const navi = useNavigate();
     const writeTitle = useRef("");
@@ -54,33 +54,33 @@ function Create({ newDatas, setNewDatas, fetchData }) {
         }
     }, [newDatas])
     return (
-    <>
-    <MainStyle>
-        <div>
-            <NavMain />
-        </div>
-        <div>
-            <BackDiv>
-                <HeaderDiv>
-                    <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
-                    <TextAreaFirst height="auto" type='text' placeholder='New Post title here'
-                        ref={writeTitle} />
-                    <TagDiv>Add up to 4 tags...</TagDiv>
-                    <hr />
-                    <TextAreaFirst height="80%" placeholder='Write yout post content here...' ref={newcontent}></TextAreaFirst>
-                    <PasswordDiv>
-                        <PasswordInput type="password" placeholder="Password Please" ref={newId}></PasswordInput>
-                    </PasswordDiv>
-                    <ButtonDiv>
-                        <DivButton><ButtonB href="#" onClick={CreateWrite}>Publish</ButtonB></DivButton>
-                        <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
-                    </ButtonDiv>
-                </HeaderDiv>
-            </BackDiv>
-        </div>
-        </MainStyle>
-    <EditFooter />
-    </>
+        <>
+            <MainStyle>
+                <div>
+                    <NavMain />
+                </div>
+                <div>
+                    <BackDiv>
+                        <HeaderDiv>
+                            <DivButton><ButtonA href="#">Add a cover image</ButtonA></DivButton>
+                            <TextAreaFirst height="auto" type='text' placeholder='New Post title here'
+                                ref={writeTitle} />
+                            <TagDiv>Add up to 4 tags...</TagDiv>
+                            <hr />
+                            <TextAreaFirst height="80%" placeholder='Write yout post content here...' ref={newcontent}></TextAreaFirst>
+                            <PasswordDiv>
+                                <PasswordInput type="password" placeholder="Password Please" ref={newId}></PasswordInput>
+                            </PasswordDiv>
+                            <ButtonDiv>
+                                <DivButton><ButtonB href="#" onClick={CreateWrite}>Publish</ButtonB></DivButton>
+                                <DivButton><ButtonB href="#" onClick={returnPage}>Cancel</ButtonB></DivButton>
+                            </ButtonDiv>
+                        </HeaderDiv>
+                    </BackDiv>
+                </div>
+            </MainStyle>
+            <EditFooter />
+        </>
     );
 };
 const MainStyle = styled.div`
@@ -170,4 +170,4 @@ color:grey;
 `;
 
 
-export default Create;
+export default BoardCreate;

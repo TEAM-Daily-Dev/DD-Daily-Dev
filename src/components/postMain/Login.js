@@ -1,7 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-
-import loginLogoImg from "../img/devlogo-pwa-512.png"
+import loginLogoImg from "../../assets/images/devlogo-pwa-512.png"
 
 const Login = () => {
     return (
@@ -12,7 +11,7 @@ const Login = () => {
                         <LoginImg></LoginImg>
                     </LoginImgDiv>
                     <div>
-                        <IntroTitle><TitleLink>DEV Community</TitleLink> is a community of 795,483 amazing developers</IntroTitle>    
+                        <IntroTitle><TitleLink>DEV Community</TitleLink> is a community of 795,483 amazing developers</IntroTitle>
                         <LoginP>We're a place where coders share, stay up-to-date and grow their careers.</LoginP>
                     </div>
                 </LoginContent>

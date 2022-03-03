@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Firstnav from "./Firstnav";
 import Socialnetworks from "./Socialnetworks";
 import Hashtags from "./Hashtags";
-import ad from '../img/adimg.png';
+import ad from '../../assets/images/adimg.png';
 
 const MainPage = () => {
   return (
@@ -11,7 +11,7 @@ const MainPage = () => {
       <Wrapper>
         <InnerBox>
           <LeftNavbar>
-            
+
             {/* Login */}
             <IntroBox>
               <IntroTitle>
@@ -44,17 +44,17 @@ const MainPage = () => {
             </IntroBox>
             {/* etc */}
             <Margin>
-            <IntroBox>
-              <IntroDesc>DEV runs on 100% open source code known as 
-                <ContentsLink>Forem.</ContentsLink>
-                Contribute to the codebase or host your own!
-                <StrongText>Check these out! 👇</StrongText>
-                <CheckOutUl>
-                  <CheckOutLi>Main Forem Repo</CheckOutLi>
-                  <CheckOutLi>Self-Host Instructions</CheckOutLi>
-                </CheckOutUl>
-              </IntroDesc>
-            </IntroBox>
+              <IntroBox>
+                <IntroDesc>DEV runs on 100% open source code known as
+                  <ContentsLink>Forem.</ContentsLink>
+                  Contribute to the codebase or host your own!
+                  <StrongText>Check these out! 👇</StrongText>
+                  <CheckOutUl>
+                    <CheckOutLi>Main Forem Repo</CheckOutLi>
+                    <CheckOutLi>Self-Host Instructions</CheckOutLi>
+                  </CheckOutUl>
+                </IntroDesc>
+              </IntroBox>
             </Margin>
 
           </LeftNavbar>
