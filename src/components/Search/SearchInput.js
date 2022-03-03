@@ -1,9 +1,16 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { SearchBtnIcon } from 'assets/Search';
-import { MOBILE, TABLET } from 'utils/constants/responsive';
+import React from "react";
+import styled, { css } from "styled-components";
+import { SearchBtnIcon } from "assets/Search";
+import { MOBILE, TABLET } from "utils/constants/responsive";
 
-const SearchInput = ({ header, search, keyword, handleChange, handleSubmit, handleKeyPress }) => {
+const SearchInput = ({
+  header,
+  search,
+  keyword,
+  handleChange,
+  handleSubmit,
+  handleKeyPress,
+}) => {
   const styles = {
     header,
     search,
@@ -12,7 +19,12 @@ const SearchInput = ({ header, search, keyword, handleChange, handleSubmit, hand
   return (
     <Wrapper>
       <SearchBox {...styles}>
-        <ElSearchInput placeholder='Search...' value={keyword} onChange={handleChange} onKeyPress={handleKeyPress} />
+        <ElSearchInput
+          placeholder="Search..."
+          value={keyword}
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+        />
         <SearchBtn onClick={handleSubmit}>
           <SearchBtnIcon />
         </SearchBtn>
@@ -69,27 +81,22 @@ const ElSearchInput = styled.input`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: calc(0.5em - 1px) 0.5em;
-  font-size: 16px;
-  border: 1px solid #d4d4d4;
-  border-radius: 7px;
+  padding: 8px 0 8px 36px;
+  border: 1px solid #bfbfbf;
+  border-radius: 6px;
+
+  &::placeholder {
+    color: #bfbfbf;
+  }
 `;
 
 const SearchBtn = styled.button`
   position: absolute;
-  top: 1px;
-  right: 1px;
+  top: 2px;
+  left: 1px;
   padding: 0 9px;
   height: 95%;
   border-radius: 7px;
-
-  &:hover {
-    background: #ebecfc;
-
-    & svg {
-      fill: #2f3ab2;
-    }
-  }
 `;
 
 export default SearchInput;
