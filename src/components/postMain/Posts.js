@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
-import userPic from '../img/6.png';
+import userPic from '../../assets/images/6.png';
 
 const Posts = () => {
     return (

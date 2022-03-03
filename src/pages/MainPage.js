@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { getMainList } from 'utils/getApi';
 import Header from 'components/Header';
 import Navigator from 'components/Navigator';
-import MainCommunity from 'components/Board-View/MainCommunity';
 
 const MainPage = () => {
   const navigate = useNavigate();

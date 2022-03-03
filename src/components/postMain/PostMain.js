@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import postPic from '../img/2h6crhh836sfyu4dai13.webp';
+import postPic from '../../assets/images/2h6crhh836sfyu4dai13.webp';
 import SortTaps from "./SortTaps";
 import Posts from "./Posts";
 import Login from './Login';

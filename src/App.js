@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { MainPage, LoginPage, DetailPage, SearchPage } from 'pages';
-import Create from './components/Board-Crud/Create';
-import Update from './components/Board-Crud/Update';
-import Read from './components/Board-Crud/Read';
+import BoardCreate from './pages/Community/Create';
+import Update from './pages/Community/Update';
+import BoardDetail from './pages/Community/Detail';
 import EditReply from './components/reply/EditReply';
 import axios from 'axios';
-import MainCommunity from 'components/Board-View/MainCommunity';
+import MainCommunity from 'pages/Community/List';
 
 function App() {
 
@@ -28,9 +28,9 @@ function App() {
       <Route path='/login' element={<LoginPage />} />
       <Route path='/detail' element={<DetailPage />} />
       <Route path='/search' element={<SearchPage />} />
-      <Route path="/write" element={<Create newDatas={newDatas} setNewDatas={setNewDatas} fetchData={fetchData}></Create>}></Route>
+      <Route path="/write" element={<BoardCreate newDatas={newDatas} setNewDatas={setNewDatas} fetchData={fetchData}></BoardCreate>}></Route>
       <Route path="/putndelete/:setid" element={<Update newDatas={newDatas} fetchData={fetchData} loaDing={loaDing} setLoaDing={setLoaDing}></Update>}></Route>
-      <Route path='/:setid' element={<Read fetchData={fetchData} newDatas={newDatas}></Read>}></Route>
+      <Route path='/:setid' element={<BoardDetail fetchData={fetchData} newDatas={newDatas}></BoardDetail>}></Route>
       <Route path='/edit/:setid' element={<EditReply></EditReply>}></Route>
       <Route path='/Board' element={<MainCommunity newDatas={newDatas} fetchData={fetchData}></MainCommunity>}></Route>
     </Routes>

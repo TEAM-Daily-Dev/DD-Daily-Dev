@@ -4,7 +4,7 @@ import axios from "axios";
 import { parseInt } from "lodash";
 import styled from 'styled-components'
 import EditFooter from './EditFooter';
-import Profile from "../img/profile.png"
+import Profile from "../../assets/images/profile.png"
 import NavMain from "../navMain/NavMain";
 
 function EditReply() {
@@ -58,54 +58,54 @@ function EditReply() {
 
   return (
     <>
-    <MainStyle>
-      <div>
+      <MainStyle>
+        <div>
           <NavMain />
-      </div>
-      <div>
-        {loading === true ? 
-          <>
-            <EditingComment>
-              <WriteComment>
-                <div>
+        </div>
+        <div>
+          {loading === true ?
+            <>
+              <EditingComment>
+                <WriteComment>
                   <div>
-                    <SubjectH1>Editing comment</SubjectH1>
+                    <div>
+                      <SubjectH1>Editing comment</SubjectH1>
+                    </div>
                   </div>
-                </div>
-                <WriteCommentStart>
-                  <div>
-                    <UserPic></UserPic>
-                  </div>
-                  <CommentWriteDiv>
-                    <form>
-                      <CommentDiv>
-                        <TextareaDiv>
-                          <CommentTextarea 
+                  <WriteCommentStart>
+                    <div>
+                      <UserPic></UserPic>
+                    </div>
+                    <CommentWriteDiv>
+                      <form>
+                        <CommentDiv>
+                          <TextareaDiv>
+                            <CommentTextarea
                               value={newcontent} onChange={onChange}
                             >
-                          </CommentTextarea>
-                        </TextareaDiv>
-                      </CommentDiv>
-                      <div>
+                            </CommentTextarea>
+                          </TextareaDiv>
+                        </CommentDiv>
+                        <div>
                           <CommentBtnDiv>
-                              <SubmitBtn type="submit" value="수정완료" onClick={changeComment}></SubmitBtn>
-                              <DismissBtn onClick={returnPage}>취소</DismissBtn>
+                            <SubmitBtn type="submit" value="수정완료" onClick={changeComment}></SubmitBtn>
+                            <DismissBtn onClick={returnPage}>취소</DismissBtn>
                           </CommentBtnDiv>
-                      </div>
-                    </form>
-                  </CommentWriteDiv>
-                </WriteCommentStart>
-              </WriteComment>
-            </EditingComment>
-          </>
-          : 
-          <LodingImg>
-            <img className="loading-img hidden" src="https://dev.to/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="loading" loading="lazy"/>
-          </LodingImg>
-        }
-      </div>
-    </MainStyle>
-    <EditFooter />
+                        </div>
+                      </form>
+                    </CommentWriteDiv>
+                  </WriteCommentStart>
+                </WriteComment>
+              </EditingComment>
+            </>
+            :
+            <LodingImg>
+              <img className="loading-img hidden" src="https://dev.to/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="loading" loading="lazy" />
+            </LodingImg>
+          }
+        </div>
+      </MainStyle>
+      <EditFooter />
 
     </>
   );
