@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import RegisterSuccess from "./RegisterSuccess";
 import RegisterForm from "./RegisterForm";
 
-function Register() {
+function RegisterPage() {
   const [success, setSuccess] = useState(false);
 
   const continueRegister = () => {
@@ -12,15 +11,16 @@ function Register() {
 
   return (
     <>
-      {success ? (
-        <RegisterSuccess />
+      <div>Register</div>
+      {/* {success ? (
+        <div> Success </div>
       ) : (
         <>
           <RegisterForm continueRegister={continueRegister} />
         </>
-      )}
+      )} */}
     </>
   );
 }
 
-export default Register;
+export default RegisterPage;

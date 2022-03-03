@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import Firstnav from "./Firstnav";
 import Socialnetworks from "./Socialnetworks";
 import Hashtags from "./Hashtags";
-import ad from '../../assets/images/adimg.png';
+import ad from "../../assets/images/adimg.png";
 
 const MainPage = () => {
   return (
@@ -11,13 +11,16 @@ const MainPage = () => {
       <Wrapper>
         <InnerBox>
           <LeftNavbar>
-
             {/* Login */}
             <IntroBox>
               <IntroTitle>
-                <TitleLink>DEV Community</TitleLink> is a community of 790,675 amazing developers
+                <TitleLink>DEV Community</TitleLink> is a community of 790,675
+                amazing developers
               </IntroTitle>
-              <IntroDesc>We're a place where coders share, stay up-to-date and grow their careers.</IntroDesc>
+              <IntroDesc>
+                We're a place where coders share, stay up-to-date and grow their
+                careers.
+              </IntroDesc>
               <EntryBtnGrop>
                 <SignUpBtn>Create account</SignUpBtn>
                 <LogInBtn>Log in</LogInBtn>
@@ -45,7 +48,8 @@ const MainPage = () => {
             {/* etc */}
             <Margin>
               <IntroBox>
-                <IntroDesc>DEV runs on 100% open source code known as
+                <IntroDesc>
+                  DEV runs on 100% open source code known as
                   <ContentsLink>Forem.</ContentsLink>
                   Contribute to the codebase or host your own!
                   <StrongText>Check these out! 👇</StrongText>
@@ -56,7 +60,6 @@ const MainPage = () => {
                 </IntroDesc>
               </IntroBox>
             </Margin>
-
           </LeftNavbar>
         </InnerBox>
       </Wrapper>
@@ -147,7 +150,7 @@ const LogInBtn = styled.button`
   }
 `;
 const AdImg = styled.img.attrs({
-  src: `${ad}`
+  src: `${ad}`,
 })`
   border-radius: 0.375rem;
 `;
@@ -159,7 +162,7 @@ const StrongText = styled.p`
   font-weight: 700;
 `;
 const CheckOutUl = styled.ul`
-list-style: inside;
+  list-style: inside;
 `;
 const CheckOutLi = styled.li`
   color: #3b49df;

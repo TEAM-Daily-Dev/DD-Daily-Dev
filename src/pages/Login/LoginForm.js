@@ -1,27 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Register from "./Register";
+import Register from "../Register";
 
 import styled from "styled-components";
-import { SectionContainer } from "./StyledComponents/SectionContainer";
-import { FormContainer } from "./StyledComponents/FormContainer";
-import { InputField, Button } from "./StyledComponents/InputButton";
-
-// styled plus <tag>
-const ErrMsg = styled.p`
-  text-align: center;
-  background-color: lightpink;
-  color: firebrick;
-  font-weight: bold;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const OffScreen = styled.p`
-  position: absolute;
-  left: -9999px;
-`;
 
 function LoginForm({ logInSucess }) {
   const userRef = useRef();
@@ -59,13 +41,13 @@ function LoginForm({ logInSucess }) {
   };
 
   return (
-    <SectionContainer>
+    <div>
       {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
       <h1 style={{ textAlign: "center" }}>Welcome to DEV Community</h1>
 
-      <FormContainer onSubmit={handleSubmit}>
+      <div onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
-        <InputField
+        <input
           type="text"
           id="username"
           ref={userRef}
@@ -75,15 +57,15 @@ function LoginForm({ logInSucess }) {
           required
         />
         <label htmlFor="password">Password:</label>
-        <InputField
+        <input
           type="password"
           id="password"
           onChange={(e) => setPwd(e.target.value)}
           value={pwd}
           required
         />
-        <Button>Continue</Button>
-      </FormContainer>
+        <buton>Continue</buton>
+      </div>
 
       <p style={{ textAlign: "center" }}>
         <br />
@@ -91,8 +73,23 @@ function LoginForm({ logInSucess }) {
           Need an Account?
         </Link>
       </p>
-    </SectionContainer>
+    </div>
   );
 }
+
+// styled plus <tag>
+const ErrMsg = styled.p`
+  text-align: center;
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const OffScreen = styled.p`
+  position: absolute;
+  left: -9999px;
+`;
 
 export default LoginForm;
