@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const LoginSignupBtn = ({ main, top }) => {
   const styles = {
@@ -14,7 +14,7 @@ const LoginSignupBtn = ({ main, top }) => {
         Create account
       </SignUpBtn>
       <LogInBtn {...styles} to="/login">
-        Log in{" "}
+        Log in
       </LogInBtn>
     </Wrapper>
   );

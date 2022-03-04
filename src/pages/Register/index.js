@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import RegisterForm from "./RegisterForm";
+import RegisterForm from './RegisterForm';
 
 function RegisterPage() {
   const [success, setSuccess] = useState(false);

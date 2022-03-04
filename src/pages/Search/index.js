@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Header from 'components/Header';
 import { ResultCard, SearchHeader, SideNav } from 'components/Search';
 import { getMainList } from 'utils/getApi';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
+import Header from 'layouts/BaseLayout/Header';
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -43,7 +43,9 @@ const SearchPage = () => {
 
   const handleSearch = useCallback(
     (data, value) => {
-      let filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
+      let filteredRes = data?.filter(
+        (result) => matchInput(result.title, value) === true
+      );
       setResults(filteredRes);
     },
     [matchInput]
@@ -66,10 +68,21 @@ const SearchPage = () => {
 
   return (
     <>
-      <Header keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} handleSubmit={handleSubmit} />
+      <Header
+        keyword={keyword}
+        handleChange={handleChange}
+        handleKeyPress={handleKeyPress}
+        handleSubmit={handleSubmit}
+      />
       <Wrapper>
         <InnerBox>
-          <SearchHeader search keyword={keyword} value={value} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+          <SearchHeader
+            search
+            keyword={keyword}
+            value={value}
+            handleChange={handleChange}
+            handleKeyPress={handleKeyPress}
+          />
           <Section>
             <SideNav />
             <Results>

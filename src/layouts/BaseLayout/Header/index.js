@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-import { SearchInput } from "components/Search";
-import { Hamburger, SearchLinkBtn } from "assets/Search";
-import LoginSignupBtn from "utils/LoginSignupBtn";
-import { TABLET, DESKTOP } from "utils/constants/responsive";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
+import { SearchInput } from 'components/Search';
+import { Hamburger, SearchLinkBtn } from 'assets/Search';
+import { TABLET } from 'utils/constants/responsive';
 
 const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const navigate = useNavigate();
@@ -34,10 +33,13 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
           />
         </SearchBox>
         <EntryBox>
-          <SearchBtn onClick={() => navigate("/search")}>
+          <SearchBtn onClick={() => navigate('/search')}>
             <SearchLinkBtn />
           </SearchBtn>
-          <LoginSignupBtn top />
+          <Flex>
+            <LogInBtn to="/login">Log in</LogInBtn>
+            <SignUpBtn to="/register">Create account</SignUpBtn>
+          </Flex>
         </EntryBox>
       </InnerWrap>
     </Wrapper>
@@ -46,7 +48,7 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 83px;
+  height: 80px;
   background: #fff;
   position: fixed;
   top: 0;
@@ -63,6 +65,10 @@ const Wrapper = styled.div`
   @media (max-width: ${TABLET}) {
     padding: 24px;
   }
+`;
+
+const Flex = styled.div`
+  display: flex;
 `;
 
 const InnerWrap = styled.div`
@@ -142,6 +148,38 @@ const SearchBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+`;
+
+const SignUpBtn = styled(Link)`
+  height: 40px;
+  border: 1px solid #3b49df;
+  padding: 7px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  }
+`;
+
+const LogInBtn = styled(Link)`
+  height: 40px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 6px;
+  color: #404040;
+  margin-right: 12px;
+  &:hover {
+    color: #2f3ab2;
+    background: #ebecfc;
+    text-decoration: underline solid #2f3ab2;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
