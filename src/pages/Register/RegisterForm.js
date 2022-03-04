@@ -1,39 +1,39 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from 'react';
 import {
   faCheck,
   faTimes,
   faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
-import { Link } from "react-router-dom";
-import Login from "../../pages/Login";
+import { Link } from 'react-router-dom';
+import Login from '../../pages/Login';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const SERVER = "http://localhost:3500/user";
+const SERVER = 'http://localhost:3500/user';
 
 function RegisterForm({ continueRegister }) {
   const userRef = useRef(); //
 
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
-  const [pwd, setPwd] = useState("");
+  const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
 
-  const [matchPwd, setMatchPwd] = useState("");
+  const [matchPwd, setMatchPwd] = useState('');
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  const [errMsg, setErrMsg] = useState("");
+  const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
     userRef.current.focus();
@@ -49,7 +49,7 @@ function RegisterForm({ continueRegister }) {
   }, [pwd, matchPwd]);
 
   useEffect(() => {
-    setErrMsg("");
+    setErrMsg('');
   }, [user]);
 
   const handleSubmit = async (e) => {
@@ -62,18 +62,18 @@ function RegisterForm({ continueRegister }) {
 
       if (!foundUser) {
         await axios.post(SERVER, JSON.stringify({ user, pwd }), {
-          headers: { "Content-Type": "application/json" },
+          headers: { 'Content-Type': 'application/json' },
         });
 
         continueRegister();
-        setUser("");
-        setPwd("");
-        setMatchPwd("");
+        setUser('');
+        setPwd('');
+        setMatchPwd('');
       } else {
-        setErrMsg("Username Taken");
+        setErrMsg('Username Taken');
       }
     } catch (err) {
-      setErrMsg("Registration Failed");
+      setErrMsg('Registration Failed');
     }
   };
 
@@ -81,14 +81,14 @@ function RegisterForm({ continueRegister }) {
     <>
       <div>
         {errMsg && <div>{errMsg}</div>}
-        <h1 style={{ textAlign: "center" }}>Welcome to DEV Community</h1>
+        <h1 style={{ textAlign: 'center' }}>Welcome to DEV Community</h1>
         <div onSubmit={handleSubmit}>
           <label htmlFor="username">
             Username:
             {!validName || !user ? (
-              <FontAwesomeIcon icon={faTimes} style={{ display: "none" }} />
+              <FontAwesomeIcon icon={faTimes} style={{ display: 'none' }} />
             ) : (
-              <FontAwesomeIcon icon={faCheck} style={{ color: "limegreen" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ color: 'limegreen' }} />
             )}
           </label>
           <input
@@ -119,14 +119,14 @@ function RegisterForm({ continueRegister }) {
           <label htmlFor="password">
             Password:
             {validPwd ? (
-              <FontAwesomeIcon icon={faCheck} style={{ color: "limegreen" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ color: 'limegreen' }} />
             ) : (
-              <FontAwesomeIcon icon={faCheck} style={{ display: "none" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ display: 'none' }} />
             )}
             {validPwd || !pwd ? (
-              <FontAwesomeIcon icon={faTimes} style={{ display: "none" }} />
+              <FontAwesomeIcon icon={faTimes} style={{ display: 'none' }} />
             ) : (
-              <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
+              <FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} />
             )}
           </label>
 
@@ -154,14 +154,14 @@ function RegisterForm({ continueRegister }) {
           <label htmlFor="confirm_pwd">
             Confirm Password:
             {validMatch && matchPwd ? (
-              <FontAwesomeIcon icon={faCheck} style={{ color: "limegreen" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ color: 'limegreen' }} />
             ) : (
-              <FontAwesomeIcon icon={faCheck} style={{ display: "none" }} />
+              <FontAwesomeIcon icon={faCheck} style={{ display: 'none' }} />
             )}
             {validMatch || !matchPwd ? (
-              <FontAwesomeIcon icon={faTimes} style={{ display: "none" }} />
+              <FontAwesomeIcon icon={faTimes} style={{ display: 'none' }} />
             ) : (
-              <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
+              <FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} />
             )}
           </label>
           <input
@@ -175,7 +175,7 @@ function RegisterForm({ continueRegister }) {
           />
           {matchFocus && !validMatch ? (
             <div>
-              {" "}
+              {' '}
               <FontAwesomeIcon icon={faInfoCircle} /> &nbsp; Must match the
               first password input field.
             </div>
@@ -191,7 +191,7 @@ function RegisterForm({ continueRegister }) {
 
         <StyledLink to="/login" element={<Login />}>
           <span>Already have an account?</span> &nbsp;
-          <span style={{ color: "#4646c7" }}>Log in</span>
+          <span style={{ color: '#4646c7' }}>Log in</span>
         </StyledLink>
       </div>
     </>
