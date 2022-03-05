@@ -1,10 +1,10 @@
-import Aside from 'layouts/BaseLayout/Aside';
-import Header from 'layouts/BaseLayout/Header';
-import React from 'react';
 import styled from 'styled-components';
-import Footer from './Footer';
 
-const BaseLayout = ({ children }) => {
+import Aside from './Aside';
+import Footer from './Footer';
+import Header from './Header';
+
+function BaseLayout({ children }) {
   return (
     <div>
       <Header>asd</Header>
@@ -17,7 +17,7 @@ const BaseLayout = ({ children }) => {
       </Flex>
     </div>
   );
-};
+}
 
 const Flex = styled.div`
   display: flex;

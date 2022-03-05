@@ -1,25 +1,26 @@
-import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Register from "../Register";
+import { useRef, useState, useEffect } from 'react';
 
-import styled from "styled-components";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import Register from '../Register';
 
 function LoginForm({ logInSucess }) {
   const userRef = useRef();
 
-  const [user, setUser] = useState("");
-  const [pwd, setPwd] = useState("");
-  const [errMsg, setErrMsg] = useState("");
+  const [user, setUser] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [errMsg, setErrMsg] = useState('');
 
-  const LOGIN_URL = "http://localhost:3500/user";
+  const LOGIN_URL = 'http://localhost:3500/user';
 
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
   useEffect(() => {
-    setErrMsg("");
+    setErrMsg('');
   }, [user, pwd]);
 
   const handleSubmit = async (e) => {
@@ -30,12 +31,12 @@ function LoginForm({ logInSucess }) {
 
       userData.map((person) =>
         person.user.toLowerCase() === user.toLowerCase() && person.pwd === pwd
-          ? (setUser(""), setPwd(""), logInSucess())
-          : setErrMsg("incorrect username or password.")
+          ? (setUser(''), setPwd(''), logInSucess())
+          : setErrMsg('incorrect username or password.'),
       );
     } catch (err) {
       if (err.response) {
-        setErrMsg("Login Failed");
+        setErrMsg('Login Failed');
       }
     }
   };
@@ -43,7 +44,7 @@ function LoginForm({ logInSucess }) {
   return (
     <div>
       {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
-      <h1 style={{ textAlign: "center" }}>Welcome to DEV Community</h1>
+      <h1 style={{ textAlign: 'center' }}>Welcome to DEV Community</h1>
 
       <div onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -57,17 +58,11 @@ function LoginForm({ logInSucess }) {
           required
         />
         <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={pwd}
-          required
-        />
+        <input type="password" id="password" onChange={(e) => setPwd(e.target.value)} value={pwd} required />
         <buton>Continue</buton>
       </div>
 
-      <p style={{ textAlign: "center" }}>
+      <p style={{ textAlign: 'center' }}>
         <br />
         <Link to="/register" element={<Register />}>
           Need an Account?

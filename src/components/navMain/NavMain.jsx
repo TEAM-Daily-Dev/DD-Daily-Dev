@@ -1,71 +1,65 @@
-import React from "react";
-import styled from "styled-components";
-import Firstnav from "./Firstnav";
-import Socialnetworks from "./Socialnetworks";
-import Hashtags from "./Hashtags";
-import ad from "../../assets/images/adimg.png";
+import styled from 'styled-components';
 
-const MainPage = () => {
+import ad from '../../assets/images/adimg.png';
+import Firstnav from './Firstnav';
+import Hashtags from './Hashtags';
+import Socialnetworks from './Socialnetworks';
+
+function MainPage() {
   return (
-    <>
-      <Wrapper>
-        <InnerBox>
-          <LeftNavbar>
-            {/* Login */}
+    <Wrapper>
+      <InnerBox>
+        <LeftNavbar>
+          {/* Login */}
+          <IntroBox>
+            <IntroTitle>
+              <TitleLink>DEV Community</TitleLink> is a community of 790,675 amazing developers
+            </IntroTitle>
+            <IntroDesc>We&apos;re a place where coders share, stay up-to-date and grow their careers.</IntroDesc>
+            <EntryBtnGrop>
+              <SignUpBtn>Create account</SignUpBtn>
+              <LogInBtn>Log in</LogInBtn>
+            </EntryBtnGrop>
+          </IntroBox>
+          {/* Menu Bar */}
+          <Margin>
+            <Firstnav />
+          </Margin>
+          {/* Social Networks */}
+          <Margin>
+            <Socialnetworks />
+          </Margin>
+          {/* Hash Tags */}
+          <Margin>
+            <Hashtags />
+          </Margin>
+          {/* Ad */}
+          <IntroBox>
+            <AdImg />
+            <IntroTitle>
+              <TitleLink>Do you have your sticker pack yet?</TitleLink>
+            </IntroTitle>
+          </IntroBox>
+          {/* etc */}
+          <Margin>
             <IntroBox>
-              <IntroTitle>
-                <TitleLink>DEV Community</TitleLink> is a community of 790,675
-                amazing developers
-              </IntroTitle>
               <IntroDesc>
-                We're a place where coders share, stay up-to-date and grow their
-                careers.
+                DEV runs on 100% open source code known as
+                <ContentsLink>Forem.</ContentsLink>
+                Contribute to the codebase or host your own!
+                <StrongText>Check these out! 👇</StrongText>
+                <CheckOutUl>
+                  <CheckOutLi>Main Forem Repo</CheckOutLi>
+                  <CheckOutLi>Self-Host Instructions</CheckOutLi>
+                </CheckOutUl>
               </IntroDesc>
-              <EntryBtnGrop>
-                <SignUpBtn>Create account</SignUpBtn>
-                <LogInBtn>Log in</LogInBtn>
-              </EntryBtnGrop>
             </IntroBox>
-            {/* Menu Bar */}
-            <Margin>
-              <Firstnav />
-            </Margin>
-            {/* Social Networks */}
-            <Margin>
-              <Socialnetworks />
-            </Margin>
-            {/* Hash Tags */}
-            <Margin>
-              <Hashtags />
-            </Margin>
-            {/* Ad */}
-            <IntroBox>
-              <AdImg></AdImg>
-              <IntroTitle>
-                <TitleLink>Do you have your sticker pack yet?</TitleLink>
-              </IntroTitle>
-            </IntroBox>
-            {/* etc */}
-            <Margin>
-              <IntroBox>
-                <IntroDesc>
-                  DEV runs on 100% open source code known as
-                  <ContentsLink>Forem.</ContentsLink>
-                  Contribute to the codebase or host your own!
-                  <StrongText>Check these out! 👇</StrongText>
-                  <CheckOutUl>
-                    <CheckOutLi>Main Forem Repo</CheckOutLi>
-                    <CheckOutLi>Self-Host Instructions</CheckOutLi>
-                  </CheckOutUl>
-                </IntroDesc>
-              </IntroBox>
-            </Margin>
-          </LeftNavbar>
-        </InnerBox>
-      </Wrapper>
-    </>
+          </Margin>
+        </LeftNavbar>
+      </InnerBox>
+    </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div``;
 const InnerBox = styled.div`
