@@ -1,12 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import styled from 'styled-components';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { ResultCard, SearchHeader, SideNav } from 'components/Search';
-import { getMainList } from 'utils/getApi';
-import { MOBILE, TABLET } from 'utils/constants/responsive';
-import Header from 'layouts/BaseLayout/Header';
+import { useEffect, useState, useCallback } from 'react';
 
-const SearchPage = () => {
+import { useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { ResultCard, SearchHeader, SideNav } from 'components/Search';
+import Header from 'layouts/BaseLayout/Header';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
+import { getMainList } from 'utils/getApi';
+
+function SearchPage() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const [data, setData] = useState([]);
@@ -17,7 +19,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (!state) {
-      (async function () {
+      (async () => {
         const response = await getMainList();
         setData(response);
       })();
@@ -36,19 +38,17 @@ const SearchPage = () => {
   const matchInput = useCallback((target, keyword) => {
     if (keyword === '') return false;
 
-    target = target.toLowerCase();
-    keyword = keyword.toString().toLowerCase();
-    return target.includes(keyword);
+    const loweredTarget = target.toLowerCase();
+    const loweredKeyword = keyword.toString().toLowerCase();
+    return loweredTarget.includes(loweredKeyword);
   }, []);
 
   const handleSearch = useCallback(
     (data, value) => {
-      let filteredRes = data?.filter(
-        (result) => matchInput(result.title, value) === true
-      );
+      const filteredRes = data?.filter((result) => matchInput(result.title, value) === true);
       setResults(filteredRes);
     },
-    [matchInput]
+    [matchInput],
   );
 
   const handleSubmit = useCallback(() => {
@@ -63,7 +63,7 @@ const SearchPage = () => {
         handleSubmit();
       }
     },
-    [handleSubmit, keyword]
+    [handleSubmit, keyword],
   );
 
   return (
@@ -86,8 +86,8 @@ const SearchPage = () => {
           <Section>
             <SideNav />
             <Results>
-              {results.map((result, idx) => (
-                <ResultCard key={`${idx}_${result.date}`} result={result} />
+              {results.map((result) => (
+                <ResultCard key={result.date} result={result} />
               ))}
             </Results>
           </Section>
@@ -95,7 +95,7 @@ const SearchPage = () => {
       </Wrapper>
     </>
   );
-};
+}
 
 const Wrapper = styled.div`
   margin-top: -50px;

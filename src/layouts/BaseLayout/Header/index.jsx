@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import { SearchInput } from 'components/Search';
+import styled from 'styled-components';
+
 import { Hamburger, SearchLinkBtn } from 'assets/Search';
+import { SearchInput } from 'components/Search';
 import { TABLET } from 'utils/constants/responsive';
 
-const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
+function Header({ keyword, handleChange, handleKeyPress, handleSubmit }) {
   const navigate = useNavigate();
 
   return (
@@ -44,7 +44,7 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
       </InnerWrap>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   width: 100%;
@@ -160,7 +160,6 @@ const SignUpBtn = styled(Link)`
   line-height: 24px;
   border-radius: 6px;
   margin-bottom: 4px;
-  }
 `;
 
 const LogInBtn = styled(Link)`

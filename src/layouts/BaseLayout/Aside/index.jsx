@@ -1,10 +1,9 @@
+import { faComment, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment } from '@fortawesome/free-solid-svg-icons';
-import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Aside = () => {
+function Aside() {
   return (
     <S.Ul>
       <S.Li>
@@ -21,7 +20,7 @@ const Aside = () => {
       </S.Li>
     </S.Ul>
   );
-};
+}
 
 const S = {
   Ul: styled.ul`

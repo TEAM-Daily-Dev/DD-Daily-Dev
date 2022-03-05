@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MiniBoard = () => {
+function MiniBoard() {
   return (
     <S.Article>
       <S.Flex>
@@ -12,10 +12,7 @@ const MiniBoard = () => {
         {['##1', '##2', '##3'].map((item, index) => (
           <li key={Number(index)}>
             <h3>게시판</h3>
-            <p>
-              각 게시판의 예시 게시물글 의 수는 한줄이 나오게끔 설정됩니다.
-              MMMMMMMMMMMMMMMMMMMMMMM
-            </p>
+            <p>각 게시판의 예시 게시물글 의 수는 한줄이 나오게끔 설정됩니다. MMMMMMMMMMMMMMMMMMMMMMM</p>
             <div>
               <span>좋아요 10</span>
               <span>댓글 10</span>
@@ -25,7 +22,7 @@ const MiniBoard = () => {
       </ul>
     </S.Article>
   );
-};
+}
 
 const S = {
   Article: styled.article`
