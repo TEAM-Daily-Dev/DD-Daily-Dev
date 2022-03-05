@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageNum from '../../components/Pagination';
-import NavMain from '../../components/navMain/NavMain';
+import NavMain from '../../components/NavMain/NavMain';
 
 import styled from 'styled-components';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Socialnetworks() {
+const Socialnetworks = () => {
   return (
     <SocialNetWorkLinks>
       <NetworkLink
@@ -100,7 +100,7 @@ function Socialnetworks() {
       </NetworkLink>
     </SocialNetWorkLinks>
   );
-}
+};
 
 const SocialNetWorkLinks = styled.div`
   text-decoration: none;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Firstnav() {
+const Firstnav = () => {
   return (
     <>
       <nav>
@@ -353,7 +353,7 @@ function Firstnav() {
       {/* Other Nav END */}
     </>
   );
-}
+};
 
 const NavLink = styled.a`
   text-decoration: none;

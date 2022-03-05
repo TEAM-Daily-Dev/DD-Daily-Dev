@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Footer() {
+const Footer = () => {
   return (
     <S.Footer>
       <h2>SWFB STUDY</h2>
@@ -13,7 +13,7 @@ function Footer() {
       </S.Flex>
     </S.Footer>
   );
-}
+};
 
 const S = {
   Footer: styled.footer`

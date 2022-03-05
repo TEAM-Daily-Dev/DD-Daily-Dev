@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function MiniBoard() {
+const MiniBoard = () => {
   return (
     <S.Article>
       <S.Flex>
@@ -22,7 +22,7 @@ function MiniBoard() {
       </ul>
     </S.Article>
   );
-}
+};
 
 const S = {
   Article: styled.article`

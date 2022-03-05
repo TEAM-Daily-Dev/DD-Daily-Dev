@@ -4,7 +4,7 @@ import mainBannerImg from '../../assets/images/mainBanner.png';
 import BaseLayout from '../../layouts/BaseLayout';
 import MiniBoard from './MiniBoard';
 
-function MainPage() {
+const MainPage = () => {
   return (
     <BaseLayout>
       <S.Banner>
@@ -24,7 +24,7 @@ function MainPage() {
       </S.Main>
     </BaseLayout>
   );
-}
+};
 
 const S = {
   Flex: styled.div`

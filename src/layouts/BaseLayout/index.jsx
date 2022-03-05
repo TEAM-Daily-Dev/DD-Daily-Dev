@@ -4,7 +4,7 @@ import Aside from './Aside';
 import Footer from './Footer';
 import Header from './Header';
 
-function BaseLayout({ children }) {
+const BaseLayout = ({ children }) => {
   return (
     <div>
       <Header>asd</Header>
@@ -17,7 +17,7 @@ function BaseLayout({ children }) {
       </Flex>
     </div>
   );
-}
+};
 
 const Flex = styled.div`
   display: flex;

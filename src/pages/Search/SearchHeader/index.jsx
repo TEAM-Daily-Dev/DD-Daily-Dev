@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import SearchInput from 'components/Search/SearchInput';
+import SearchInput from 'pages/Search/SearchInput';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 import { NAVITEM } from 'utils/constants/search';
 
@@ -12,7 +12,7 @@ const SearchHeader = ({ keyword, value, handleChange, handleKeyPress }) => {
       <NavList>
         {NAVITEM.map((item) => (
           <NavItem key={item.id}>
-            <a href="/">{item}</a>
+            <a href="/">{item.tag}</a>
           </NavItem>
         ))}
       </NavList>

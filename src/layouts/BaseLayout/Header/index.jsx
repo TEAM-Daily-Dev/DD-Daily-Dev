@@ -1,12 +1,15 @@
+import { useState } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Hamburger, SearchLinkBtn } from 'assets/Search';
-import { SearchInput } from 'components/Search';
+import SearchInput from 'pages/Search/SearchInput';
 import { TABLET } from 'utils/constants/responsive';
 
-function Header({ keyword, handleChange, handleKeyPress, handleSubmit }) {
+const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const navigate = useNavigate();
+  const [isLoggedIn, isSetLoggedIn] = useState(false);
 
   return (
     <Wrapper>
@@ -37,14 +40,20 @@ function Header({ keyword, handleChange, handleKeyPress, handleSubmit }) {
             <SearchLinkBtn />
           </SearchBtn>
           <Flex>
-            <LogInBtn to="/login">Log in</LogInBtn>
-            <SignUpBtn to="/register">Create account</SignUpBtn>
+            {!isLoggedIn ? (
+              <>
+                <LogInBtn to="/login">Log in</LogInBtn>
+                <SignUpBtn to="/register">Create account</SignUpBtn>
+              </>
+            ) : (
+              <div>Logged in - User Name</div>
+            )}
           </Flex>
         </EntryBox>
       </InnerWrap>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -171,11 +180,6 @@ const LogInBtn = styled(Link)`
   border-radius: 6px;
   color: #404040;
   margin-right: 12px;
-  &:hover {
-    color: #2f3ab2;
-    background: #ebecfc;
-    text-decoration: underline solid #2f3ab2;
-  }
 
   @media screen and (max-width: 768px) {
     display: none;

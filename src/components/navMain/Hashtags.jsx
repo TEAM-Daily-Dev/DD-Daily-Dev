@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Hashtags() {
+const Hashtags = () => {
   return (
     <NavScroll>
       <HashTagSub>Popular Tags</HashTagSub>
@@ -98,7 +98,7 @@ function Hashtags() {
       </UlStyle>
     </NavScroll>
   );
-}
+};
 const NavScroll = styled.nav`
   margin-bottom: 24px;
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import loginLogoImg from '../../assets/images/devlogo-pwa-512.png';
 
-function Login() {
+const Login = () => {
   return (
     <div>
       <LoginContent>
@@ -26,7 +26,7 @@ function Login() {
       </LoginButtons>
     </div>
   );
-}
+};
 const LoginContent = styled.div`
   display: flex;
   flex-direction: row;

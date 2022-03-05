@@ -5,7 +5,7 @@ import Firstnav from './Firstnav';
 import Hashtags from './Hashtags';
 import Socialnetworks from './Socialnetworks';
 
-function MainPage() {
+const MainPage = () => {
   return (
     <Wrapper>
       <InnerBox>
@@ -59,7 +59,7 @@ function MainPage() {
       </InnerBox>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div``;
 const InnerBox = styled.div`

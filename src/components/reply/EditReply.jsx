@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import { parseInt } from "lodash";
+
+import axios from "axios";
 import styled from 'styled-components'
 import EditFooter from './EditFooter';
 import Profile from "../../assets/images/profile.png"
-import NavMain from "../navMain/NavMain";
+import NavMain from "../NavMain/NavMain";
 
-function EditReply() {
+const EditReply = () => {
 
   let { setid } = useParams();
   const navi = useNavigate();

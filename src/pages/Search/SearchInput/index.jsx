@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { SearchBtnIcon } from 'assets/Search';
-import { MOBILE, TABLET } from 'utils/constants/responsive';
+import { MOBILE, TABLET, TABLET_LARGE } from 'utils/constants/responsive';
 
 const SearchInput = ({ headerStyle, searchStyle, keyword, handleChange, handleSubmit, handleKeyPress }) => {
   const styles = {
@@ -33,6 +33,10 @@ const SearchBox = styled.div`
   height: 40px;
   margin: 0 16px;
   position: relative;
+
+  @media screen and (max-width: ${TABLET_LARGE}) {
+    width: 32vw;
+  }
 
   @media screen and (max-width: ${TABLET}) {
     ${(props) =>

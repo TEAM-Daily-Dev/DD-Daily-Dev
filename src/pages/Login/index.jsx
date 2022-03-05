@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import LoginForm from './LoginForm';
 
-function LoginPage() {
+const LoginPage = () => {
   const [success, setSuccess] = useState(true);
 
   const logInSucess = () => {
@@ -10,6 +10,6 @@ function LoginPage() {
   };
 
   return <div>{success && <LoginForm logInSucess={logInSucess} />}</div>;
-}
+};
 
 export default LoginPage;
