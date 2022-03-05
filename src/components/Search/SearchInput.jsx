@@ -1,30 +1,18 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { SearchBtnIcon } from "assets/Search";
-import { MOBILE, TABLET } from "utils/constants/responsive";
+import styled, { css } from 'styled-components';
 
-const SearchInput = ({
-  header,
-  search,
-  keyword,
-  handleChange,
-  handleSubmit,
-  handleKeyPress,
-}) => {
+import { SearchBtnIcon } from 'assets/Search';
+import { MOBILE, TABLET } from 'utils/constants/responsive';
+
+const SearchInput = ({ headerStyle, searchStyle, keyword, handleChange, handleSubmit, handleKeyPress }) => {
   const styles = {
-    header,
-    search,
+    headerStyle,
+    searchStyle,
   };
 
   return (
     <Wrapper>
       <SearchBox {...styles}>
-        <ElSearchInput
-          placeholder="Search..."
-          value={keyword}
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
-        />
+        <ElSearchInput placeholder="Search..." value={keyword} onChange={handleChange} onKeyPress={handleKeyPress} />
         <SearchBtn onClick={handleSubmit}>
           <SearchBtnIcon />
         </SearchBtn>
@@ -34,8 +22,8 @@ const SearchInput = ({
 };
 
 SearchInput.defaultProps = {
-  header: false,
-  search: false,
+  headerStyle: false,
+  searchStyle: false,
 };
 
 const Wrapper = styled.div``;
@@ -48,13 +36,13 @@ const SearchBox = styled.div`
 
   @media screen and (max-width: ${TABLET}) {
     ${(props) =>
-      props.header &&
+      props.headerStyle &&
       css`
         display: none;
       `};
 
     ${(props) =>
-      props.search &&
+      props.searchStyle &&
       css`
         width: auto;
         display: block;
@@ -64,7 +52,7 @@ const SearchBox = styled.div`
 
   @media screen and (min-width: ${TABLET}) {
     ${(props) =>
-      props.search &&
+      props.searchStyle &&
       css`
         display: none;
       `};

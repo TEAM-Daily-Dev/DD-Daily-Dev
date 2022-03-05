@@ -25,7 +25,7 @@ function Header({ keyword, handleChange, handleKeyPress, handleSubmit }) {
         </LogoBox>
         <SearchBox>
           <SearchInput
-            header
+            headerStyle
             keyword={keyword}
             handleChange={handleChange}
             handleKeyPress={handleKeyPress}

@@ -1,8 +1,7 @@
-import CommunityList from 'pages/Community/List';
-import LoginPage from 'pages/Login';
-import MainPage from 'pages/Main';
-import RegisterPage from 'pages/Register';
-import SearchPage from 'pages/Search';
-import GlobalStyle from 'styles/GlobalStyle';
+import CommunityList from './Community/List';
+import LoginPage from './Login';
+import MainPage from './Main';
+import RegisterPage from './Register';
+import SearchPage from './Search';
 
-export { CommunityList, LoginPage, MainPage, RegisterPage, SearchPage, GlobalStyle };
+export { CommunityList, LoginPage, MainPage, RegisterPage, SearchPage };
