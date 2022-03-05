@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-=======
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
->>>>>>> 로그인 폼 정리 &  로그인 true -> 메인 페이지
 
 const LoginSignupBtn = ({ main, top }) => {
   const [isLoggedIn, isSetLoggedIn] = useState(false);
@@ -18,14 +12,6 @@ const LoginSignupBtn = ({ main, top }) => {
 
   return (
     <Wrapper {...styles}>
-<<<<<<< HEAD
-      <SignUpBtn {...styles} to="/register">
-        Create account
-      </SignUpBtn>
-      <LogInBtn {...styles} to="/login">
-        Log in
-      </LogInBtn>
-=======
       {!isLoggedIn ? (
         <>
           <SignUpBtn {...styles} to="/register">
@@ -38,7 +24,6 @@ const LoginSignupBtn = ({ main, top }) => {
       ) : (
         <div>Logged in - User Name</div>
       )}
->>>>>>> 로그인 폼 정리 &  로그인 true -> 메인 페이지
     </Wrapper>
   );
 };
