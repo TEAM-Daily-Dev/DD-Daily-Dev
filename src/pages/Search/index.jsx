@@ -100,9 +100,7 @@ const SearchPage = () => {
   );
 };
 
-const Wrapper = styled.div`
-  margin-top: 30px;
-`;
+const Wrapper = styled.div``;
 
 const InnerBox = styled.div`
   width: 100%;

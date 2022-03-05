@@ -12,46 +12,49 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   const [isLoggedIn, isSetLoggedIn] = useState(false);
 
   return (
-    <Wrapper>
-      <InnerWrap>
-        <LogoBox>
-          <MenuBtn>
-            <Hamburger />
-          </MenuBtn>
-          <LogoTitle>
-            <LogoLink to="/">
-              <Logo>
-                <span>SWFB</span>&nbsp;STUDY
-              </Logo>
-            </LogoLink>
-          </LogoTitle>
-        </LogoBox>
-        <SearchBox>
-          <SearchInput
-            headerStyle
-            keyword={keyword}
-            handleChange={handleChange}
-            handleKeyPress={handleKeyPress}
-            handleSubmit={handleSubmit}
-          />
-        </SearchBox>
-        <EntryBox>
-          <SearchBtn onClick={() => navigate('/search')}>
-            <SearchLinkBtn />
-          </SearchBtn>
-          <Flex>
-            {!isLoggedIn ? (
-              <>
-                <LogInBtn to="/login">Log in</LogInBtn>
-                <SignUpBtn to="/register">Create account</SignUpBtn>
-              </>
-            ) : (
-              <div>Logged in - User Name</div>
-            )}
-          </Flex>
-        </EntryBox>
-      </InnerWrap>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <InnerWrap>
+          <LogoBox>
+            <MenuBtn>
+              <Hamburger />
+            </MenuBtn>
+            <LogoTitle>
+              <LogoLink to="/">
+                <Logo>
+                  <span>SWFB</span>&nbsp;STUDY
+                </Logo>
+              </LogoLink>
+            </LogoTitle>
+          </LogoBox>
+          <SearchBox>
+            <SearchInput
+              headerStyle
+              keyword={keyword}
+              handleChange={handleChange}
+              handleKeyPress={handleKeyPress}
+              handleSubmit={handleSubmit}
+            />
+          </SearchBox>
+          <EntryBox>
+            <SearchBtn onClick={() => navigate('/search')}>
+              <SearchLinkBtn />
+            </SearchBtn>
+            <Flex>
+              {!isLoggedIn ? (
+                <>
+                  <LogInBtn to="/login">Log in</LogInBtn>
+                  <SignUpBtn to="/register">Create account</SignUpBtn>
+                </>
+              ) : (
+                <div>Logged in - User Name</div>
+              )}
+            </Flex>
+          </EntryBox>
+        </InnerWrap>
+      </Wrapper>
+      <Spacer />
+    </>
   );
 };
 
@@ -184,6 +187,10 @@ const LogInBtn = styled(Link)`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+const Spacer = styled.div`
+  height: 30px;
 `;
 
 export default Header;
