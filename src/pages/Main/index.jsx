@@ -8,10 +8,10 @@ function MainPage() {
   return (
     <BaseLayout>
       <S.Banner>
-        <bold>Study</bold>
+        <b>Study</b>
         <div>
           <span>with</span>
-          <bold>US</bold>
+          <b>US</b>
         </div>
       </S.Banner>
       <S.Main>
@@ -38,11 +38,11 @@ const S = {
     height: 470px;
     background: center / 100% 100% url(${mainBannerImg}) no-repeat;
     color: #fff;
-    bold {
+    b {
       font-size: 100px;
       font-weight: 900;
     }
-    > bold {
+    > b {
       position: relative;
       right: 60px;
       bottom: 40px;
@@ -55,7 +55,7 @@ const S = {
         font-weight: 500;
         margin-right: 20px;
       }
-      bold {
+      b {
         position: relative;
         top: 20px;
       }
