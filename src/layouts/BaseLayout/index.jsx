@@ -7,7 +7,7 @@ import Header from './Header';
 const BaseLayout = ({ children }) => {
   return (
     <div>
-      <Header>asd</Header>
+      <Header />
       <Flex>
         <Aside />
         <div>

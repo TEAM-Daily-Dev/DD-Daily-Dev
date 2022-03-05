@@ -128,7 +128,7 @@ const LogoLink = styled(Link)`
 `;
 
 const Logo = styled.p`
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 900;
   line-height: 1.7;
 `;
