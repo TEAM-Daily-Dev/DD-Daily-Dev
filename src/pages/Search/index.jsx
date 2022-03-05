@@ -8,7 +8,7 @@ import Header from 'layouts/BaseLayout/Header';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 import { getMainList } from 'utils/getApi';
 
-function SearchPage() {
+const SearchPage = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const [data, setData] = useState([]);
@@ -96,7 +96,7 @@ function SearchPage() {
       </Wrapper>
     </>
   );
-}
+};
 
 const Wrapper = styled.div`
   margin-top: -50px;

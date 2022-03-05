@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import { useState } from 'react';
 
-const LoginSignupBtn = ({ main, top }) => {
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+
+const LoginSignupBtn = ({ mainStyle, topStyle }) => {
   const [isLoggedIn, isSetLoggedIn] = useState(false);
 
   const styles = {
-    main,
-    top,
+    mainStyle,
+    topStyle,
   };
 
   return (
@@ -18,7 +19,7 @@ const LoginSignupBtn = ({ main, top }) => {
             Create account
           </SignUpBtn>
           <LogInBtn {...styles} to="/login">
-            Log in{" "}
+            Log in
           </LogInBtn>
         </>
       ) : (
@@ -32,7 +33,7 @@ const Wrapper = styled.div`
   display: flex;
 
   ${(props) =>
-    props.main &&
+    props.mainStyle &&
     css`
       flex-direction: column;
     `};
@@ -50,7 +51,7 @@ const SignUpBtn = styled(Link)`
   margin-bottom: 4px;
 
   ${(props) =>
-    props.top &&
+    props.topStyle &&
     css`
       order: 2;
     `};
@@ -71,7 +72,7 @@ const LogInBtn = styled(Link)`
   color: #404040;
 
   ${(props) =>
-    props.top &&
+    props.topStyle &&
     css`
       order: 1;
     `};

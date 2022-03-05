@@ -4,10 +4,10 @@ import SearchInput from 'components/Search/SearchInput';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 import { NAVITEM } from 'utils/constants/search';
 
-function SearchHeader({ keyword, value, handleChange, handleKeyPress }) {
+const SearchHeader = ({ keyword, value, handleChange, handleKeyPress }) => {
   return (
     <Wrapper>
-      <SearchInput search keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <SearchInput searchStyle keyword={keyword} handleChange={handleChange} handleKeyPress={handleKeyPress} />
       <Title>Search results {value && `for ${value}`}</Title>
       <NavList>
         {NAVITEM.map((item) => (
@@ -18,7 +18,7 @@ function SearchHeader({ keyword, value, handleChange, handleKeyPress }) {
       </NavList>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div`
   width: 100%;

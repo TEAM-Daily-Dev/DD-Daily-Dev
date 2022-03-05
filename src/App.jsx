@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { CommunityList, LoginPage, MainPage, RegisterPage, SearchPage } from 'pages';
 import GlobalStyle from 'styles/GlobalStyle';
 
-function App() {
+const App = () => {
   return (
     <>
       <GlobalStyle />
@@ -16,6 +16,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
