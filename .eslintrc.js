@@ -32,6 +32,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/destructuring-assignment': 'always',
     'import/order': [
       'error',
       {
