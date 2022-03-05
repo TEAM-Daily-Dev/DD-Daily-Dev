@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Creply from "../../components/reply/Creply";
+import Creply from "../../components/Reply/Creply";
 import styled from "styled-components";
 import Profile from "../../assets/images/profile.png"
 import axios from "axios";
-import NavMain from "../../components/navMain/NavMain";
-import EditFooter from '../../components/reply/EditFooter';
+import NavMain from "../../components/NavMain/NavMain";
+import EditFooter from '../../components/Reply/EditFooter';
 
 function BoardDetail({ newDatas, fetchData }) {
 

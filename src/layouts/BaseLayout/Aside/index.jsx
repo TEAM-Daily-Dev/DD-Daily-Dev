@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Aside() {
+const Aside = () => {
   return (
     <S.Ul>
       <S.Li>
@@ -20,7 +20,7 @@ function Aside() {
       </S.Li>
     </S.Ul>
   );
-}
+};
 
 const S = {
   Ul: styled.ul`

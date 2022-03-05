@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import { MOBILE, DESKTOP } from 'utils/constants/responsive';
 
 const ResultCard = ({ result }) => {
@@ -9,7 +11,7 @@ const ResultCard = ({ result }) => {
     <Wrapper key={id}>
       <PostHeader>
         <UserProfile>
-          <UserImage src={userImage} alt='user-profile' />
+          <UserImage src={userImage} alt="user-profile" />
         </UserProfile>
         <UserInfo>
           <Username>{userName}</Username>
@@ -23,8 +25,8 @@ const ResultCard = ({ result }) => {
           <TitleLink>{title}</TitleLink>
         </Title>
         <HashTagList>
-          {hashTags.map((hashTag, idx) => (
-            <HashTagItem key={idx} href='/'>
+          {hashTags.map((hashTag) => (
+            <HashTagItem key={`${id}_${hashTag}`} href="/">
               #{hashTag}
             </HashTagItem>
           ))}

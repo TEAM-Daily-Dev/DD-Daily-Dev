@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
-function Pagination({ currentPage, postPage, newDatas, setCurrentPage }) {
+const Pagination = ({ currentPage, postPage, newDatas, setCurrentPage }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(newDatas.length / postPage); i += 1) {
     pageNumbers.push(i);
@@ -53,7 +53,7 @@ function Pagination({ currentPage, postPage, newDatas, setCurrentPage }) {
       )}
     </PageUl>
   );
-}
+};
 
 const PageUl = styled.ul`
   display: flex;

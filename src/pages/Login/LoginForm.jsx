@@ -17,7 +17,7 @@ import {
   OffScreen,
 } from './styled';
 
-function LoginForm() {
+const LoginForm = () => {
   const userRef = useRef();
   const navigate = useNavigate();
 
@@ -100,7 +100,7 @@ function LoginForm() {
       </ContainerLogin>
     </>
   );
-}
+};
 
 const Wrapper = styled.div`
   background: red;

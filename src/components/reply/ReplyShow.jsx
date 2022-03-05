@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Profile from "../../assets/images/profile.png"
 
-function ReplyShow({ setNewReply, newReply, setid, sameId, newid, index, comment }) {
+const ReplyShow = ({ setNewReply, newReply, setid, sameId, newid, index, comment }) => {
 
   const [inputvalue, setinputvalue] = useState("");
   const [showButton, setShowButton] = useState(false);

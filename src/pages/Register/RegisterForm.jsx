@@ -11,7 +11,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const SERVER = 'http://localhost:3500/user';
 
-function RegisterForm({ continueRegister }) {
+const RegisterForm = ({ continueRegister }) => {
   const userRef = useRef(); //
 
   const [user, setUser] = useState('');
@@ -187,7 +187,7 @@ function RegisterForm({ continueRegister }) {
       </StyledLink>
     </div>
   );
-}
+};
 
 const StyledLink = styled(Link)`
   text-align: center;

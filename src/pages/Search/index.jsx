@@ -3,8 +3,10 @@ import { useEffect, useState, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ResultCard, SearchHeader, SideNav } from 'components/Search';
 import Header from 'layouts/BaseLayout/Header';
+import ResultCard from 'pages/Search/ResultCard';
+import SearchHeader from 'pages/Search/SearchHeader';
+import SideNav from 'pages/Search/SideNav';
 import { MOBILE, TABLET } from 'utils/constants/responsive';
 import { getMainList } from 'utils/getApi';
 
@@ -99,7 +101,7 @@ const SearchPage = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: -50px;
+  margin-top: 30px;
 `;
 
 const InnerBox = styled.div`

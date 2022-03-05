@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import NavMain from "../../components/navMain/NavMain";
-import EditFooter from '../../components/reply/EditFooter';
+import NavMain from "../../components/NavMain/NavMain";
+import EditFooter from '../../components/Reply/EditFooter';
 
 function BoardCreate({ newDatas, setNewDatas, fetchData }) {
 

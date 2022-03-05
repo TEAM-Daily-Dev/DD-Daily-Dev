@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // export const Container = styled.body`
 //   background: linear-gradient(180deg, #7d50ff 0%, #6153c9 100%);
