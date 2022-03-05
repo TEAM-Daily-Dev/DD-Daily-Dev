@@ -1,10 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './pages/Main';
-import LoginPage from './pages/Login';
-import RegisterPage from './pages/Register';
-import SearchPage from 'pages/Search';
-import CommunityList from 'pages/Community/List';
-import GlobalStyle from 'styles/GlobalStyle';
+
+import { CommunityList, LoginPage, MainPage, RegisterPage, SearchPage, GlobalStyle } from 'pages';
 
 function App() {
   return (
