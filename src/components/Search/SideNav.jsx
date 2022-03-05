@@ -1,21 +1,23 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import { MOBILE, TABLET, MOBILE_SMALL } from 'utils/constants/responsive';
 import { SIDENAV } from 'utils/constants/search';
 
-const SideNav = () => {
+function SideNav() {
   return (
     <Wrapper>
       <SideNavList>
         {SIDENAV.map((item, idx) => (
           <SideNavItem key={`${idx}_${item}`}>
-            <a href='/'>{item}</a>
+            <a href="/">{item}</a>
           </SideNavItem>
         ))}
       </SideNavList>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   @media screen and (max-width: ${MOBILE}) {
