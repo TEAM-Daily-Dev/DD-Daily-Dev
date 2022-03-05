@@ -1,19 +1,31 @@
 import { useRef, useState, useEffect } from 'react';
 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Register from '../Register';
+import {
+  ContainerLogin,
+  ContainerUser,
+  ContainerInput,
+  InputField,
+  Button,
+  Title,
+  TitleSignIn,
+  ErrMsg,
+  OffScreen,
+} from './styled';
 
-function LoginForm({ logInSucess }) {
+function LoginForm() {
   const userRef = useRef();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
-  const LOGIN_URL = 'http://localhost:3500/user';
+  const LOGIN_URL = 'http://localhost:8000/user';
 
   useEffect(() => {
     userRef.current.focus();
@@ -30,8 +42,8 @@ function LoginForm({ logInSucess }) {
       const { data: userData } = await axios.get(LOGIN_URL);
 
       userData.map((person) =>
-        person.user.toLowerCase() === user.toLowerCase() && person.pwd === pwd
-          ? (setUser(''), setPwd(''), logInSucess())
+        person.username.toLowerCase() === user.toLowerCase() && person.password === pwd
+          ? (setUser(''), setPwd(''), navigate('/'))
           : setErrMsg('incorrect username or password.'),
       );
     } catch (err) {
@@ -42,49 +54,56 @@ function LoginForm({ logInSucess }) {
   };
 
   return (
-    <div>
-      {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
-      <h1 style={{ textAlign: 'center' }}>Welcome to DEV Community</h1>
+    <>
+      <Title>SWFB STUDY</Title>
+      <ContainerLogin>
+        <div>
+          {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
 
-      <div onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" onChange={(e) => setPwd(e.target.value)} value={pwd} required />
-        <buton>Continue</buton>
-      </div>
+          <ContainerUser onSubmit={handleSubmit}>
+            <TitleSignIn>Sign in</TitleSignIn>
+            <ContainerInput>
+              <label htmlFor="username">아이디</label>
+              <InputField
+                type="text"
+                id="username"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setUser(e.target.value)}
+                value={user}
+                required
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <label htmlFor="password">비밀번호</label>
+              <InputField
+                type="password"
+                id="password"
+                onChange={(e) => setPwd(e.target.value)}
+                value={pwd}
+                autoComplete="off"
+                required
+              />
+            </ContainerInput>
+            <Button type="submit">Continue</Button>
+          </ContainerUser>
 
-      <p style={{ textAlign: 'center' }}>
-        <br />
-        <Link to="/register" element={<Register />}>
-          Need an Account?
-        </Link>
-      </p>
-    </div>
+          <div>
+            <p>
+              <br />
+              <Link to="/register" element={<Register />}>
+                Need an Account?
+              </Link>
+            </p>
+          </div>
+        </div>
+      </ContainerLogin>
+    </>
   );
 }
 
-// styled plus <tag>
-const ErrMsg = styled.p`
-  text-align: center;
-  background-color: lightpink;
-  color: firebrick;
-  font-weight: bold;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
+const Wrapper = styled.div`
+  background: red;
+  height: 100vh;
 `;
-
-const OffScreen = styled.p`
-  position: absolute;
-  left: -9999px;
-`;
-
 export default LoginForm;

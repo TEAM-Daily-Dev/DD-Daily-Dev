@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 const LoginSignupBtn = ({ main, top }) => {
+  const [isLoggedIn, isSetLoggedIn] = useState(false);
+
   const styles = {
     main,
     top,
@@ -10,12 +12,18 @@ const LoginSignupBtn = ({ main, top }) => {
 
   return (
     <Wrapper {...styles}>
-      <SignUpBtn {...styles} to="/register">
-        Create account
-      </SignUpBtn>
-      <LogInBtn {...styles} to="/login">
-        Log in
-      </LogInBtn>
+      {!isLoggedIn ? (
+        <>
+          <SignUpBtn {...styles} to="/register">
+            Create account
+          </SignUpBtn>
+          <LogInBtn {...styles} to="/login">
+            Log in{" "}
+          </LogInBtn>
+        </>
+      ) : (
+        <div>Logged in - User Name</div>
+      )}
     </Wrapper>
   );
 };

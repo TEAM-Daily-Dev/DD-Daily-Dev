@@ -11,14 +11,7 @@ function RegisterPage() {
 
   return (
     <>
-      <div>Register</div>
-      {/* {success ? (
-        <div> Success </div>
-      ) : (
-        <>
-          <RegisterForm continueRegister={continueRegister} />
-        </>
-      )} */}
+      <div>Register</div> {success ? <div> Success </div> : <RegisterForm continueRegister={continueRegister} />}
     </>
   );
 }
