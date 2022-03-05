@@ -22,6 +22,7 @@ function SearchPage() {
       (async () => {
         const response = await getMainList();
         setData(response);
+        console.log(response);
       })();
     } else {
       setData(state.data);
