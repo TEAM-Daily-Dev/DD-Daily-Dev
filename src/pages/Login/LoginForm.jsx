@@ -63,7 +63,7 @@ function LoginForm() {
           <ContainerUser onSubmit={handleSubmit}>
             <TitleSignIn>Sign in</TitleSignIn>
             <ContainerInput>
-              <label htmlFor="username">아이디</label>
+              <label htmlFor="username">사용자 ID</label>
               <InputField
                 type="text"
                 id="username"
