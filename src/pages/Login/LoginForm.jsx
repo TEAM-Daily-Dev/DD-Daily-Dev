@@ -119,8 +119,7 @@ const TitleSignIn = styled.h2`
   font-size: 28px;
   line-height: 36px;
   text-align: center;
-  position: absolute;
-  top: 210px;
+  padding-bottom: 2rem;
 `;
 
 export default LoginForm;
