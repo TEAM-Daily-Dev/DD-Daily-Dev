@@ -53,56 +53,60 @@ const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
   }, []);
 
   return (
-    <MainStyle>
-      <Header />
-      <div />
-      <DisplayFlex>
-        <BackDiv>
-          <HeaderDiv>
-            <FirstDiv>
-              <SecondDiv>
-                {newDatas.length > 1 && (
-                  <HeaderH1>{newDatas.find((a) => parseInt(a.id, 10) === parseInt(setid, 10)).title}</HeaderH1>
-                )}
-              </SecondDiv>
-              <ThirdDiv>
-                <Link to={put}>
-                  <ThirdDivA href="#">Edit</ThirdDivA>
-                </Link>
-                <ThirdDivA href="#" onClick={removeText}>
-                  Delete
-                </ThirdDivA>
-                <ThirdDivA href="#" onClick={pre}>
-                  Pre
-                </ThirdDivA>
-              </ThirdDiv>
-            </FirstDiv>
-            <IDDiv>
-              <ProfileImg src={Profile} />
-              <IdPost>
-                <IdA href="#">sni424</IdA>
-                <PostPtag>Posted on 2월23일</PostPtag>
-              </IdPost>
-            </IDDiv>
-            <LanguageTag>
-              <LanguageA href="#" background_color="rgba(0, 0, 0, 0.1)">
-                <SharpSpan color="orange">#</SharpSpan>Java
-              </LanguageA>
-              <LanguageA href="#" background_color="green">
-                <SharpSpan color="green">#</SharpSpan>JavaScript
-              </LanguageA>
-              <LanguageA href="#" background_color="blue">
-                <SharpSpan color="blue">#</SharpSpan>Python
-              </LanguageA>
-            </LanguageTag>
-            <ContentP>{newDatas.length > 0 && newDatas.find((x) => x.id === parseInt(setid, 10)).contents}</ContentP>
-            <Hr />
-            <Creply setid={setid} replyUrl={replyUrl} />
-          </HeaderDiv>
-        </BackDiv>
-      </DisplayFlex>
-      <Footer />
-    </MainStyle>
+    <>
+      <MainStyle>
+        <Header />
+        <div />
+        <DisplayFlex>
+          <BackDiv>
+            <HeaderDiv>
+              <FirstDiv>
+                <SecondDiv>
+                  {newDatas.length > 1 && (
+                    <HeaderH1>{newDatas.find((a) => parseInt(a.id, 10) === parseInt(setid, 10)).title}</HeaderH1>
+                  )}
+                </SecondDiv>
+                <ThirdDiv>
+                  <Link to={put}>
+                    <ThirdDivA href="#">Edit</ThirdDivA>
+                  </Link>
+                  <ThirdDivA href="#" onClick={removeText}>
+                    Delete
+                  </ThirdDivA>
+                  <ThirdDivA href="#" onClick={pre}>
+                    Pre
+                  </ThirdDivA>
+                </ThirdDiv>
+              </FirstDiv>
+              <IDDiv>
+                <ProfileImg src={Profile} />
+                <IdPost>
+                  <IdA href="#">sni424</IdA>
+                  <PostPtag>Posted on 2월23일</PostPtag>
+                </IdPost>
+              </IDDiv>
+              <LanguageTag>
+                <LanguageA href="#" background_color="rgba(0, 0, 0, 0.1)">
+                  <SharpSpan color="orange">#</SharpSpan>Java
+                </LanguageA>
+                <LanguageA href="#" background_color="green">
+                  <SharpSpan color="green">#</SharpSpan>JavaScript
+                </LanguageA>
+                <LanguageA href="#" background_color="blue">
+                  <SharpSpan color="blue">#</SharpSpan>Python
+                </LanguageA>
+              </LanguageTag>
+              <ContentP>{newDatas.length > 0 && newDatas.find((x) => x.id === parseInt(setid, 10)).contents}</ContentP>
+              <Hr />
+              <Creply setid={setid} replyUrl={replyUrl} />
+            </HeaderDiv>
+          </BackDiv>
+        </DisplayFlex>
+      </MainStyle>
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 };
 const MainStyle = styled.div`
