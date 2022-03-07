@@ -5,20 +5,112 @@
       "title": "The Cloud Waste Problem",
       "contents": "With the public cloud adoption increasing year over year, companies will spend nearly $121.6 billion in IaaS (Infrastructure as a Service) in 2022 from AWS, Azure, Google, and other cloud service providersh111\n\n",
       "id": 1
+    },
+    {
+      "postid": 123456,
+      "title": "gfds",
+      "contents": "gfds",
+      "id": 2
     }
   ],
-  "boardsreply": [
+  "boardsReply": [
     {
-      "sameId": 2,
-      "comment": "test2",
+      "sameId": 3,
+      "comment": "나는나다",
       "like": 0,
-      "id": 4
+      "id": 9
+    },
+    {
+      "sameId": 3,
+      "comment": "좋아요",
+      "like": 0,
+      "id": 10
     },
     {
       "sameId": 1,
-      "comment": "54564",
+      "comment": "test3",
       "like": 0,
-      "id": 5
+      "id": 11
+    },
+    {
+      "sameId": 1,
+      "comment": "안녕하세요.",
+      "like": 0,
+      "id": 12
+    }
+  ],
+  "studyBoards": [
+    {
+      "id": 1,
+      "title": "React 같이하실분 프로젝트까지 생각 중입니다.",
+      "contents": "React 같이하실분 프로젝트까지 생각 중입니다.\n"
+    },
+    {
+      "id": 2,
+      "title": "javascript 스터디원 1분 구합니다.",
+      "contents": "오픈 카톡:000000"
+    },
+    {
+      "id": 3,
+      "title": "django로 aibnb 클론코딩 하실분",
+      "contents": "제발요!!"
+    }
+  ],
+  "studyReply": [
+    {
+      "sameId": 1,
+      "comment": "같이해요! 저도 React 공부해요",
+      "like": 0,
+      "id": 8
+    }
+  ],
+  "jobBoards": [
+    {
+      "postid": 65465456465465,
+      "title": "프론트엔드 신입1분 구합니다.",
+      "contents": "프론트엔드 신입1분 구합니다.",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "java 및 spring 백엔드 경력직 2분 구합니다.",
+      "contents": "아래 연락처로 이력서 및 연락 가능한 번호 1나 부탁드립니다."
+    },
+    {
+      "postid": 41556,
+      "title": "백엔드 1분 구합니다. spring,eclipse",
+      "contents": "아래로 문의 부탁드립니다.",
+      "id": 3
+    }
+  ],
+  "jobReply": [
+    {
+      "sameId": 1,
+      "comment": "저요 카카오톡 id:findajob123",
+      "like": 0,
+      "id": 8
+    },
+    {
+      "sameId": 1,
+      "comment": "저도요!",
+      "like": 0,
+      "id": 9
+    }
+  ],
+  "qnaBoards": [
+    {
+      "postid": 65465456465465,
+      "title": "react props에 관해 질문드립니다.",
+      "contents": "너무 어려워요.",
+      "id": 1
+    }
+  ],
+  "qnaReply": [
+    {
+      "sameId": 1,
+      "comment": "공부를 더 하세요",
+      "like": 0,
+      "id": 8
     }
   ]
 }

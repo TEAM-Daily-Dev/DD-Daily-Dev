@@ -13,9 +13,27 @@ const Aside = () => {
         </NavLink>
       </S.Li>
       <S.Li>
-        <NavLink to="/notice">
+        <NavLink to="/Board">
           <FontAwesomeIcon icon={faQuoteRight} size="lg" />
-          공지사항
+          자유 게시판
+        </NavLink>
+      </S.Li>
+      <S.Li>
+        <NavLink to="/studyBoard">
+          <FontAwesomeIcon icon={faQuoteRight} size="lg" />
+          스터디 게시판
+        </NavLink>
+      </S.Li>
+      <S.Li>
+        <NavLink to="/jobBoard">
+          <FontAwesomeIcon icon={faQuoteRight} size="lg" />
+          취업 게시판
+        </NavLink>
+      </S.Li>
+      <S.Li>
+        <NavLink to="/qnaBoard">
+          <FontAwesomeIcon icon={faQuoteRight} size="lg" />
+          QnA 게시판
         </NavLink>
       </S.Li>
     </S.Ul>
