@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import styled from 'styled-components';
 
 import ReplyShow from './ReplyShow';
 
-function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffect }) {
+const Creply = ({ setid, replyUrl }) => {
+  const [checkUseEffect, setCheckUseEffect] = useState(true);
   const [newConmment, setNewConmment] = useState('');
+  const [newReply, setNewReply] = useState([]);
+  const fetchTasks = async () => {
+    const res = await axios(replyUrl);
+    const newData = await res.data;
+    return setNewReply(newData);
+  };
 
   const onChange = (e) => {
     const { value } = e.target;
     setNewConmment(value);
   };
 
-  function CreateReply(event) {
+  const CreateReply = (event) => {
     event.preventDefault();
     if (newConmment === '') {
-      return alert('댓글의 내용을 적어주세요.');
+      alert('댓글의 내용을 적어주세요.');
     }
     axios({
       method: 'POST',
-      url: `http://localhost:8000/boardsreply`,
+      url: replyUrl,
       data: {
         sameId: parseInt(setid, 10),
         comment: newConmment,
@@ -36,16 +43,19 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
       .catch((err) => {
         return alert(err.message);
       });
-    return null;
-  }
+  };
   const newArray = newReply.filter((a) => a.sameId === parseInt(setid, 10)); // 댓글 갯수
+
+  useEffect(() => {
+    fetchTasks();
+  }, [checkUseEffect]);
 
   return (
     <CommentSection>
       <div>
         <DiscussionHeader>
           <div>
-            <SubjectH2>Comments ({newReply.length > 1 ? newArray.length : 0})</SubjectH2>
+            <SubjectH2>Comments ({newReply ? newArray.length : 0})</SubjectH2>
           </div>
         </DiscussionHeader>
         {/* 댓글작성부분 */}
@@ -73,7 +83,7 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
           </div>
         </form>
         {/* {comms.length > 0 ? ( */}
-        {newReply.length > 0 &&
+        {newReply &&
           newReply.map((a, i) => {
             return (
               <ReplyShow
@@ -88,13 +98,14 @@ function Creply({ setid, setNewReply, newReply, setCheckUseEffect, checkUseEffec
                 comment={a.comment}
                 newid={a.id}
                 like={a.like}
+                replyUrl={replyUrl}
               />
             );
           })}
       </div>
     </CommentSection>
   );
-}
+};
 
 const CommentSection = styled.section`
   background: rgb(255, 255, 255);

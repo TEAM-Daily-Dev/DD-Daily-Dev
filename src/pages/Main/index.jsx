@@ -5,6 +5,15 @@ import BaseLayout from '../../layouts/BaseLayout';
 import MiniBoard from './MiniBoard';
 
 const MainPage = () => {
+  const detailUrl = 'Board';
+  const boardUrl = 'http://localhost:8000/boards';
+  const studyDetailUrl = 'studyBoard';
+  const studyUrl = 'http://localhost:8000/studyBoards';
+  const jobDetailUrl = 'jobBoard';
+  const jobUrl = 'http://localhost:8000/jobBoards';
+  const qnaDetailUrl = 'qnaBoard';
+  const qnaUrl = 'http://localhost:8000/qnaBoards';
+
   return (
     <BaseLayout>
       <S.Banner>
@@ -16,10 +25,10 @@ const MainPage = () => {
       </S.Banner>
       <S.Main>
         <S.Grid>
-          <MiniBoard />
-          <MiniBoard />
-          <MiniBoard />
-          <MiniBoard />
+          <MiniBoard detailUrl={detailUrl} boardUrl={boardUrl} />
+          <MiniBoard detailUrl={studyDetailUrl} boardUrl={studyUrl} />
+          <MiniBoard detailUrl={jobDetailUrl} boardUrl={jobUrl} />
+          <MiniBoard detailUrl={qnaDetailUrl} boardUrl={qnaUrl} />
         </S.Grid>
       </S.Main>
     </BaseLayout>

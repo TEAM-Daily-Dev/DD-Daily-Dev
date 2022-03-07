@@ -1,7 +1,24 @@
+import { useState, useEffect } from 'react';
+
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MiniBoard = () => {
+const MiniBoard = ({ detailUrl, boardUrl }) => {
+  const [newDatas, setNewDatas] = useState([]);
+  const fetchData = async () => {
+    try {
+      const res = await axios(boardUrl);
+      const Data = await res.data;
+      setNewDatas(Data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const boardDate = newDatas.slice(0, 3);
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <S.Article>
       <S.Flex>
@@ -9,16 +26,20 @@ const MiniBoard = () => {
         <Link to="/">더보기</Link>
       </S.Flex>
       <ul>
-        {['##1', '##2', '##3'].map((item, index) => (
-          <li key={Number(index)}>
-            <h3>게시판</h3>
-            <p>각 게시판의 예시 게시물글 의 수는 한줄이 나오게끔 설정됩니다. MMMMMMMMMMMMMMMMMMMMMMM</p>
-            <div>
-              <span>좋아요 10</span>
-              <span>댓글 10</span>
-            </div>
-          </li>
-        ))}
+        {boardDate.map((item, index) => {
+          return (
+            <li key={Number(index)}>
+              <h3>게시판</h3>
+              <Link to={`/${detailUrl}/detail/${item.id}`}>
+                <p>{item.title}</p>
+              </Link>
+              <div>
+                <span>좋아요 10</span>
+                <span>댓글 10</span>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </S.Article>
   );
