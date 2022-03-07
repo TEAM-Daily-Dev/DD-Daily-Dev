@@ -4,6 +4,21 @@
       "username": "frank",
       "password": "Frank@123",
       "id": 1
+    },
+    {
+      "username": "frank1",
+      "password": "Frank@123",
+      "id": 2
+    },
+    {
+      "username": "Frank2",
+      "password": "Frank@123",
+      "id": 3
+    },
+    {
+      "username": "Frank10",
+      "password": "Frank@123",
+      "id": 4
     }
   ],
   "data": [
@@ -60,8 +75,8 @@
     },
     {
       "postid": null,
-      "title": "test ",
-      "contents": "test ",
+      "title": "test",
+      "contents": "test",
       "id": 4
     }
   ],
@@ -89,24 +104,6 @@
       "comment": "시작하세요!",
       "like": 0,
       "id": 8
-    },
-    {
-      "sameId": 1,
-      "comment": "asdasd",
-      "like": 0,
-      "id": 9
-    },
-    {
-      "sameId": 1,
-      "comment": "하이\n",
-      "like": 0,
-      "id": 10
-    },
-    {
-      "sameId": 4,
-      "comment": "testing comment\n",
-      "like": 0,
-      "id": 11
     }
   ],
   "posts": [
