@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { WrapperAuth } from 'styles/Auth.styled';
+
 import RegisterForm from './RegisterForm';
 
 const RegisterPage = () => {
@@ -10,9 +12,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
-      <div>Register</div> {success ? <div> Success </div> : <RegisterForm continueRegister={continueRegister} />}
-    </>
+    <WrapperAuth>{success ? <div> Success </div> : <RegisterForm continueRegister={continueRegister} />}</WrapperAuth>
   );
 };
 

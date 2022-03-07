@@ -4,18 +4,16 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Register from '../Register';
 import {
+  NeedMoreHelp,
   ContainerLogin,
-  ContainerUser,
-  ContainerInput,
-  InputField,
   Button,
+  ContainerUser,
+  InputField,
   Title,
-  TitleSignIn,
   ErrMsg,
   OffScreen,
-} from './styled';
+} from 'styles/Auth.styled';
 
 const LoginForm = () => {
   const userRef = useRef();
@@ -55,13 +53,14 @@ const LoginForm = () => {
 
   return (
     <>
-      <Title>SWFB STUDY</Title>
+      <Link to="/">
+        <Title>SWFB STUDY</Title>
+      </Link>
       <ContainerLogin>
-        <div>
-          {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
-
-          <ContainerUser onSubmit={handleSubmit}>
-            <TitleSignIn>Sign in</TitleSignIn>
+        {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
+        <ContainerUser onSubmit={handleSubmit}>
+          <TitleSignIn>Sign in</TitleSignIn>
+          <ContainerUserInfo>
             <ContainerInput>
               <label htmlFor="username">사용자 ID</label>
               <InputField
@@ -85,25 +84,43 @@ const LoginForm = () => {
                 required
               />
             </ContainerInput>
-            <Button type="submit">Continue</Button>
-          </ContainerUser>
-
-          <div>
-            <p>
-              <br />
-              <Link to="/register" element={<Register />}>
-                Need an Account?
-              </Link>
-            </p>
-          </div>
-        </div>
+          </ContainerUserInfo>
+          <Button type="submit" style={{ marginTop: '40px' }}>
+            Continue
+          </Button>
+        </ContainerUser>
+        <NeedMoreHelp>
+          <Link to="/register">
+            <span>Need an account? </span> &nbsp;
+            <span style={{ color: '#4646c7' }}>Sign Up</span>
+          </Link>
+        </NeedMoreHelp>
       </ContainerLogin>
     </>
   );
 };
 
-const Wrapper = styled.div`
-  background: red;
-  height: 100vh;
+const ContainerUserInfo = styled.div`
+  margin-bottom: 1.5rem;
 `;
+
+const ContainerInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+`;
+
+const TitleSignIn = styled.h2`
+  position: relative;
+  color: #000000;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  position: absolute;
+  top: 210px;
+`;
+
 export default LoginForm;
