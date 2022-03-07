@@ -207,7 +207,7 @@ const RegisterForm = ({ continueRegister }) => {
 };
 
 const ContainerUserInfo = styled.div`
-  margin-top: 6rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
 `;
 
@@ -224,8 +224,6 @@ const TitleSignUp = styled.h2`
   font-weight: 400;
   font-size: 28px;
   line-height: 36px;
-  position: absolute;
-  top: 210px;
 `;
 
 export default RegisterForm;
