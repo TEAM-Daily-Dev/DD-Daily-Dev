@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -8,8 +8,21 @@ import SearchInput from 'pages/Search/SearchInput';
 import { TABLET } from 'utils/constants/responsive';
 
 const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const [isLoggedIn, isSetLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('user_id') === null) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, [isLoggedIn]);
+
+  const logOutUser = () => {
+    sessionStorage.removeItem('user_id');
+    setIsLoggedIn(false);
+  };
 
   return (
     <>
@@ -47,7 +60,12 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
                   <SignUpBtn to="/register">Create account</SignUpBtn>
                 </>
               ) : (
-                <div>Logged in - User Name</div>
+                <UserInOut>
+                  <SessionID>{sessionStorage.getItem('user_id')}</SessionID>
+                  <LogOutBtn onClick={logOutUser} to="/">
+                    Log out
+                  </LogOutBtn>
+                </UserInOut>
               )}
             </Flex>
           </EntryBox>
@@ -183,7 +201,38 @@ const LogInBtn = styled(Link)`
   border-radius: 6px;
   color: #404040;
   margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  &:hover {
+    color: #7d50ff;
+    border: 1px solid #7d50ff;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const LogOutBtn = styled(Link)`
+  color: #7d50ff;
+  border: 1px solid #7d50ff;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 6px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: #4000ff;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -191,6 +240,23 @@ const LogInBtn = styled(Link)`
 
 const Spacer = styled.div`
   height: 30px;
+`;
+
+const UserInOut = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SessionID = styled.div`
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #404040;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default Header;
