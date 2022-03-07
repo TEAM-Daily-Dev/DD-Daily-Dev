@@ -1,21 +1,22 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { WrapperAuth } from 'styles/Auth.styled';
 
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
-  const [success, setSuccess] = useState(true);
-
-  const logInSucess = () => {
-    setSuccess(true);
-  };
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div>
-      {success && (
+      {success ? (
+        navigate('/')
+      ) : (
         <WrapperAuth>
-          <LoginForm logInSucess={logInSucess} />
+          <LoginForm setSuccess={setSuccess} />
         </WrapperAuth>
       )}
     </div>
