@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import {
@@ -15,9 +15,8 @@ import {
 } from 'styles/Auth.styled';
 import { getUserList } from 'utils/getApi';
 
-const LoginForm = () => {
+const LoginForm = ({ setSuccess }) => {
   const userRef = useRef();
-  const navigate = useNavigate();
 
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
@@ -39,7 +38,7 @@ const LoginForm = () => {
 
       userData.map((person) =>
         person.username.toLowerCase() === user.toLowerCase() && person.password === pwd
-          ? (setUser(''), setPwd(''), navigate('/'))
+          ? (setUser(''), setPwd(''), setSuccess(true), sessionStorage.setItem('user_id', user))
           : setErrMsg('아이디, 비밀번호 재확인하세요.'),
       );
     } catch (err) {
@@ -83,9 +82,15 @@ const LoginForm = () => {
               />
             </ContainerInput>
           </ContainerUserInfo>
-          <Button type="submit" style={{ marginTop: '40px' }}>
-            Continue
-          </Button>
+          {user && pwd ? (
+            <Button type="submit" style={{ marginTop: '40px' }}>
+              Continue
+            </Button>
+          ) : (
+            <Button type="submit" style={{ marginTop: '40px' }} disabled>
+              Continue
+            </Button>
+          )}
         </ContainerUser>
         <NeedMoreHelp>
           <Link to="/register">
