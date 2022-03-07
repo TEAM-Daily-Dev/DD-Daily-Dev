@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-// export const Container = styled.body`
-//   background: linear-gradient(180deg, #7d50ff 0%, #6153c9 100%);
-// `;
+export const WrapperAuth = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #7d50ff 0%, #6153c9 100%);
+  height: 100vh;
+`;
 
 export const ContainerLogin = styled.div`
   background: #ffffff;
@@ -25,21 +30,6 @@ export const ContainerUser = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3.5rem;
-`;
-
-export const SignInInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 60px;
-`;
-
-export const SignUpInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 20px;
 `;
 
 export const InputField = styled.input`
@@ -62,6 +52,7 @@ export const PasswordRequirements = styled.div`
   position: relative;
   width: 488px;
   margin-top: 10px;
+  color: grey;
 `;
 
 export const Title = styled.h1`
@@ -71,18 +62,6 @@ export const Title = styled.h1`
   line-height: 54px;
   text-align: center;
   margin-bottom: 16px;
-`;
-
-export const TitleSignIn = styled.h2`
-  position: relative;
-  color: #000000;
-  font-family: Roboto;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 36px;
-  text-align: center;
-  position: absolute;
-  top: 210px;
 `;
 
 export const ErrMsg = styled.p`
@@ -106,14 +85,13 @@ export const Button = styled.button`
   font-weight: bold;
   font-size: 16px;
   line-height: 27px;
-  margin-top: 30px;
+  margin-top: 20px;
   width: 488px;
   height: 55px;
   text-align: center;
 `;
 
 export const NeedMoreHelp = styled.div`
-  /* margin-top: 4rem; */
-  position: relative;
-  bottom: -1.5rem;
+  margin-top: 2rem;
+  text-align: center;
 `;

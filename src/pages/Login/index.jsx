@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { WrapperAuth } from 'styles/Auth.styled';
+
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
@@ -9,7 +11,15 @@ const LoginPage = () => {
     setSuccess(true);
   };
 
-  return <div>{success && <LoginForm logInSucess={logInSucess} />}</div>;
+  return (
+    <div>
+      {success && (
+        <WrapperAuth>
+          <LoginForm logInSucess={logInSucess} />
+        </WrapperAuth>
+      )}
+    </div>
+  );
 };
 
 export default LoginPage;
