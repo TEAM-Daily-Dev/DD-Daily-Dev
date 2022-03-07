@@ -10,17 +10,7 @@ const LoginPage = () => {
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  return (
-    <div>
-      {success ? (
-        navigate('/')
-      ) : (
-        <WrapperAuth>
-          <LoginForm setSuccess={setSuccess} />
-        </WrapperAuth>
-      )}
-    </div>
-  );
+  return <WrapperAuth>{success ? navigate('/') : <LoginForm setSuccess={setSuccess} />}</WrapperAuth>;
 };
 
 export default LoginPage;

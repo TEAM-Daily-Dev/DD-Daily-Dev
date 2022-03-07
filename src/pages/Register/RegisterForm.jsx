@@ -23,7 +23,7 @@ const SERVER = 'http://localhost:8000/user';
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const RegisterForm = ({ continueRegister }) => {
+const RegisterForm = ({ setSuccess }) => {
   const userRef = useRef(); //
 
   const [user, setUser] = useState('');
@@ -73,8 +73,8 @@ const RegisterForm = ({ continueRegister }) => {
         await axios.post(SERVER, JSON.stringify({ username: user, password: pwd }), {
           headers: { 'Content-Type': 'application/json' },
         });
-
-        continueRegister();
+        alert('회원가입 완료!');
+        setSuccess(true);
         setUser('');
         setPwd('');
         setMatchPwd('');
