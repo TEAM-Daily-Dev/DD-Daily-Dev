@@ -18,10 +18,10 @@ import {
   Title,
 } from 'styles/Auth.styled';
 
+const SERVER = 'http://localhost:8000/user';
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-const SERVER = 'http://localhost:3500/user';
 
 const RegisterForm = ({ continueRegister }) => {
   const userRef = useRef(); //
@@ -62,11 +62,15 @@ const RegisterForm = ({ continueRegister }) => {
 
     try {
       // Get api -> if user name exists -> show error alerts
+
       const { data } = await axios.get(SERVER);
-      const foundUser = data.find((person) => person.user === user);
+
+      const foundUser = data.find((person) => person.username.toLowerCase() === user.toLowerCase());
+
+      console.log(foundUser);
 
       if (!foundUser) {
-        await axios.post(SERVER, JSON.stringify({ user, pwd }), {
+        await axios.post(SERVER, JSON.stringify({ username: user, password: pwd }), {
           headers: { 'Content-Type': 'application/json' },
         });
 
@@ -75,10 +79,11 @@ const RegisterForm = ({ continueRegister }) => {
         setPwd('');
         setMatchPwd('');
       } else {
-        setErrMsg('Username Taken');
+        setErrMsg(`"${user}" 이미 사용된 사용자 ID 입니다.`);
+        userRef.current.focus();
       }
     } catch (err) {
-      setErrMsg('Registration Failed');
+      setErrMsg('다시 시도해보세요.');
     }
   };
 
@@ -94,7 +99,7 @@ const RegisterForm = ({ continueRegister }) => {
           <ContainerUserInfo>
             <ContainerInput>
               <label htmlFor="username">
-                Username:
+                사용자 ID:
                 {!validName || !user ? (
                   <FontAwesomeIcon icon={faTimes} style={{ display: 'none' }} />
                 ) : (
@@ -117,16 +122,16 @@ const RegisterForm = ({ continueRegister }) => {
               <PasswordRequirements>
                 <FontAwesomeIcon icon={faInfoCircle} />
                 <br />
-                &nbsp; - 4 to 24 characters.
+                &nbsp; * 4~24자
                 <br />
-                &nbsp; - Must begin with a letter.
+                &nbsp; * 문자로 시작해야함.
                 <br />
-                &nbsp; - Letters, numbers, underscores, hyphens allowed.
+                &nbsp; * 문자, 숫자, _ , - 사용가능
               </PasswordRequirements>
             )}
             <ContainerInput>
               <label htmlFor="password">
-                Password:
+                비밀번호:
                 {validPwd ? (
                   <FontAwesomeIcon icon={faCheck} style={{ color: 'limegreen' }} />
                 ) : (
@@ -142,6 +147,7 @@ const RegisterForm = ({ continueRegister }) => {
                 type="password"
                 id="password"
                 onChange={(e) => setPwd(e.target.value)}
+                autoComplete="off"
                 value={pwd}
                 required
                 onFocus={() => setPwdFocus(true)}
@@ -151,14 +157,14 @@ const RegisterForm = ({ continueRegister }) => {
             {pwdFocus && !validPwd && (
               <PasswordRequirements>
                 <FontAwesomeIcon icon={faInfoCircle} /> &nbsp;
-                <br /> &nbsp; - 8 to 24 characters.
-                <br /> &nbsp; - Must include uppercase and lowercase letters, a number and a special character.
-                <br /> &nbsp; - Allowed special characters: ! @ # $ %
+                <br /> &nbsp; * 8~24자
+                <br /> &nbsp; * 대문자, 소문자, 숫자, 특수문자 포함해야함.
+                <br /> &nbsp; * 가능 특수문자: ! @ # $ %
               </PasswordRequirements>
             )}
             <ContainerInput>
               <label htmlFor="confirm_pwd">
-                Confirm Password:
+                비밀번호 재확인:
                 {validMatch && matchPwd ? (
                   <FontAwesomeIcon icon={faCheck} style={{ color: 'limegreen' }} />
                 ) : (
@@ -173,6 +179,7 @@ const RegisterForm = ({ continueRegister }) => {
               <InputField
                 type="password"
                 id="confirm_pwd"
+                autoComplete="off"
                 onChange={(e) => setMatchPwd(e.target.value)}
                 value={matchPwd}
                 required
@@ -181,24 +188,24 @@ const RegisterForm = ({ continueRegister }) => {
               />
               {matchFocus && !validMatch && (
                 <PasswordRequirements>
-                  <FontAwesomeIcon icon={faInfoCircle} /> &nbsp; Must match the first password input field.
+                  <FontAwesomeIcon icon={faInfoCircle} /> &nbsp; 비밀번호 매치 시켜주세요.
                 </PasswordRequirements>
               )}
             </ContainerInput>
           </ContainerUserInfo>
           {!validName || !validPwd || !validMatch ? (
-            <Button type="button" disabled>
+            <Button type="submit" disabled>
               Sign Up
             </Button>
           ) : (
-            <Button type="button"> Sign Up</Button>
+            <Button type="submit"> Sign Up </Button>
           )}
         </ContainerUser>
 
         <NeedMoreHelp>
           <Link to="/login">
             <span>Already have an account?</span> &nbsp;
-            <span style={{ color: '#4646c7' }}>Log in</span>
+            <span style={{ color: '#7d50ff' }}>Log in</span>
           </Link>
         </NeedMoreHelp>
       </ContainerLogin>
