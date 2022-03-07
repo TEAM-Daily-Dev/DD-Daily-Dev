@@ -97,7 +97,9 @@ const BoardCreate = ({ createLink, preUrl }) => {
           </BackDiv>
         </DisplayFlex>
       </MainStyle>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };
