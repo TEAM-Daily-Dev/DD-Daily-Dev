@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
 
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -14,6 +13,7 @@ import {
   ErrMsg,
   OffScreen,
 } from 'styles/Auth.styled';
+import { getUserList } from 'utils/getApi';
 
 const LoginForm = () => {
   const userRef = useRef();
@@ -22,8 +22,6 @@ const LoginForm = () => {
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
-
-  const LOGIN_URL = 'http://localhost:8000/user';
 
   useEffect(() => {
     userRef.current.focus();
@@ -37,12 +35,12 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const { data: userData } = await axios.get(LOGIN_URL);
+      const userData = await getUserList();
 
       userData.map((person) =>
         person.username.toLowerCase() === user.toLowerCase() && person.password === pwd
           ? (setUser(''), setPwd(''), navigate('/'))
-          : setErrMsg('incorrect username or password.'),
+          : setErrMsg('아이디, 비밀번호 재확인하세요.'),
       );
     } catch (err) {
       if (err.response) {
@@ -57,9 +55,9 @@ const LoginForm = () => {
         <Title>SWFB STUDY</Title>
       </Link>
       <ContainerLogin>
-        {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
         <ContainerUser onSubmit={handleSubmit}>
-          <TitleSignIn>Sign in</TitleSignIn>
+          <TitleSignIn>Sign In</TitleSignIn>
+          {errMsg ? <ErrMsg>{errMsg}</ErrMsg> : <OffScreen />}
           <ContainerUserInfo>
             <ContainerInput>
               <label htmlFor="username">사용자 ID</label>
@@ -92,7 +90,7 @@ const LoginForm = () => {
         <NeedMoreHelp>
           <Link to="/register">
             <span>Need an account? </span> &nbsp;
-            <span style={{ color: '#4646c7' }}>Sign Up</span>
+            <span style={{ color: '#7d50ff' }}>Sign Up</span>
           </Link>
         </NeedMoreHelp>
       </ContainerLogin>

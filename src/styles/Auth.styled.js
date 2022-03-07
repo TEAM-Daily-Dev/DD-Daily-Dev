@@ -89,6 +89,19 @@ export const Button = styled.button`
   width: 488px;
   height: 55px;
   text-align: center;
+
+  &:hover {
+    color: #7d50ff;
+    background: none;
+    border: 1px solid #7d50ff;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.1s ease-out;
+  }
+
+  :disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
 `;
 
 export const NeedMoreHelp = styled.div`
