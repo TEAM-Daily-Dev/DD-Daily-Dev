@@ -21,7 +21,6 @@ const BoardCreate = ({ createLink, preUrl }) => {
   };
 
   const [userId, setUserId] = useState(``);
-  console.log(userId);
   const navi = useNavigate();
   const writeTitle = useRef('');
   const newcontent = useRef('');
@@ -38,25 +37,26 @@ const BoardCreate = ({ createLink, preUrl }) => {
     }
     if (newId.current.value === '') {
       alert('비밀번호를 입력하세요.');
-    }
-    axios({
-      method: 'POST',
-      url: createLink,
-      data: {
-        username: userId,
-        postid: parseInt(newId.current.value, 10),
-        title: writeTitle.current.value,
-        contents: newcontent.current.value,
-      },
-    })
-      .then((res) => {
-        setNewDatas([...newDatas, res]);
-        alert('생성이 완료되었습니다.');
-        navi(`${preUrl}`);
+    } else {
+      axios({
+        method: 'POST',
+        url: createLink,
+        data: {
+          username: userId,
+          postid: parseInt(newId.current.value, 10),
+          title: writeTitle.current.value,
+          contents: newcontent.current.value,
+        },
       })
-      .catch((err) => {
-        return alert(err.message);
-      });
+        .then((res) => {
+          setNewDatas([...newDatas, res]);
+          alert('생성이 완료되었습니다.');
+          navi(`${preUrl}`);
+        })
+        .catch((err) => {
+          return alert(err.message);
+        });
+    }
   };
 
   const returnPage = () => {

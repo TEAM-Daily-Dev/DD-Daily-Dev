@@ -44,7 +44,7 @@ const BoardUpdate = ({ boardUrl, preUrl }) => {
       url: `${boardUrl}/${setid}`,
       data: {
         id: parseInt(setid, 10),
-        title: newTitle,
+        title: `${newTitle} (수정된 글)`,
         contents: newcontent,
       },
     })

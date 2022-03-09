@@ -5,21 +5,21 @@ import styled from 'styled-components';
 
 import Profile from '../../assets/images/profile.png';
 
-const EditReply = ({ replyUrl, replyId, setEdit, sameId, setCheckUseEffect, checkUseEffect }) => {
+const EditReply = ({ replyUrl, replyId, setEdit, sameId, setCheckUseEffect, checkUseEffect, loginid }) => {
   const [newcontent, setNewContent] = useState('');
 
   const onChange = (e) => {
     setNewContent(e.target.value);
   };
-  console.log(`${replyUrl}/${replyId}`);
 
   const changeComment = () => {
     axios({
       method: 'PUT',
       url: `${replyUrl}/${replyId}`,
       data: {
+        loginid,
         sameId,
-        comment: newcontent,
+        comment: `${newcontent} (수정된 댓글)`,
         like: 0,
       },
     });

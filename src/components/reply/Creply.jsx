@@ -6,14 +6,16 @@ import styled from 'styled-components';
 import ReplyShow from './ReplyShow';
 
 const Creply = ({ setid, replyUrl }) => {
-  const [checkUseEffect, setCheckUseEffect] = useState(true);
-  const [newConmment, setNewConmment] = useState('');
   const [newReply, setNewReply] = useState([]);
   const fetchTasks = async () => {
     const res = await axios(replyUrl);
     const newData = await res.data;
     return setNewReply(newData);
   };
+
+  const [checkUseEffect, setCheckUseEffect] = useState(true);
+  const [newConmment, setNewConmment] = useState('');
+  const [loginUser, setLoginUser] = useState(``);
 
   const onChange = (e) => {
     const { value } = e.target;
@@ -24,29 +26,32 @@ const Creply = ({ setid, replyUrl }) => {
     event.preventDefault();
     if (newConmment === '') {
       alert('댓글의 내용을 적어주세요.');
-    }
-    axios({
-      method: 'POST',
-      url: replyUrl,
-      data: {
-        sameId: parseInt(setid, 10),
-        comment: newConmment,
-        like: 0,
-      },
-    })
-      .then((res) => {
-        setNewReply([...newReply, res]);
-        setCheckUseEffect(!checkUseEffect);
-        setNewConmment('');
-        alert('생성이 완료되었습니다.');
+    } else {
+      axios({
+        method: 'POST',
+        url: replyUrl,
+        data: {
+          loginid: loginUser,
+          sameId: parseInt(setid, 10),
+          comment: newConmment,
+          like: 0,
+        },
       })
-      .catch((err) => {
-        return alert(err.message);
-      });
+        .then((res) => {
+          setNewReply([...newReply, res]);
+          setCheckUseEffect(!checkUseEffect);
+          setNewConmment('');
+          alert('생성이 완료되었습니다.');
+        })
+        .catch((err) => {
+          return alert(err.message);
+        });
+    }
   };
   const newArray = newReply.filter((a) => a.sameId === parseInt(setid, 10)); // 댓글 갯수
 
   useEffect(() => {
+    setLoginUser(sessionStorage.getItem('user_id'));
     fetchTasks();
   }, [checkUseEffect]);
 
@@ -71,15 +76,7 @@ const Creply = ({ setid, replyUrl }) => {
             </TextareaDiv>
           </CommentDiv>
           <div>
-            <CommentBtnDiv>
-              {newConmment === '' ? (
-                <SubmitBtnDis type="button" disabled>
-                  등록
-                </SubmitBtnDis>
-              ) : (
-                <SubmitBtn type="submit" value="등록" onClick={CreateReply} />
-              )}
-            </CommentBtnDiv>
+            <CommentBtnDiv>{loginUser && <SubmitBtn type="submit" value="등록" onClick={CreateReply} />}</CommentBtnDiv>
           </div>
         </form>
         {/* {comms.length > 0 ? ( */}
@@ -99,6 +96,8 @@ const Creply = ({ setid, replyUrl }) => {
                 newid={a.id}
                 like={a.like}
                 replyUrl={replyUrl}
+                loginUser={loginUser}
+                loginid={a.loginid}
               />
             );
           })}

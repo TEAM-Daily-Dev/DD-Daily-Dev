@@ -17,6 +17,8 @@ const ReplyShow = ({
   replyUrl,
   setCheckUseEffect,
   checkUseEffect,
+  loginUser,
+  loginid,
 }) => {
   const [showButton, setShowButton] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -66,33 +68,36 @@ const ReplyShow = ({
                 <CommentDoneSection>
                   <UserInfoDiv>
                     <UserInfo>
-                      <UserNameBtn type="button">sni424</UserNameBtn>
+                      <UserNameBtn type="button">{loginid}</UserNameBtn>
                       <UserInfoSpan> • </UserInfoSpan>
                       <CommentTime>Feb 23</CommentTime>
                     </UserInfo>
                     <div>
                       {/* 댓글 더보기옵션 버튼 클릭 토글 */}
-                      <span>
-                        <MoreMenus onClick={ShowTwoButton}>
-                          <MoreIcon
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            role="img"
-                            aria-labelledby="a32utvszhlbfuu9s4mmda4ehwi4to6yk"
-                            className="crayons-icon pointer-events-none"
-                          >
-                            <title id="a32utvszhlbfuu9s4mmda4ehwi4to6yk">Dropdown menu</title>
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                            />
-                          </MoreIcon>
-                        </MoreMenus>
-                      </span>
+                      {loginUser === loginid && (
+                        <span>
+                          <MoreMenus onClick={ShowTwoButton}>
+                            <MoreIcon
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              role="img"
+                              aria-labelledby="a32utvszhlbfuu9s4mmda4ehwi4to6yk"
+                              className="crayons-icon pointer-events-none"
+                            >
+                              <title id="a32utvszhlbfuu9s4mmda4ehwi4to6yk">Dropdown menu</title>
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                              />
+                            </MoreIcon>
+                          </MoreMenus>
+                        </span>
+                      )}
                     </div>
+
                     {/* 댓글 더보기옵션 버튼 클릭시 수정 삭제 보여주고 숨기기 */}
                     {showButton === true && (
                       <MoreHiddenMenuDiv>
@@ -122,6 +127,7 @@ const ReplyShow = ({
                     sameId={sameId}
                     setCheckUseEffect={setCheckUseEffect}
                     checkUseEffect={checkUseEffect}
+                    loginid={loginid}
                   />
                 )}
               </div>
