@@ -93,11 +93,6 @@
       "id": 1
     },
     {
-      "id": 2,
-      "title": "test1 (수정된 글)",
-      "contents": "test2"
-    },
-    {
       "username": "jonghyeok",
       "postid": 123456,
       "title": "아이디 추가 테스트",
@@ -107,8 +102,8 @@
     {
       "username": "jonghyeok",
       "postid": 546456,
-      "title": "fdsa",
-      "contents": "fdsaf",
+      "title": "test1 (수정된 글)",
+      "contents": "test1",
       "id": 4
     }
   ],
@@ -147,13 +142,6 @@
       "comment": "userid test! (수정된 댓글)",
       "like": 0,
       "id": 13
-    },
-    {
-      "loginid": "jonghyeok",
-      "sameId": 2,
-      "comment": "test2 (수정된 댓글)",
-      "like": 0,
-      "id": 14
     }
   ],
   "studyBoards": [
