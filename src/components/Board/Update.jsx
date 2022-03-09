@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import { parseInt } from 'lodash';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -9,7 +10,7 @@ import Footer from 'layouts/BaseLayout/Footer';
 import Header from 'layouts/BaseLayout/Header';
 
 const BoardUpdate = ({ boardUrl, preUrl }) => {
-  const [loaDing, setLoaDing] = useState(true);
+  const [loaDing, setLoaDing] = useState(false);
 
   const [newDatas, setNewDatas] = useState([]);
   const fetchData = async () => {
@@ -26,6 +27,8 @@ const BoardUpdate = ({ boardUrl, preUrl }) => {
   const { setid } = useParams();
   const [newTitle, setNewTitle] = useState('');
   const [newcontent, setNewContent] = useState('');
+  const [password, setPassword] = useState();
+  const check = newDatas.length > 1 && newDatas.find((a) => parseInt(a.id, 10) === parseInt(setid, 10));
 
   const onChange = (e) => {
     const { value } = e.target;
@@ -39,46 +42,47 @@ const BoardUpdate = ({ boardUrl, preUrl }) => {
 
   const addTitle = (event) => {
     event.preventDefault();
-    axios({
-      method: 'PUT',
-      url: `${boardUrl}/${setid}`,
-      data: {
-        id: parseInt(setid, 10),
-        title: `${newTitle} (수정된 글)`,
-        contents: newcontent,
-      },
-    })
-      .then(() => {
-        alert('생성이 완료되었습니다.');
-        navi(`/${preUrl}/${setid}`);
+    if (check.postid !== parseInt(password)) {
+      alert('비밀번호가 상이합니다.');
+    } else {
+      axios({
+        method: 'PUT',
+        url: `${boardUrl}/${setid}`,
+        data: {
+          username: check.username,
+          postid: check.postid,
+          title: `${newTitle} (수정된 글)`,
+          contents: newcontent,
+          id: parseInt(setid, 10),
+        },
       })
-      .catch((err) => {
-        return alert(err.message);
-      });
+        .then(() => {
+          alert('생성이 완료되었습니다.');
+          navi(`/${preUrl}/${setid}`);
+        })
+        .catch((err) => {
+          return alert(err.message);
+        });
+    }
   };
+
   const returnPage = () => {
     navi(-1);
+  };
+
+  const checkPassword = (e) => {
+    setPassword(e.target.value);
   };
 
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
     fetchData();
-    if (newDatas.length > 1) {
-      setNewTitle(
-        newDatas.find((a) => {
-          return a.id === parseInt(setid, 10);
-        }).title,
-      );
-      setNewContent(
-        newDatas.find((a) => {
-          return a.id === parseInt(setid, 10);
-        }).contents,
-      );
+    if (newDatas) {
+      setNewTitle(check.title);
+      setNewContent(check.contents);
       setLoaDing(true);
-    } else {
-      setLoaDing(false);
     }
-  }, [loaDing, newDatas.length]);
+  }, [newDatas.length]);
 
   return (
     <>
@@ -101,6 +105,14 @@ const BoardUpdate = ({ boardUrl, preUrl }) => {
                   value={newcontent}
                   onChange={onChange2}
                 />
+                <PasswordDiv>
+                  <PasswordInput
+                    type="password"
+                    placeholder="Password Please"
+                    value={password}
+                    onChange={checkPassword}
+                  />
+                </PasswordDiv>
                 <ButtonDiv>
                   <DivButton>
                     <ButtonB href="#" onClick={addTitle}>
@@ -163,6 +175,18 @@ const TextAreaFirst = styled.textarea`
     font-size: 28px;
     font-weight: 700;
     color: gery;
+  }
+`;
+const PasswordDiv = styled.div`
+  display: fles;
+  align-items: center;
+  justify-content: center;
+`;
+const PasswordInput = styled.input`
+  &::placeholder {
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
   }
 `;
 const DivButton = styled.button`
