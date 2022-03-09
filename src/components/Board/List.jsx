@@ -22,6 +22,7 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
         }
     }
 
+    const [userId, setUserId] = useState(``);
     const [currentPage, setCurrentPage] = useState(1);//현재 페이지
     const [postPage] = useState(10)//포스트 개수
     const lastPost = currentPage * postPage //1*10 =10
@@ -31,6 +32,7 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
     const [checkTrue, setcheckTrue] = useState(true);
     useEffect(() => {
         document.documentElement.scrollTo(0, 0);
+        setUserId(sessionStorage.getItem('user_id'));
         fetchData();
     }, [currentPage, checkTrue])
 
@@ -68,17 +70,28 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
                         </Thead>
                         {currentPosts.map((a, i) => {
                             return <Tbody>
-                                <Newli detailUrl={detailUrl} title={a.title} key={i} index={a.id}></Newli>
+                                <Newli
+                                    detailUrl={detailUrl}
+                                    title={a.title}
+                                    key={i}
+                                    index={a.id} />
                             </Tbody>;
                         })}
                     </Table>
                     <LastDiv>
-                        <PageNum currentPage={currentPage} checkTrue={checkTrue} setcheckTrue={setcheckTrue} postPage={postPage} newDatas={newDatas} setCurrentPage={setCurrentPage}></PageNum>
+                            <PageNum currentPage={currentPage}
+                                checkTrue={checkTrue}
+                                setcheckTrue={setcheckTrue}
+                                postPage={postPage} 
+                                newDatas={newDatas}
+                                setCurrentPage={setCurrentPage} />
                         <Link to={`/${createUrl}`}>
-                            <SerchButton>
-                                <ButtonA href="#">
-                                    글쓰기
-                                </ButtonA>
+                                <SerchButton>
+                                    {userId &&
+                                        <ButtonA href="#">
+                                            글쓰기
+                                        </ButtonA>
+                                    }
                             </SerchButton>
                         </Link>
                     </LastDiv>

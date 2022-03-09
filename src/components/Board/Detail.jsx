@@ -22,6 +22,8 @@ const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
       console.log(err.message);
     }
   };
+
+  const [userId, setUserId] = useState(``);
   const { setid } = useParams();
   const [put, setPut] = useState(`/${updateUrl}/${setid}`);
   const navi = useNavigate();
@@ -49,8 +51,11 @@ const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
 
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
+    setUserId(sessionStorage.getItem('user_id'));
     fetchData();
   }, []);
+
+  const check = newDatas.length > 1 && newDatas.find((a) => parseInt(a.id, 10) === parseInt(setid, 10));
 
   return (
     <>
@@ -62,17 +67,19 @@ const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
             <HeaderDiv>
               <FirstDiv>
                 <SecondDiv>
-                  {newDatas.length > 1 && (
-                    <HeaderH1>{newDatas.find((a) => parseInt(a.id, 10) === parseInt(setid, 10)).title}</HeaderH1>
-                  )}
+                  <HeaderH1>{check.title}</HeaderH1>
                 </SecondDiv>
                 <ThirdDiv>
-                  <Link to={put}>
-                    <ThirdDivA href="#">Edit</ThirdDivA>
-                  </Link>
-                  <ThirdDivA href="#" onClick={removeText}>
-                    Delete
-                  </ThirdDivA>
+                  {check.username === userId && (
+                    <>
+                      <Link to={put}>
+                        <ThirdDivA href="#">Edit</ThirdDivA>
+                      </Link>
+                      <ThirdDivA href="#" onClick={removeText}>
+                        Delete
+                      </ThirdDivA>
+                    </>
+                  )}
                   <ThirdDivA href="#" onClick={pre}>
                     Pre
                   </ThirdDivA>
@@ -81,7 +88,7 @@ const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
               <IDDiv>
                 <ProfileImg src={Profile} />
                 <IdPost>
-                  <IdA href="#">sni424</IdA>
+                  <IdA href="#">{check.username}</IdA>
                   <PostPtag>Posted on 2월23일</PostPtag>
                 </IdPost>
               </IDDiv>

@@ -20,6 +20,8 @@ const BoardCreate = ({ createLink, preUrl }) => {
     }
   };
 
+  const [userId, setUserId] = useState(``);
+  console.log(userId);
   const navi = useNavigate();
   const writeTitle = useRef('');
   const newcontent = useRef('');
@@ -41,6 +43,7 @@ const BoardCreate = ({ createLink, preUrl }) => {
       method: 'POST',
       url: createLink,
       data: {
+        username: userId,
         postid: parseInt(newId.current.value, 10),
         title: writeTitle.current.value,
         contents: newcontent.current.value,
@@ -61,6 +64,7 @@ const BoardCreate = ({ createLink, preUrl }) => {
   };
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
+    setUserId(sessionStorage.getItem('user_id'));
     fetchData();
   }, []);
   return (
