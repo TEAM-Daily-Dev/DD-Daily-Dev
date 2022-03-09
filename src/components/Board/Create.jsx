@@ -27,6 +27,7 @@ const BoardCreate = ({ createLink, preUrl }) => {
 
   const CreateWrite = (event) => {
     event.preventDefault();
+
     if (writeTitle.current.value === '') {
       alert('제목을 입력하세요.');
     }
@@ -58,13 +59,12 @@ const BoardCreate = ({ createLink, preUrl }) => {
   const returnPage = () => {
     navi(-1);
   };
-
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
     fetchData();
   }, []);
   return (
-    <>
+    <div>
       <MainStyle>
         <Header />
         <div />
@@ -100,7 +100,7 @@ const BoardCreate = ({ createLink, preUrl }) => {
       <div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 const MainStyle = styled.div`

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Footer from 'layouts/BaseLayout/Footer';
 import Header from 'layouts/BaseLayout/Header';
 
 import Profile from '../../assets/images/profile.png';
-import Creply from '../reply/Creply';
+import Creply from '../Reply/Creply';
 
 const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
   const [newDatas, setNewDatas] = useState([]);
