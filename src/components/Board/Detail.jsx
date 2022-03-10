@@ -9,7 +9,7 @@ import Footer from 'layouts/BaseLayout/Footer';
 import Header from 'layouts/BaseLayout/Header';
 
 import Profile from '../../assets/images/profile.png';
-import Creply from '../Reply/Creply';
+import Creply from '../BoardReply/CreateReply';
 
 const BoardDetail = ({ boardUrl, replyUrl, updateUrl, preUrl }) => {
   const [newDatas, setNewDatas] = useState([]);

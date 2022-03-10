@@ -139,9 +139,9 @@
     {
       "loginid": "jonghyeok",
       "sameId": 1,
-      "comment": "userid test! (수정된 댓글)",
+      "comment": "폴더명 대문자로 변경 후 댓글 테스트 완료 (수정된 댓글)",
       "like": 0,
-      "id": 13
+      "id": 14
     }
   ],
   "studyBoards": [
