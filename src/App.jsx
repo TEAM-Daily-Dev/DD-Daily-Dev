@@ -4,22 +4,22 @@ import ComunityCreate from 'pages/Community/Create';
 import CommunityDetail from 'pages/Community/Detail';
 import CommunityList from 'pages/Community/List';
 import CommunityUpdate from 'pages/Community/Update';
-import JobCreate from 'pages/JobComm/Create';
-import JobDetail from 'pages/JobComm/Detail';
-import JobList from 'pages/JobComm/List';
-import JobUpdate from 'pages/JobComm/Update';
+import JobCreate from 'pages/JobCommunity/Create';
+import JobDetail from 'pages/JobCommunity/Detail';
+import JobList from 'pages/JobCommunity/List';
+import JobUpdate from 'pages/JobCommunity/Update';
 import LoginPage from 'pages/Login';
 import MainPage from 'pages/Main';
-import QnACreate from 'pages/QnaComm/Create';
-import QnaDetail from 'pages/QnaComm/Detail';
-import QnAList from 'pages/QnaComm/List';
-import QnAUpdate from 'pages/QnaComm/Update';
+import QnACreate from 'pages/QnaCommunity/Create';
+import QnaDetail from 'pages/QnaCommunity/Detail';
+import QnAList from 'pages/QnaCommunity/List';
+import QnAUpdate from 'pages/QnaCommunity/Update';
 import RegisterPage from 'pages/Register';
 import SearchPage from 'pages/Search';
-import StudyCreate from 'pages/StudyComm/Create';
-import StudyDetail from 'pages/StudyComm/Detail';
-import StudyList from 'pages/StudyComm/List';
-import StudyUpdate from 'pages/StudyComm/Update';
+import StudyCreate from 'pages/StudyCommunity/Create';
+import StudyDetail from 'pages/StudyCommunity/Detail';
+import StudyList from 'pages/StudyCommunity/List';
+import StudyUpdate from 'pages/StudyCommunity/Update';
 import SubPage from 'pages/SubPage/SubPage';
 import GlobalStyle from 'styles/GlobalStyle';
 
@@ -51,19 +51,8 @@ const App = () => {
         <Route path="/qnaBoard" element={<QnAList />} />
         <Route path="/qnaUpdate/:setid" element={<QnAUpdate />} />
       </Routes>
-      {/* <Board /> */}
     </>
   );
 };
-
-// const Board = () => {
-//   return (
-//     <>
-//       <Routes>
-//       </Routes>
-//       <Board />
-//     </>
-//   );
-// };
 
 export default App;
