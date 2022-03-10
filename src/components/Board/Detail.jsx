@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Aside from 'layouts/BaseLayout/Aside';
 import Footer from 'layouts/BaseLayout/Footer';
 import Header from 'layouts/BaseLayout/Header';
 

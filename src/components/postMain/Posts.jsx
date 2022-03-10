@@ -14,12 +14,8 @@ const Posts = () => {
             <UserPic />
           </div>
           <UserPostInfo>
-            <UserId>
-              <button>Kate Shim</button>
-            </UserId>
-            <PostDate>
-              <button>Feb 5</button>
-            </PostDate>
+            <UserId />
+            <PostDate />
           </UserPostInfo>
         </UserInfoStyle>
 
