@@ -11,6 +11,7 @@ import Header from "layouts/BaseLayout/Header";
 const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
 
     const [newDatas, setNewDatas] = useState([]);
+    const [checkTrue, setcheckTrue] = useState(true);
     const fetchData = async () => {
         try {
             const res = await axios(boardUrl)
@@ -22,14 +23,27 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
         }
     }
 
-    const [userId, setUserId] = useState(``);
-    const [currentPage, setCurrentPage] = useState(1);//현재 페이지
-    const [postPage] = useState(10)//포스트 개수
-    const lastPost = currentPage * postPage //1*10 =10
-    const firstPast = lastPost - postPage  // 10-10 =0
-    const currentPosts = newDatas.slice(firstPast, lastPost);
+    const [searchData, setSearchData] = useState("");
 
-    const [checkTrue, setcheckTrue] = useState(true);
+    const changeSearch = (e) => {
+        setSearchData(e.target.value);
+        fetchData(); 
+    };
+
+    const changeList = (e) => {
+        e.preventDefault();
+        const searchPre = newDatas.map(data => data.title.toLowerCase());
+        const makeLower = searchData.toLowerCase();
+        const searchNext = searchPre.filter(data => data.indexOf(makeLower) > -1);
+        const searchFinal = newDatas.filter(data => data.title.toLowerCase() == searchNext);
+        setNewDatas(searchFinal);
+    };
+    const [userId, setUserId] = useState(``);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPage] = useState(10);
+    const lastPost = currentPage * postPage;
+    const firstPast = lastPost - postPage;
+    const currentPosts = newDatas.slice(firstPast, lastPost);
     useEffect(() => {
         document.documentElement.scrollTo(0, 0);
         setUserId(sessionStorage.getItem('user_id'));
@@ -49,13 +63,15 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
                         <h2>커뮤니티</h2>
                         <h3>All</h3>
                     </FirstDiv>
-                    <SecondDiv>
-                        <FirstInput placeholder="Serch..." />
+                        <SecondDiv>
+                            <form onSubmit={changeList}>
+                        <FirstInput placeholder="Serch..." value={searchData} onChange={changeSearch} />
                         <SerchButton>
-                            <SerchA href="#">
+                            <SerchA >
                                 검색
-                            </SerchA>
-                        </SerchButton>
+                                    </SerchA>
+                                </SerchButton>
+                                </form>
                     </SecondDiv>
                     <Table>
                         <Thead>
@@ -69,13 +85,10 @@ const BoardList = ({ boardUrl, detailUrl, createUrl }) => {
                             </tr>
                         </Thead>
                         {currentPosts.map((a, i) => {
-                            return <Tbody>
-                                <Newli
+                             return <Newli key={i}
                                     detailUrl={detailUrl}
                                     title={a.title}
-                                    key={i}
                                     index={a.id} />
-                            </Tbody>;
                         })}
                     </Table>
                     <LastDiv>
@@ -108,7 +121,8 @@ function Newli({ title, index, detailUrl }) {
     let [newindex, setNewIndex] = useState(`${index}`);
 
     return (
-        <>
+        <Tbody>
+            <tr>
             <Td>{index}</Td>
             <Td>
                 7
@@ -126,8 +140,9 @@ function Newli({ title, index, detailUrl }) {
             </Td>
             <Td>
                 1
-            </Td>
-        </>
+                </Td>
+                </tr>
+        </Tbody>
     );
 };
 const MainStyle = styled.div`

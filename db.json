@@ -142,6 +142,20 @@
       "comment": "폴더명 대문자로 변경 후 댓글 테스트 완료 (수정된 댓글)",
       "like": 0,
       "id": 14
+    },
+    {
+      "loginid": "jonghyeok",
+      "sameId": 1,
+      "comment": "ㄹㅇㄴㅁㄹ (수정된 댓글)",
+      "like": 0,
+      "id": 15
+    },
+    {
+      "loginid": "jonghyeok",
+      "sameId": 1,
+      "comment": "좋아요! (수정된 댓글)",
+      "like": 0,
+      "id": 16
     }
   ],
   "studyBoards": [

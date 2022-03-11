@@ -88,7 +88,6 @@ const Creply = ({ setid, replyUrl }) => {
                 newReply={newReply}
                 setCheckUseEffect={setCheckUseEffect}
                 checkUseEffect={checkUseEffect}
-                setid={setid}
                 key={Number(i)}
                 index={i}
                 sameId={a.sameId}
