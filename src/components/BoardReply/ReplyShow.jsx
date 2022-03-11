@@ -53,7 +53,7 @@ const ReplyShow = ({
 
   return (
     <div>
-      {sameId === parseInt(setid, 10) && (
+      {sameId === parseInt(sameId, 10) && (
         <>
           {/* comments from people */}
           <DoneComment>
