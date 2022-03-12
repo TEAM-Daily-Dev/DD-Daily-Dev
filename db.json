@@ -105,6 +105,41 @@
       "title": "test1 (수정된 글)",
       "contents": "test1",
       "id": 4
+    },
+    {
+      "username": "Frank",
+      "postid": 123,
+      "title": "스   트  ",
+      "contents": "스   트  ",
+      "id": 5
+    },
+    {
+      "username": "Frank",
+      "postid": 1234,
+      "title": "이름은 갈림 테스트 아니야 이름은 트 테스트",
+      "contents": "이름은 갈림 테스트 아니야 이름은 트 테스트",
+      "id": 6
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리액틑ㅌ트트트트트트",
+      "contents": "리액틑ㅌ트트트트트트",
+      "id": 7
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "트트 리액틑ㅌ트트트트",
+      "contents": "트트 리액틑ㅌ트트트트",
+      "id": 8
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리 리리리리릴 액트 리액트 액트 리 ",
+      "contents": "리 리리리리릴 액트 리액트 액트 리 ",
+      "id": 9
     }
   ],
   "boardsReply": [
@@ -183,6 +218,20 @@
       "title": "유저id테스트",
       "contents": "유저 id테스트",
       "id": 4
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리액트 ",
+      "contents": "리액트 ",
+      "id": 5
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리액트 트트트트트트",
+      "contents": "리액트 트트트트트트",
+      "id": 6
     }
   ],
   "studyReply": [
@@ -260,6 +309,27 @@
       "title": "uesrid test",
       "contents": "userid test",
       "id": 2
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리리액액트 스터디 ",
+      "contents": "리리액액트 스터디 ",
+      "id": 3
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "스터디 ㅎㅎㅎ222 리액트 ",
+      "contents": "스터디 ㅎㅎㅎ222 리액트 ",
+      "id": 4
+    },
+    {
+      "username": "frank",
+      "postid": null,
+      "title": "리ㅎ2222 액트 ",
+      "contents": "스터디 ㅎㅎㅎ222 리액트 ",
+      "id": 5
     }
   ],
   "qnaReply": [
