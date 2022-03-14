@@ -1,4 +1,4 @@
-import { faComment, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
@@ -6,12 +6,6 @@ import styled from 'styled-components';
 const Aside = () => {
   return (
     <S.Ul>
-      <S.Li>
-        <NavLink to="/community">
-          <FontAwesomeIcon icon={faComment} size="lg" />
-          커뮤니티
-        </NavLink>
-      </S.Li>
       <S.Li>
         <NavLink to="/Board">
           <FontAwesomeIcon icon={faQuoteRight} size="lg" />

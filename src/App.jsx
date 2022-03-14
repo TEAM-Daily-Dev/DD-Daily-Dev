@@ -20,7 +20,6 @@ import StudyCreate from 'pages/StudyCommunity/Create';
 import StudyDetail from 'pages/StudyCommunity/Detail';
 import StudyList from 'pages/StudyCommunity/List';
 import StudyUpdate from 'pages/StudyCommunity/Update';
-import SubPage from 'pages/SubPage/SubPage';
 import GlobalStyle from 'styles/GlobalStyle';
 
 const App = () => {
@@ -29,8 +28,6 @@ const App = () => {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {/* <Route path="/community" element={<CommunityList />} /> */}
-        <Route path="/community" element={<SubPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
