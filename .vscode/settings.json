@@ -1,7 +1,7 @@
 {
     "javascript.format.enable": false,
     "typescript.format.enable": false,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "[sass]": {
       "editor.formatOnSave": true
     },
@@ -27,12 +27,6 @@
         ".ts",
         ".tsx",
       ],
-      "validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-      ]
     },
     "eslint.workingDirectories": [
       {
