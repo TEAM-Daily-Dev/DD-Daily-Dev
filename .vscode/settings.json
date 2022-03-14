@@ -1,0 +1,99 @@
+{
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "editor.formatOnSave": true,
+    "[sass]": {
+      "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.options": {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+      ],
+      "validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+      ]
+    },
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false,
+      "source.fixAll.eslint": true
+    },
+    "tailwindcss.jsxPropImportChecking": false,
+    "cSpell.words": [
+      "apos",
+      "Areum",
+      "bensound",
+      "bname",
+      "correctanswer",
+      "Daum",
+      "freebtn",
+      "fullmember",
+      "Goldenbell",
+      "hhmm",
+      "hookform",
+      "Juso",
+      "konva",
+      "koreanfile",
+      "lesssize",
+      "littleidea",
+      "lsaquo",
+      "mybook",
+      "myconfig",
+      "Mypage",
+      "Nanum",
+      "nextweekintro",
+      "nodownload",
+      "Ooff",
+      "personalinfo",
+      "Pimg",
+      "Platon",
+      "prodapp",
+      "readingbook",
+      "rsaquo",
+      "sido",
+      "sigungu",
+      "studygoal",
+      "studyoutline",
+      "studyresult",
+      "Swiper",
+      "tailwindcss",
+      "termofuse",
+      "WISHROOM",
+      "wronganswer",
+      "Xoff",
+      "zipcode",
+      "zonecode"
+    ],
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "emmet.triggerExpansionOnTab": true,
+  }
