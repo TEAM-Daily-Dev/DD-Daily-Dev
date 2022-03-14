@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { SearchBtnIcon } from 'assets/Search';
+import { SearchBtnIcon } from 'assets/images/Search';
 import { MOBILE, TABLET, TABLET_LARGE } from 'utils/constants/responsive';
 
 const SearchInput = ({ headerStyle, searchStyle, keyword, handleChange, handleSubmit, handleKeyPress }) => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Hamburger, SearchLinkBtn } from 'assets/Search';
+import { Hamburger, SearchLinkBtn } from 'assets/images/Search';
 import SearchInput from 'pages/Search/SearchInput';
 import { TABLET } from 'utils/constants/responsive';
 
@@ -25,54 +25,51 @@ const Header = ({ keyword, handleChange, handleKeyPress, handleSubmit }) => {
   };
 
   return (
-    <>
-      <Wrapper>
-        <InnerWrap>
-          <LogoBox>
-            <MenuBtn>
-              <Hamburger />
-            </MenuBtn>
-            <LogoTitle>
-              <LogoLink to="/">
-                <Logo>
-                  <span>SWFB</span>&nbsp;STUDY
-                </Logo>
-              </LogoLink>
-            </LogoTitle>
-          </LogoBox>
-          <SearchBox>
-            <SearchInput
-              headerStyle
-              keyword={keyword}
-              handleChange={handleChange}
-              handleKeyPress={handleKeyPress}
-              handleSubmit={handleSubmit}
-            />
-          </SearchBox>
-          <EntryBox>
-            <SearchBtn onClick={() => navigate('/search')}>
-              <SearchLinkBtn />
-            </SearchBtn>
-            <Flex>
-              {!isLoggedIn ? (
-                <>
-                  <LogInBtn to="/login">Log in</LogInBtn>
-                  <SignUpBtn to="/register">Create account</SignUpBtn>
-                </>
-              ) : (
-                <UserInOut>
-                  <SessionID>{sessionStorage.getItem('user_id')}</SessionID>
-                  <LogOutBtn onClick={logOutUser} to="/">
-                    Log out
-                  </LogOutBtn>
-                </UserInOut>
-              )}
-            </Flex>
-          </EntryBox>
-        </InnerWrap>
-      </Wrapper>
-      <Spacer />
-    </>
+    <Wrapper>
+      <InnerWrap>
+        <LogoBox>
+          <MenuBtn>
+            <Hamburger />
+          </MenuBtn>
+          <LogoTitle>
+            <LogoLink to="/">
+              <Logo>
+                <span>SWFB</span>&nbsp;STUDY
+              </Logo>
+            </LogoLink>
+          </LogoTitle>
+        </LogoBox>
+        <SearchBox>
+          <SearchInput
+            headerStyle
+            keyword={keyword}
+            handleChange={handleChange}
+            handleKeyPress={handleKeyPress}
+            handleSubmit={handleSubmit}
+          />
+        </SearchBox>
+        <EntryBox>
+          <SearchBtn onClick={() => navigate('/search')}>
+            <SearchLinkBtn />
+          </SearchBtn>
+          <Flex>
+            {!isLoggedIn ? (
+              <>
+                <LogInBtn to="/login">Log in</LogInBtn>
+                <SignUpBtn to="/register">Create account</SignUpBtn>
+              </>
+            ) : (
+              <UserInOut>
+                <SessionID>{sessionStorage.getItem('user_id')}</SessionID>
+                <LogOutBtn onClick={logOutUser} to="/">
+                  Log out
+                </LogOutBtn>
+              </UserInOut>
+            )}
+          </Flex>
+        </EntryBox>
+      </InnerWrap>
+    </Wrapper>
   );
 };
 
@@ -236,10 +233,6 @@ const LogOutBtn = styled(Link)`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`;
-
-const Spacer = styled.div`
-  height: 30px;
 `;
 
 const UserInOut = styled.div`
