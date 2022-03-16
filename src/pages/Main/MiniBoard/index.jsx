@@ -4,8 +4,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MiniBoard = ({ detailUrl, boardUrl }) => {
+const MiniBoard = ({ detailUrl, boardUrl, boardName }) => {
   const [newDatas, setNewDatas] = useState([]);
+  const url = `/${detailUrl}`;
   const fetchData = async () => {
     try {
       const res = await axios(boardUrl);
@@ -22,8 +23,8 @@ const MiniBoard = ({ detailUrl, boardUrl }) => {
   return (
     <S.Article>
       <S.Flex>
-        <h2>게시판</h2>
-        <Link to="/">더보기</Link>
+        <h2>{boardName} 게시판</h2>
+        <Link to={url}>더보기</Link>
       </S.Flex>
       <ul>
         {boardDate.map((item, index) => {

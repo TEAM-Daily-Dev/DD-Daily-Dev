@@ -7,12 +7,16 @@ import MiniBoard from './MiniBoard';
 const MainPage = () => {
   const detailUrl = 'Board';
   const boardUrl = 'http://localhost:8000/boards';
+  const boardName = '자유';
   const studyDetailUrl = 'studyBoard';
   const studyUrl = 'http://localhost:8000/studyBoards';
+  const studyName = '스터디';
   const jobDetailUrl = 'jobBoard';
   const jobUrl = 'http://localhost:8000/jobBoards';
+  const jobName = '취업';
   const qnaDetailUrl = 'qnaBoard';
   const qnaUrl = 'http://localhost:8000/qnaBoards';
+  const qnaName = 'QnA';
 
   return (
     <BaseLayout>
@@ -25,10 +29,10 @@ const MainPage = () => {
       </S.Banner>
       <S.Main>
         <S.Grid>
-          <MiniBoard detailUrl={detailUrl} boardUrl={boardUrl} />
-          <MiniBoard detailUrl={studyDetailUrl} boardUrl={studyUrl} />
-          <MiniBoard detailUrl={jobDetailUrl} boardUrl={jobUrl} />
-          <MiniBoard detailUrl={qnaDetailUrl} boardUrl={qnaUrl} />
+          <MiniBoard detailUrl={detailUrl} boardUrl={boardUrl} boardName={boardName} />
+          <MiniBoard detailUrl={studyDetailUrl} boardUrl={studyUrl} boardName={studyName} />
+          <MiniBoard detailUrl={jobDetailUrl} boardUrl={jobUrl} boardName={jobName} />
+          <MiniBoard detailUrl={qnaDetailUrl} boardUrl={qnaUrl} boardName={qnaName} />
         </S.Grid>
       </S.Main>
     </BaseLayout>
