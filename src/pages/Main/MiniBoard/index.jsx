@@ -4,9 +4,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MiniBoard = ({ detailUrl, boardUrl, boardName }) => {
+const MiniBoard = ({ detailUrl, boardUrl, boardName, boardReply }) => {
   const [newDatas, setNewDatas] = useState([]);
+  const [newReplys, setNewReplys] = useState([]);
   const url = `/${detailUrl}`;
+
   const fetchData = async () => {
     try {
       const res = await axios(boardUrl);
@@ -16,9 +18,20 @@ const MiniBoard = ({ detailUrl, boardUrl, boardName }) => {
       console.log(err.message);
     }
   };
+  const fetchReply = async () => {
+    try {
+      const replyres = await axios(boardReply);
+      const replyData = await replyres.data;
+      setNewReplys(replyData);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   const boardDate = newDatas.slice(0, 3);
   useEffect(() => {
     fetchData();
+    fetchReply();
   }, []);
   return (
     <S.Article>
@@ -30,13 +43,13 @@ const MiniBoard = ({ detailUrl, boardUrl, boardName }) => {
         {boardDate.map((item, index) => {
           return (
             <li key={Number(index)}>
-              <h3>게시판</h3>
+              <h3>{item.username}</h3>
               <Link to={`/${detailUrl}/detail/${item.id}`}>
                 <p>{item.title}</p>
               </Link>
               <div>
                 <span>좋아요 10</span>
-                <span>댓글 10</span>
+                <span>댓글{newReplys.filter((a) => a.sameId === item.id).length}개</span>
               </div>
             </li>
           );

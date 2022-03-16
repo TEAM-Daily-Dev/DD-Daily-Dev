@@ -97,6 +97,7 @@ const Creply = ({ setid, replyUrl }) => {
                 replyUrl={replyUrl}
                 loginUser={loginUser}
                 loginid={a.loginid}
+                setid={setid}
               />
             );
           })}
