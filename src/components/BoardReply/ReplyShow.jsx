@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import axios from 'axios';
 import styled from 'styled-components';
@@ -53,7 +53,7 @@ const ReplyShow = ({
 
   return (
     <div>
-      {sameId === parseInt(sameId, 10) && (
+      {sameId === parseInt(setid, 10) && (
         <>
           {/* comments from people */}
           <DoneComment>

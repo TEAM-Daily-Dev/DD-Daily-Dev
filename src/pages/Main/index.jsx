@@ -7,15 +7,22 @@ import MiniBoard from './MiniBoard';
 const MainPage = () => {
   const detailUrl = 'Board';
   const boardUrl = 'http://localhost:8000/boards';
+  const boardReply = 'http://localhost:8000/boardsReply';
   const boardName = '자유';
+
   const studyDetailUrl = 'studyBoard';
   const studyUrl = 'http://localhost:8000/studyBoards';
+  const studyReply = 'http://localhost:8000/studyReply';
   const studyName = '스터디';
+
   const jobDetailUrl = 'jobBoard';
   const jobUrl = 'http://localhost:8000/jobBoards';
+  const jobReply = 'http://localhost:8000/jobReply';
   const jobName = '취업';
+
   const qnaDetailUrl = 'qnaBoard';
   const qnaUrl = 'http://localhost:8000/qnaBoards';
+  const qnadReply = 'http://localhost:8000/qnaReply';
   const qnaName = 'QnA';
 
   return (
@@ -29,10 +36,10 @@ const MainPage = () => {
       </S.Banner>
       <S.Main>
         <S.Grid>
-          <MiniBoard detailUrl={detailUrl} boardUrl={boardUrl} boardName={boardName} />
-          <MiniBoard detailUrl={studyDetailUrl} boardUrl={studyUrl} boardName={studyName} />
-          <MiniBoard detailUrl={jobDetailUrl} boardUrl={jobUrl} boardName={jobName} />
-          <MiniBoard detailUrl={qnaDetailUrl} boardUrl={qnaUrl} boardName={qnaName} />
+          <MiniBoard detailUrl={detailUrl} boardUrl={boardUrl} boardName={boardName} boardReply={boardReply} />
+          <MiniBoard detailUrl={studyDetailUrl} boardUrl={studyUrl} boardName={studyName} boardReply={studyReply} />
+          <MiniBoard detailUrl={jobDetailUrl} boardUrl={jobUrl} boardName={jobName} boardReply={jobReply} />
+          <MiniBoard detailUrl={qnaDetailUrl} boardUrl={qnaUrl} boardName={qnaName} boardReply={qnadReply} />
         </S.Grid>
       </S.Main>
     </BaseLayout>
